@@ -1,0 +1,22 @@
+[project]
+name = "jev-triage-eval"
+version = "0.1.0"
+description = "TypeSafe Jev vs classical ML on public emergency-department triage datasets"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.2",
+  "numpy>=1.26",
+  "scikit-learn>=1.4",
+  "matplotlib>=3.8",
+  "pyreadstat>=1.2",
+  "typesafe-sdk>=0.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["triage_eval*"]
