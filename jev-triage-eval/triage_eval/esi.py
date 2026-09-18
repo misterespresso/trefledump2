@@ -20,7 +20,7 @@ from .datasets.base import TriageRecord
 
 DEFAULT_PROMPT_VERSION = "esi-v2"
 PROMPT_VERSION = DEFAULT_PROMPT_VERSION  # kept for callers that import the old name
-PROMPT_VERSIONS = ("esi-v1", "esi-v2")
+PROMPT_VERSIONS = ("esi-v1", "esi-v2", "esi-v3")
 
 CONTEXT = (
     "Emergency department nursing triage at the moment of arrival. Only the chief complaint, "
@@ -79,6 +79,35 @@ def build_state(rec: TriageRecord) -> dict[str, Any]:
     }
 
 
+HIGH_RISK_EXAMPLES = {
+    "true": {
+        "meaning": "Yes: a specific time-critical condition is likely and the patient must be seen within about ten minutes.",
+        "examples": [
+            "chest pain with cardiac features (pressure, exertional, radiating, with sweating or dyspnoea) or in a patient aged 40 or over, or with any abnormal vital sign",
+            "new focal weakness, facial droop, speech difficulty or sudden severe headache",
+            "dyspnoea with SpO2 below 92%, respiratory rate above 24, or use of accessory muscles",
+            "fever with tachycardia, hypotension or confusion (possible sepsis)",
+            "haematemesis, melaena or heavy vaginal bleeding with tachycardia, hypotension or dizziness",
+            "syncope with abnormal vitals, exertional onset, or age 65 or over",
+            "abdominal pain in a patient aged 65 or over, or with hypotension, tachycardia or peritoneal features",
+            "possible ectopic pregnancy, testicular pain of sudden onset, overdose or poisoning, suicidal ideation, acute psychosis with agitation",
+            "new confusion, lethargy or reduced responsiveness",
+            "any danger-zone vital sign with a complaint that could explain it",
+        ],
+    },
+    "false": {
+        "meaning": "No: the patient can wait for routine assessment even if they will need tests or treatment.",
+        "examples": [
+            "abdominal pain, dizziness, headache, fever, vomiting, general weakness or a rash with normal vital signs, alert mental status and mild or moderate pain",
+            "chest pain in a patient under 40 with normal vital signs and a sharp, pleuritic, positional or reproducible character",
+            "minor trauma, a wound, a sprain, a burn to a small area, or a foreign body with normal vital signs",
+            "chronic or recurrent symptoms unchanged from the patient's baseline",
+            "a high pain score on its own, without vital-sign or mental-status support",
+            "mildly elevated blood pressure or a mildly raised temperature as the only abnormality",
+        ],
+    },
+}
+
 HIGH_RISK: dict[str, Noul] = {
     # v1: written blind, before any results were seen. Fires on ~55% of KTAS patients.
     "esi-v1": Noul(
@@ -115,34 +144,19 @@ HIGH_RISK: dict[str, Noul] = {
                 "time-critical diagnosis.",
             ],
         },
-        criteria={
-            "true": {
-                "meaning": "Yes: a specific time-critical condition is likely and the patient must be seen within about ten minutes.",
-                "examples": [
-                    "chest pain with cardiac features (pressure, exertional, radiating, with sweating or dyspnoea) or in a patient aged 40 or over, or with any abnormal vital sign",
-                    "new focal weakness, facial droop, speech difficulty or sudden severe headache",
-                    "dyspnoea with SpO2 below 92%, respiratory rate above 24, or use of accessory muscles",
-                    "fever with tachycardia, hypotension or confusion (possible sepsis)",
-                    "haematemesis, melaena or heavy vaginal bleeding with tachycardia, hypotension or dizziness",
-                    "syncope with abnormal vitals, exertional onset, or age 65 or over",
-                    "abdominal pain in a patient aged 65 or over, or with hypotension, tachycardia or peritoneal features",
-                    "possible ectopic pregnancy, testicular pain of sudden onset, overdose or poisoning, suicidal ideation, acute psychosis with agitation",
-                    "new confusion, lethargy or reduced responsiveness",
-                    "any danger-zone vital sign with a complaint that could explain it",
-                ],
-            },
-            "false": {
-                "meaning": "No: the patient can wait for routine assessment even if they will need tests or treatment.",
-                "examples": [
-                    "abdominal pain, dizziness, headache, fever, vomiting, general weakness or a rash with normal vital signs, alert mental status and mild or moderate pain",
-                    "chest pain in a patient under 40 with normal vital signs and a sharp, pleuritic, positional or reproducible character",
-                    "minor trauma, a wound, a sprain, a burn to a small area, or a foreign body with normal vital signs",
-                    "chronic or recurrent symptoms unchanged from the patient's baseline",
-                    "a high pain score on its own, without vital-sign or mental-status support",
-                    "mildly elevated blood pressure or a mildly raised temperature as the only abnormality",
-                ],
-            },
-        },
+        criteria=HIGH_RISK_EXAMPLES,
+    ),
+    # v3: v1's instruction text unchanged, v2's example criteria. Isolates whether the base-rate /
+    # "say no when" paragraph of v2 or the examples themselves moved the curve.
+    "esi-v3": Noul(
+        instructions=(
+            "Decision point B, part 1. Is this a high-risk situation where a serious time-critical "
+            "condition is plausible from the chief complaint, age and vital signs and the patient "
+            "could deteriorate quickly if they waited? Consider acute coronary syndrome, stroke, sepsis, "
+            "pulmonary embolism, ectopic pregnancy, GI bleeding, testicular or ovarian torsion, acute "
+            "abdomen in the elderly, overdose, and psychiatric emergency."
+        ),
+        criteria=HIGH_RISK_EXAMPLES,
     ),
 }
 

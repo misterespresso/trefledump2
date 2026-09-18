@@ -12,7 +12,11 @@ def test_versions_differ_only_in_high_risk():
         else:
             assert v1[k].model_dump() == v2[k].model_dump()
     assert _questions_hash("esi-v1") != _questions_hash("esi-v2")
-    assert set(HIGH_RISK) == {"esi-v1", "esi-v2"}
+    assert set(HIGH_RISK) == {"esi-v1", "esi-v2", "esi-v3"}
+    v3 = build_questions("esi-v3")
+    assert v3["high_risk"].instructions == v1["high_risk"].instructions
+    assert v3["high_risk"].criteria == v2["high_risk"].criteria
+    assert len({_questions_hash(v) for v in ("esi-v1", "esi-v2", "esi-v3")}) == 3
 
 
 def test_cache_keys_are_version_specific(tmp_path):
