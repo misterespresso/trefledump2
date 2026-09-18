@@ -212,53 +212,77 @@ Reading of the tuning:
   10% costs about 2 points of accuracy for the cut-point variant (0.564) and
   keeps level 1-2 sensitivity at 0.72-0.88, still above every trained model.
 
-## Prompt v2: rewriting `high_risk`
+## Prompt ablation on `high_risk`: v1, v2, v3
 
-`esi-v2` changes one question and nothing else. The v1 `high_risk` asked whether a
-serious condition was "plausible" and the patient "could deteriorate"; v2 states
-the bar as the nurse's action (would not let the patient sit in the waiting
-room), gives a base rate (about one in five), says to weigh the complaint with
-age, vitals and mental status, and lists explicit negatives. Both versions stay
-in `esi.py` (`--prompt-version`), the cache key includes the version, and v2 is
-scored on the fixed test half that never influenced the wording (`--subset test`).
+Only the `high_risk` question changes between versions; the other six are
+byte-identical in the request. All three stay in `esi.py` (`--prompt-version`),
+the cache key includes the version, and each is scored on the fixed test half
+that never influenced any wording (`--subset test`).
 
-| Run | Acc | QWK | MAE | Under | Over | Sens (L1-2) | Spec (L1-2) | ECE |
-|---|---|---|---|---|---|---|---|---|
-| all, v1 jev_rules | 0.346 | 0.406 | 0.825 | 0.084 | 0.571 | 0.931 | 0.491 | 0.292 |
-| all, v2 jev_rules | 0.427 | 0.423 | 0.715 | 0.106 | 0.467 | 0.805 | 0.658 | 0.156 |
-| all, v1 jev_combined | 0.367 | 0.391 | 0.819 | 0.039 | 0.594 | 0.943 | 0.461 | 0.275 |
-| all, v2 jev_combined | 0.452 | 0.433 | 0.680 | 0.067 | 0.481 | 0.793 | 0.677 | 0.217 |
-| test half, v1 jev_combined | 0.363 | 0.381 | 0.828 | 0.046 | 0.591 | 0.943 | 0.452 | 0.275 |
-| test half, v2 jev_combined | 0.454 | 0.445 | 0.672 | 0.068 | 0.478 | 0.821 | 0.681 | 0.212 |
-| test half, rf | 0.674 | 0.658 | 0.377 | 0.181 | 0.145 | 0.593 | 0.937 | 0.073 |
-| test half, nurse | 0.869 | 0.884 | 0.147 | 0.095 | 0.036 | 0.878 | 0.984 | |
+| Version | Instructions | Criteria |
+|---|---|---|
+| esi-v1 | "serious time-critical condition plausible ... could deteriorate" plus a list of diagnoses (written blind) | one-line yes / no |
+| esi-v2 | bar stated as the nurse's action, base rate (about 1 in 5), "say no when vitals are normal, alert, mild pain" | structured true / false with ten examples each |
+| esi-v3 | v1's instructions, unchanged | v2's example criteria |
 
-What changed and what did not:
+**What the Noul itself did** (all 1,267 patients):
 
-- **The other five Nouls and the Score came back identical to the digit** for all
-  1,267 patients (mean `lifesaving` 0.078 before and after, Score-expected level
-  1.31 / 2.12 / 2.61 / 3.13 / 3.40 before and after). Questions in one request
-  really are answered independently, and the model is deterministic for a given
-  state and question, so this is a clean single-variable ablation.
-- **The rewrite did what it was asked.** `high_risk` now fires (P >= 0.5) on 37%
-  of patients instead of 57%; its mean by true level went from 0.93 / 0.79 /
-  0.62 / 0.37 / 0.35 to 0.82 / 0.61 / 0.38 / 0.22 / 0.22. Untuned ladder accuracy
-  rose 8-9 points on every split (all, dev, test), so the gain is not
-  prompt-overfitting to the patients that motivated it.
-- **It cost ranking information.** The AUROC of `high_risk` alone for true level
-  1-2 fell from 0.851 to 0.814, and level 1-2 sensitivity fell from 0.94 to 0.82.
-  Held-out tuning shows the consequence: with thresholds fitted in code,
-  v1's Noul beats v2's (tuned rules QWK 0.561 vs 0.495), and the variants that
-  depend only on ranking are unchanged (stacked LR 0.630 vs 0.631, Score shift
-  0.581 vs 0.580).
-- **Lesson.** When the model exposes calibrated probabilities, a base-rate
-  problem is cheaper and safer to fix with a threshold in code than with prompt
-  wording: the threshold keeps the ranking, the rewrite moved the whole curve
-  and blunted it. Prompt work should target discrimination (what the model
-  confuses), not the operating point.
+| Version | mean P(yes) by true level 1..5 | fires (P >= 0.5) | AUROC for level 1-2 | AUROC for level 1-3 vs 4-5 | Spearman with level |
+|---|---|---|---|---|---|
+| v1 | 0.93 / 0.79 / 0.62 / 0.37 / 0.35 | 57% | 0.851 | 0.838 | 0.63 |
+| v2 | 0.82 / 0.61 / 0.38 / 0.22 / 0.22 | 37% | 0.814 | 0.752 | 0.50 |
+| v3 | 0.91 / 0.77 / 0.54 / 0.31 / 0.32 | 49% | 0.852 | 0.801 | 0.58 |
 
-Next: a v3 that keeps v1's framing but adds the negative examples only, to see
-whether the discrimination loss came from the base-rate sentence; then NHAMCS.
+**What the pipeline did with it** (test half, untuned; and cross-fitted tuning on all):
+
+| Run | Acc | QWK | MAE | Under | Over | Sens (L1-2) | Spec (L1-2) |
+|---|---|---|---|---|---|---|---|
+| test, v1 jev_combined | 0.363 | 0.381 | 0.828 | 0.046 | 0.591 | 0.943 | 0.452 |
+| test, v2 jev_combined | 0.454 | 0.445 | 0.672 | 0.068 | 0.478 | 0.821 | 0.681 |
+| test, v3 jev_combined | 0.402 | 0.427 | 0.749 | 0.049 | 0.549 | 0.919 | 0.562 |
+| tuned (QWK), v1 rules | 0.478 | 0.561 | 0.612 | 0.284 | 0.238 | 0.809 | 0.781 |
+| tuned (QWK), v2 rules | 0.449 | 0.495 | 0.670 | 0.309 | 0.242 | 0.650 | 0.787 |
+| tuned (QWK), v3 rules | 0.471 | 0.564 | 0.620 | 0.287 | 0.242 | 0.801 | 0.781 |
+| tuned (under <= 10%), v1 rules | 0.423 | 0.455 | 0.721 | 0.098 | 0.479 | 0.878 | 0.595 |
+| tuned (under <= 10%), v2 rules | 0.432 | 0.427 | 0.710 | 0.100 | 0.468 | 0.793 | 0.684 |
+| tuned (under <= 10%), v3 rules | 0.443 | 0.464 | 0.681 | 0.099 | 0.459 | 0.809 | 0.705 |
+| stacked LR, v1 / v2 / v3 | 0.630 / 0.631 / 0.627 | 0.638 / 0.647 / 0.637 | | | | | |
+| test, rf | 0.674 | 0.658 | 0.377 | 0.181 | 0.145 | 0.593 | 0.937 |
+| test, nurse | 0.869 | 0.884 | 0.147 | 0.095 | 0.036 | 0.878 | 0.984 |
+
+Reading:
+
+- **The base-rate paragraph is what blunted the ranking.** v3 keeps v1's
+  instructions and adds only the examples: its AUROC for level 1-2 is 0.852,
+  the same as v1, while v2's is 0.814. The examples alone lower the firing rate
+  from 57% to 49% without losing discrimination at the boundary that matters
+  for safety. The paragraph telling the model that only one in five patients
+  qualifies and to "say no when vitals are normal" drops the firing rate to 37%
+  and takes 4 AUROC points and 13 Spearman points with it. It shifts and
+  flattens the curve rather than sharpening it.
+- **Examples do cost some ordering lower down the scale.** AUROC for level
+  1-3 versus 4-5 goes 0.838 (v1) to 0.801 (v3) to 0.752 (v2). The examples
+  are all about the emergent boundary, so they sharpen that and blur the
+  urgent / less-urgent one.
+- **With thresholds in code, v3 equals v1 and both beat v2** (tuned QWK 0.564
+  / 0.561 / 0.495). Under the 10% under-triage cap, v3 is the best of the
+  three on every column (accuracy 0.443, level 1-2 sensitivity 0.81,
+  specificity 0.71). The stacked regression, which uses ranking only, is
+  flat across versions.
+- **Which to ship.** For a fixed 0.5 gate with no tuning, v2 has the best
+  accuracy and v3 the best safety. With a tuned gate, which any deployment
+  would have, v3. The general lesson holds: put examples in the criteria to
+  sharpen a judgment, and set the operating point in code, not in prose.
+- **On question independence.** The six untouched questions came back very
+  nearly, not exactly, the same across versions: mean absolute change of
+  0.003 to 0.012 per Noul, at most 0.10 for any patient, and the Score's
+  argmax agreed on 98.5% of patients. An earlier draft of this README called
+  them identical after comparing means; the per-patient diff is small but
+  non-zero, and without a repeat run of the same prompt it is not possible to
+  say whether it is cross-talk between questions or run-to-run noise.
+
+Next: a repeat run of one prompt version to measure run-to-run noise (about
+nine cents), then NHAMCS.
 
 ## Layout
 
