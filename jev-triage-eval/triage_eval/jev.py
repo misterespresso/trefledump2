@@ -14,20 +14,21 @@ from typing import Callable, Iterable, Optional
 
 from .buckets import danger_zone
 from .datasets.base import TriageRecord
-from .esi import NOUL_KEYS, PROMPT_VERSION, JevJudgment, build_questions, build_state
+from .esi import DEFAULT_PROMPT_VERSION, NOUL_KEYS, JevJudgment, build_questions, build_state
 
 
-def _questions_hash() -> str:
-    qs = {k: q.model_dump() for k, q in build_questions().items()}
+def _questions_hash(version: str = DEFAULT_PROMPT_VERSION) -> str:
+    qs = {k: q.model_dump() for k, q in build_questions(version).items()}
     return hashlib.sha256(json.dumps(qs, sort_keys=True).encode()).hexdigest()[:12]
 
 
 class JudgmentCache:
     """Append-only JSONL keyed by record id + prompt version so re-runs cost nothing."""
 
-    def __init__(self, path: Path, backend: str):
+    def __init__(self, path: Path, backend: str, version: str = DEFAULT_PROMPT_VERSION):
         self.path = Path(path)
-        self.key = f"{PROMPT_VERSION}:{_questions_hash()}:{backend}"
+        self.version = version
+        self.key = f"{version}:{_questions_hash(version)}:{backend}"
         self._lock = threading.Lock()
         self._items: dict[str, JevJudgment] = {}
         if self.path.exists():
@@ -59,13 +60,13 @@ class TypeSafeBackend:
 
     name = "typesafe"
 
-    def __init__(self, model: Optional[str] = None, timeout: float = 30.0):
+    def __init__(self, model: Optional[str] = None, timeout: float = 30.0, version: str = DEFAULT_PROMPT_VERSION):
         from typesafe_sdk import RetryPolicy, TypeSafeClient
 
         if not os.environ.get("TYPESAFE_API_KEY"):
-            raise RuntimeError("TYPESAFE_API_KEY is not set. Export it or use --jev-backend mock for a dry run.")
+            raise RuntimeError("TYPESAFE_API_KEY is not set. Export it, or use --jev-backend mock (dry run) or cached (no new requests).")
         self.client = TypeSafeClient(model=model, timeout=timeout, retry=RetryPolicy(max_retries=4, timeout=120.0))
-        self.questions = build_questions()
+        self.questions = build_questions(version)
 
     def judge(self, rec: TriageRecord) -> JevJudgment:
         t0 = time.perf_counter()
@@ -153,9 +154,23 @@ class MockBackend:
         pass
 
 
-def make_backend(name: str, model: Optional[str] = None):
+class CachedBackend:
+    """Serves only what is already in the cache; any miss is an error. Lets analyses run without a key."""
+
+    name = "typesafe"  # shares the real backend's cache entries
+
+    def judge(self, rec: TriageRecord) -> JevJudgment:
+        raise RuntimeError(f"{rec.record_id} is not in the cache and --jev-backend cached makes no requests")
+
+    def close(self) -> None:
+        pass
+
+
+def make_backend(name: str, model: Optional[str] = None, version: str = DEFAULT_PROMPT_VERSION):
     if name == "typesafe":
-        return TypeSafeBackend(model=model)
+        return TypeSafeBackend(model=model, version=version)
+    if name == "cached":
+        return CachedBackend()
     if name == "mock":
         return MockBackend()
     raise ValueError(f"unknown backend {name!r}")

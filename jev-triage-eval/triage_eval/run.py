@@ -19,8 +19,8 @@ import pandas as pd
 from . import __version__
 from .baselines import cross_val_predict_all, majority_baseline, nurse_reference
 from .buckets import danger_zone
-from .datasets import LOADERS
-from .esi import METHODS, PROMPT_VERSION, Policy, predict
+from .datasets import LOADERS, SUBSETS, subset
+from .esi import DEFAULT_PROMPT_VERSION, METHODS, PROMPT_VERSIONS, Policy, predict
 from .jev import JudgmentCache, judge_all, make_backend
 from .metrics import evaluate, summary_table
 from .plots import plot_calibration, plot_confusion, plot_noul_calibration
@@ -33,7 +33,9 @@ def parse_args(argv=None):
     p.add_argument("--limit", type=int, default=None, help="use only the first N records")
     p.add_argument("--sample", type=int, default=None, help="random sample of N records (NHAMCS)")
     p.add_argument("--adults-only", action="store_true", help="NHAMCS: drop under-18s")
-    p.add_argument("--jev-backend", choices=["typesafe", "mock", "none"], default="typesafe")
+    p.add_argument("--jev-backend", choices=["typesafe", "cached", "mock", "none"], default="typesafe", help="cached = serve from the cache only, no key needed")
+    p.add_argument("--prompt-version", choices=PROMPT_VERSIONS, default=DEFAULT_PROMPT_VERSION)
+    p.add_argument("--subset", choices=SUBSETS, default="all", help="fixed stratified half: dev for prompt iteration, test for reporting")
     p.add_argument("--jev-model", default=None, help="model id, e.g. jev-1.13.0 to pin; default jev-latest")
     p.add_argument("--jev-methods", default="jev_combined,jev_rules,jev_score")
     p.add_argument("--ml-models", default="logreg,hgb,rf", help="comma list from logreg,hgb,rf or 'none'")
@@ -57,9 +59,9 @@ def main(argv=None) -> int:
     out.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
 
-    records = load_records(args)
+    records = subset(load_records(args), args.subset, seed=0)
     y = np.array([r.true_acuity for r in records])
-    print(f"[{args.dataset}] {len(records)} records; level counts {np.bincount(y, minlength=6)[1:].tolist()}", flush=True)
+    print(f"[{args.dataset}/{args.subset}] {len(records)} records; level counts {np.bincount(y, minlength=6)[1:].tolist()}", flush=True)
 
     pred_df = pd.DataFrame({"record_id": [r.record_id for r in records], "true_acuity": y})
     if all(r.nurse_acuity is not None for r in records):
@@ -83,9 +85,9 @@ def main(argv=None) -> int:
     # Jev
     jev_meta = {}
     if args.jev_backend != "none":
-        backend = make_backend(args.jev_backend, model=args.jev_model)
-        cache = JudgmentCache(Path(args.cache) if args.cache else out / "jev_cache.jsonl", backend=backend.name)
-        print(f"[jev] backend={backend.name} prompt={PROMPT_VERSION} cached={len(cache)}", flush=True)
+        backend = make_backend(args.jev_backend, model=args.jev_model, version=args.prompt_version)
+        cache = JudgmentCache(Path(args.cache) if args.cache else out / "jev_cache.jsonl", backend=backend.name, version=args.prompt_version)
+        print(f"[jev] backend={args.jev_backend} prompt={args.prompt_version} cached={len(cache)}", flush=True)
 
         def progress(done, total):
             if done % 50 == 0 or done == total:
@@ -104,7 +106,7 @@ def main(argv=None) -> int:
                 lvl, pr = predict(judgments[r.record_id], danger_zone(r), method, pol)
                 preds.append(lvl)
                 probs.append(pr)
-            name = method if backend.name == "typesafe" else f"{method}[{backend.name}]"
+            name = method if backend.name == "typesafe" else f"{method}[{backend.name}]"  # cached shares the real name
             record(name, np.array(preds), np.array(probs))
         for k in ("lifesaving", "high_risk", "altered_mental", "severe_distress", "many_resources", "any_resources"):
             pred_df[f"noul_{k}"] = [judgments[r.record_id].nouls[k] for r in records]
@@ -115,7 +117,8 @@ def main(argv=None) -> int:
         jev_meta = {
             "backend": backend.name,
             "model": sorted({j.model for j in judgments.values()}),
-            "prompt_version": PROMPT_VERSION,
+            "prompt_version": args.prompt_version,
+            "subset": args.subset,
             "requests": len(judgments),
             "median_latency_s": float(np.median(lat)) if lat else None,
             "p95_latency_s": float(np.percentile(lat, 95)) if lat else None,
@@ -156,9 +159,9 @@ def main(argv=None) -> int:
         "elapsed_s": round(time.time() - t0, 1),
     }
     (out / "metrics.json").write_text(json.dumps({"meta": meta, "results": results}, indent=2))
-    md = [f"# {args.dataset}: Jev vs ML", "", f"n = {len(records)}. Under = predicted less urgent than truth. ML rows are {args.folds}-fold out-of-fold; Jev rows are zero-shot.", ""]
+    md = [f"# {args.dataset} ({args.subset}): Jev vs ML", "", f"n = {len(records)}. Under = predicted less urgent than truth. ML rows are {args.folds}-fold out-of-fold; Jev rows are zero-shot.", ""]
     if jev_meta:
-        md.append(f"Jev backend `{jev_meta['backend']}`, model {jev_meta['model']}, prompt `{PROMPT_VERSION}`, median latency {jev_meta['median_latency_s']} s.")
+        md.append(f"Jev backend `{jev_meta['backend']}`, model {jev_meta['model']}, prompt `{args.prompt_version}`, median latency {jev_meta['median_latency_s']} s.")
         if jev_meta["backend"] != "typesafe":
             md.append("**Rows tagged [mock] come from the keyless heuristic stand-in and are not Jev results.**")
         md.append("")

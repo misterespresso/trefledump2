@@ -18,7 +18,9 @@ from typesafe_sdk import Noul, Score
 from .buckets import abnormal_vitals, danger_zone, shock_index, vitals_summary, bucket_pain, bucket_age
 from .datasets.base import TriageRecord
 
-PROMPT_VERSION = "esi-v1"
+DEFAULT_PROMPT_VERSION = "esi-v2"
+PROMPT_VERSION = DEFAULT_PROMPT_VERSION  # kept for callers that import the old name
+PROMPT_VERSIONS = ("esi-v1", "esi-v2")
 
 CONTEXT = (
     "Emergency department nursing triage at the moment of arrival. Only the chief complaint, "
@@ -77,7 +79,77 @@ def build_state(rec: TriageRecord) -> dict[str, Any]:
     }
 
 
-def build_questions() -> dict[str, Noul | Score]:
+HIGH_RISK: dict[str, Noul] = {
+    # v1: written blind, before any results were seen. Fires on ~55% of KTAS patients.
+    "esi-v1": Noul(
+        instructions=(
+            "Decision point B, part 1. Is this a high-risk situation where a serious time-critical "
+            "condition is plausible from the chief complaint, age and vital signs and the patient "
+            "could deteriorate quickly if they waited? Consider acute coronary syndrome, stroke, sepsis, "
+            "pulmonary embolism, ectopic pregnancy, GI bleeding, testicular or ovarian torsion, acute "
+            "abdomen in the elderly, overdose, and psychiatric emergency."
+        ),
+        criteria={
+            "true": "A physician would want to see this patient within about ten minutes.",
+            "false": "The presentation can safely wait for routine assessment.",
+        },
+    ),
+    # v2: same decision point with a base rate, the bar stated as a nurse's action, and explicit
+    # negatives. Written after seeing v1's aggregate over-triage on KTAS; judge it on the test split.
+    "esi-v2": Noul(
+        instructions={
+            "task": (
+                "Decision point B, part 1. Decide whether this is a HIGH-RISK presentation: the triage "
+                "nurse would not let the patient sit in the waiting room because a specific "
+                "time-critical diagnosis is likely enough that a physician must see them within about "
+                "ten minutes."
+            ),
+            "how_to_judge": [
+                "Use `presentation.chief_complaint`, `patient.age_years`, `vital_signs`, "
+                "`presentation.mental_status` and `derived_in_code.danger_zone_vitals` together. "
+                "A complaint alone is rarely enough; the vital signs and age have to support the concern.",
+                "In a typical adult ED only about one patient in five meets this bar. Patients who need "
+                "tests and treatment but are stable belong to level 3, not here.",
+                "Say no when the complaint sounds worrying but the vital signs are normal, the patient is "
+                "alert, pain is mild or moderate, and nothing in the state points at a specific "
+                "time-critical diagnosis.",
+            ],
+        },
+        criteria={
+            "true": {
+                "meaning": "Yes: a specific time-critical condition is likely and the patient must be seen within about ten minutes.",
+                "examples": [
+                    "chest pain with cardiac features (pressure, exertional, radiating, with sweating or dyspnoea) or in a patient aged 40 or over, or with any abnormal vital sign",
+                    "new focal weakness, facial droop, speech difficulty or sudden severe headache",
+                    "dyspnoea with SpO2 below 92%, respiratory rate above 24, or use of accessory muscles",
+                    "fever with tachycardia, hypotension or confusion (possible sepsis)",
+                    "haematemesis, melaena or heavy vaginal bleeding with tachycardia, hypotension or dizziness",
+                    "syncope with abnormal vitals, exertional onset, or age 65 or over",
+                    "abdominal pain in a patient aged 65 or over, or with hypotension, tachycardia or peritoneal features",
+                    "possible ectopic pregnancy, testicular pain of sudden onset, overdose or poisoning, suicidal ideation, acute psychosis with agitation",
+                    "new confusion, lethargy or reduced responsiveness",
+                    "any danger-zone vital sign with a complaint that could explain it",
+                ],
+            },
+            "false": {
+                "meaning": "No: the patient can wait for routine assessment even if they will need tests or treatment.",
+                "examples": [
+                    "abdominal pain, dizziness, headache, fever, vomiting, general weakness or a rash with normal vital signs, alert mental status and mild or moderate pain",
+                    "chest pain in a patient under 40 with normal vital signs and a sharp, pleuritic, positional or reproducible character",
+                    "minor trauma, a wound, a sprain, a burn to a small area, or a foreign body with normal vital signs",
+                    "chronic or recurrent symptoms unchanged from the patient's baseline",
+                    "a high pain score on its own, without vital-sign or mental-status support",
+                    "mildly elevated blood pressure or a mildly raised temperature as the only abnormality",
+                ],
+            },
+        },
+    ),
+}
+
+
+def build_questions(version: str = DEFAULT_PROMPT_VERSION) -> dict[str, Noul | Score]:
+    if version not in HIGH_RISK:
+        raise ValueError(f"unknown prompt version {version!r}; choose from {sorted(HIGH_RISK)}")
     return {
         "lifesaving": Noul(
             instructions=(
@@ -92,19 +164,7 @@ def build_questions() -> dict[str, Noul | Score]:
                 "false": "Breathing and circulation are adequate for the next several minutes even if the patient is very sick.",
             },
         ),
-        "high_risk": Noul(
-            instructions=(
-                "Decision point B, part 1. Is this a high-risk situation where a serious time-critical "
-                "condition is plausible from the chief complaint, age and vital signs and the patient "
-                "could deteriorate quickly if they waited? Consider acute coronary syndrome, stroke, sepsis, "
-                "pulmonary embolism, ectopic pregnancy, GI bleeding, testicular or ovarian torsion, acute "
-                "abdomen in the elderly, overdose, and psychiatric emergency."
-            ),
-            criteria={
-                "true": "A physician would want to see this patient within about ten minutes.",
-                "false": "The presentation can safely wait for routine assessment.",
-            },
-        ),
+        "high_risk": HIGH_RISK[version],
         "altered_mental": Noul(
             instructions=(
                 "Decision point B, part 2. Is the patient newly confused, lethargic, disoriented or otherwise "

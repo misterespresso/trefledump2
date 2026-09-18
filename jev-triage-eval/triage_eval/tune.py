@@ -31,8 +31,8 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 
 from .buckets import danger_zone
-from .datasets import LOADERS
-from .esi import NOUL_KEYS, Policy
+from .datasets import LOADERS, SUBSETS, subset
+from .esi import DEFAULT_PROMPT_VERSION, NOUL_KEYS, PROMPT_VERSIONS, Policy
 from .jev import JudgmentCache
 from .metrics import evaluate, summary_table
 from .plots import plot_calibration, plot_confusion
@@ -71,8 +71,8 @@ OBJECTIVES = make_objectives(0.10)
 
 
 # ----------------------------------------------------------------------------- data
-def load_judgments(cache_path: Path, records, backend: str = "typesafe"):
-    cache = JudgmentCache(cache_path, backend=backend)
+def load_judgments(cache_path: Path, records, backend: str = "typesafe", version: str = DEFAULT_PROMPT_VERSION):
+    cache = JudgmentCache(cache_path, backend=backend, version=version)
     missing = [r.record_id for r in records if cache.get(r.record_id) is None]
     if missing:
         raise SystemExit(f"{len(missing)} records have no cached Jev answer (first: {missing[:3]}). Run triage_eval.run first.")
@@ -244,6 +244,8 @@ def main(argv=None) -> int:
     ap.add_argument("--objective", choices=sorted(OBJECTIVES), default="qwk")
     ap.add_argument("--max-under", type=float, default=0.10, help="under-triage ceiling used by the qwk_safe objective")
     ap.add_argument("--backend", default="typesafe", help="cache backend tag; 'mock' for dry-run caches")
+    ap.add_argument("--prompt-version", choices=PROMPT_VERSIONS, default=DEFAULT_PROMPT_VERSION)
+    ap.add_argument("--subset", choices=SUBSETS, default="all")
     ap.add_argument("--folds", type=int, default=5)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", required=True)
@@ -253,7 +255,8 @@ def main(argv=None) -> int:
     out.mkdir(parents=True, exist_ok=True)
     t0 = time.time()
     records = LOADERS[args.dataset]() if args.dataset == "ktas" else LOADERS[args.dataset](path=args.nhamcs_path)
-    judgments = load_judgments(Path(args.cache), records, args.backend)
+    records = subset(records, args.subset, seed=0)
+    judgments = load_judgments(Path(args.cache), records, args.backend, args.prompt_version)
     base_metrics = Path(args.base_metrics) if args.base_metrics else Path(args.cache).parent / "metrics.json"
     results, chosen, full, pred_df = run(records, judgments, args.folds, args.seed, args.objective, base_metrics, args.max_under)
 
@@ -264,11 +267,11 @@ def main(argv=None) -> int:
     pred_df.to_csv(out / "predictions.csv", index=False)
     table = summary_table(results)
     (out / "metrics.json").write_text(
-        json.dumps({"meta": {"objective": args.objective, "max_under": args.max_under, "folds": args.folds, "seed": args.seed, "cache": str(args.cache), "elapsed_s": round(time.time() - t0, 1)}, "per_fold": chosen, "final_params": full, "results": results}, indent=2)
+        json.dumps({"meta": {"objective": args.objective, "max_under": args.max_under, "prompt_version": args.prompt_version, "subset": args.subset, "folds": args.folds, "seed": args.seed, "cache": str(args.cache), "elapsed_s": round(time.time() - t0, 1)}, "per_fold": chosen, "final_params": full, "results": results}, indent=2)
     )
     fold_df = pd.DataFrame(chosen)
     md = [
-        f"# {args.dataset}: held-out tuning of the Jev policy",
+        f"# {args.dataset} ({args.subset}, {args.prompt_version}): held-out tuning of the Jev policy",
         "",
         f"{args.folds}-fold cross-fitted, objective = {args.objective}" + (f" (under-triage ceiling {args.max_under})" if args.objective == "qwk_safe" else "") + ". Every jev_*_tuned / shift / cuts / stacked row is out-of-fold: parameters chosen on the other folds. Rows in parentheses are the untuned references; nurse and ML rows are copied from the base run.",
         "",
