@@ -17,7 +17,7 @@ load dataset -> bucket vitals in code -> one Jev call per patient
 ```bash
 cd jev-triage-eval
 pip install -r requirements.txt
-python -m pytest -q                                   # 12 tests, no network
+python -m pytest -q                                   # 16 tests, no network
 
 # Keyless dry run: exercises everything with a heuristic stand-in for Jev
 python -m triage_eval.run --dataset ktas --jev-backend mock --limit 200
@@ -164,12 +164,60 @@ What the run shows:
   ceiling estimate; the honest next step is a held-out split (`Policy` makes it
   a one-line change and the cache means no new inference).
 
-Things to try next, in order of expected payoff: recalibrate the Score with a
-per-level shift fitted on a held-out third; rewrite the `high_risk` criteria
-with explicit negative examples (stable vitals, alert, mild pain) since the
-model currently reads "could deteriorate" generously; ask a Choice over the
-five levels alongside the Score and compare; add `age >= 65` and
-danger-zone flags to the instructions rather than only the state.
+## Held-out tuning of the policy (no new inference)
+
+`triage_eval/tune.py` re-uses the cached answers and cross-fits the code-side
+policy: parameters are chosen on four folds and applied to the fifth, so every
+row below is out-of-fold, the same protocol as the ML rows.
+
+```bash
+python -m triage_eval.tune --cache results/ktas/jev_cache.jsonl --objective qwk      --out results/ktas-tuned
+python -m triage_eval.tune --cache results/ktas/jev_cache.jsonl --objective qwk_safe --out results/ktas-tuned-safe
+```
+
+| Variant | What is fitted | Acc | QWK | MAE | Under | Over | Sens (L1-2) | ECE |
+|---|---|---|---|---|---|---|---|---|
+| jev_score (argmax, untuned) | nothing | 0.460 | 0.444 | 0.678 | 0.053 | 0.487 | 0.862 | 0.338 |
+| jev_rules_tuned | 6 Noul thresholds | 0.478 | 0.561 | 0.612 | 0.284 | 0.238 | 0.809 | |
+| jev_score_shift | 1 scalar shift | 0.581 | 0.580 | 0.476 | 0.125 | 0.294 | 0.675 | |
+| jev_score_cuts | 4 ordinal cut-points | 0.518 | 0.594 | 0.549 | 0.234 | 0.248 | 0.667 | |
+| jev_stacked_lr | logistic regression on Jev's 11 outputs | 0.630 | 0.638 | 0.408 | 0.197 | 0.173 | 0.508 | 0.019 |
+| *same, under-triage capped at 10%* | | | | | | | | |
+| jev_rules_tuned (safe) | 6 thresholds | 0.423 | 0.455 | 0.721 | 0.098 | 0.479 | 0.878 | |
+| jev_score_shift (safe) | 1 shift | 0.549 | 0.565 | 0.519 | 0.095 | 0.356 | 0.776 | |
+| jev_score_cuts (safe) | 4 cut-points | 0.564 | 0.570 | 0.496 | 0.100 | 0.336 | 0.720 | |
+| logreg (raw features) | ~1,000 labelled visits | 0.640 | 0.628 | 0.448 | 0.196 | 0.164 | 0.691 | 0.053 |
+| rf (raw features) | ~1,000 labelled visits | 0.704 | 0.686 | 0.345 | 0.158 | 0.138 | 0.598 | 0.083 |
+| nurse | | 0.853 | 0.875 | 0.163 | 0.103 | 0.043 | 0.862 | |
+
+Reading of the tuning:
+
+- **A one-number fix recovers most of the gap.** Adding 0.4 to Jev's expected
+  level before rounding (the fitted shift is 0.35-0.45 in every fold) takes the
+  Score from 0.46 to 0.58 accuracy and 0.44 to 0.58 QWK. That confirms the
+  first-run diagnosis: Jev orders patients well and is simply anchored one
+  level too urgent for this hospital pair.
+- **The chosen thresholds are stable across folds.** `t_high_risk` lands on
+  0.75 in all five folds under the QWK objective; the cut-points agree to
+  within 0.05 except for the level 4/5 boundary, which the data barely
+  constrains (75 level-5 patients).
+- **Stacking Jev's outputs through a logistic regression matches logistic
+  regression on the raw features** (0.630 vs 0.640 accuracy, 0.638 vs 0.628
+  QWK) and gives the best-calibrated probabilities of any model in the study
+  (ECE 0.019). Eleven numbers from Jev carry about as much information about
+  the expert level as the full feature matrix does for a linear model. Random
+  forest on raw features still leads by 7 points of accuracy.
+- **Safety trade-off is explicit.** Unconstrained QWK tuning buys accuracy by
+  letting under-triage climb to 23-28%. Capping under-triage at the nurse's
+  10% costs about 2 points of accuracy for the cut-point variant (0.564) and
+  keeps level 1-2 sensitivity at 0.72-0.88, still above every trained model.
+
+Things to try next, in order of expected payoff: rewrite the `high_risk`
+criteria with explicit negative examples (stable vitals, alert, mild pain),
+since the model reads "could deteriorate" generously; ask a Choice over the
+five levels alongside the Score and compare; add the level 1-2 stacked
+probability to the random forest's features to see whether Jev adds
+information the raw features lack; then NHAMCS.
 
 ## Layout
 
@@ -185,8 +233,9 @@ triage_eval/
   metrics.py          classification, ordinal and calibration metrics
   plots.py            confusion, calibration and Noul reliability figures
   run.py              CLI
+  tune.py             cross-fitted tuning of the policy on cached answers
 scripts/check_key.py  one-patient smoke test of the API key
-tests/                12 tests, run without network
+tests/                16 tests, run without network
 ```
 
 ## Notes on the SDK
