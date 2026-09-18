@@ -117,17 +117,59 @@ ML rows are stratified out-of-fold predictions, so every patient is scored by a
 model that never saw them. Jev rows are zero-shot. The nurse row is the human
 performing the task live.
 
-## Reference numbers (KTAS, ML baselines, 5-fold)
+## Results: KTAS, first real run (jev-1.13.0, prompt esi-v1)
 
-| Model | Acc | Bal. acc | QWK | MAE | Under | Over | Sens (L1-2) | ECE |
-|---|---|---|---|---|---|---|---|---|
-| majority class | 0.384 | 0.200 | 0.000 | 0.695 | 0.194 | 0.421 | 0.000 | |
-| nurse (human) | 0.853 | 0.797 | 0.875 | 0.163 | 0.103 | 0.043 | 0.862 | |
-| logreg | 0.640 | 0.661 | 0.628 | 0.448 | 0.196 | 0.164 | 0.691 | 0.053 |
-| hgb | 0.685 | 0.558 | 0.670 | 0.363 | 0.163 | 0.152 | 0.593 | 0.161 |
-| rf | 0.704 | 0.617 | 0.686 | 0.345 | 0.158 | 0.138 | 0.598 | 0.083 |
+1,267 patients, 1,267 requests, median latency 0.23 s (p95 0.47 s), 2.25M input
+tokens (about $0.09 at list price), 74 s wall clock with 8 threads. Full table
+and figures in `results/ktas/`.
 
-Jev rows will appear here after the first real run.
+| Model | Acc | Bal. acc | QWK | MAE | Under | Over | Sens (L1-2) | AUROC (L1-2) | ECE |
+|---|---|---|---|---|---|---|---|---|---|
+| majority class | 0.384 | 0.200 | 0.000 | 0.695 | 0.194 | 0.421 | 0.000 | | |
+| nurse (human) | 0.853 | 0.797 | 0.875 | 0.163 | 0.103 | 0.043 | 0.862 | | |
+| jev_combined | 0.367 | 0.449 | 0.391 | 0.819 | 0.039 | 0.594 | 0.943 | 0.845 | 0.275 |
+| jev_rules | 0.346 | 0.427 | 0.406 | 0.825 | 0.084 | 0.571 | 0.931 | 0.846 | 0.292 |
+| jev_score | 0.460 | 0.488 | 0.444 | 0.678 | 0.053 | 0.487 | 0.862 | 0.862 | 0.338 |
+| logreg | 0.640 | 0.661 | 0.628 | 0.448 | 0.196 | 0.164 | 0.691 | 0.900 | 0.053 |
+| hgb | 0.685 | 0.558 | 0.670 | 0.363 | 0.163 | 0.152 | 0.593 | 0.899 | 0.161 |
+| rf | 0.704 | 0.617 | 0.686 | 0.345 | 0.158 | 0.138 | 0.598 | 0.909 | 0.083 |
+
+What the run shows:
+
+- **Jev is a strong ordinal signal that is shifted one level too urgent.** The
+  mean Score-expected level rises monotonically with the true level (1.3, 2.1,
+  2.6, 3.1, 3.4 for true levels 1 to 5) but sits well below the truth from
+  level 3 on. 44% of true level-3 patients get level 2, 45% of true level-4
+  patients get level 3. Almost all of Jev's error is over-triage, the safe
+  direction: under-triage is 4-8% versus 16-20% for the trained models and 10%
+  for the nurse.
+- **Level 1-2 sensitivity is where Jev beats everything, including the nurse**
+  (0.94 for `jev_combined` vs 0.86 nurse, 0.60 random forest), at the cost of
+  specificity (0.46 vs 0.98 nurse, 0.94 rf).
+- **The `high_risk` Noul is the driver.** Its median is 0.58 across all
+  patients and its mean is 0.62 for true level 3, so the 0.5 gate sends most of
+  the urgent tier to level 2. The Noul is still rank-informative: the observed
+  rate of true level 1-2 rises steadily with P(yes) (see
+  `noul_calibration.png`), just from a base that is far too high. The resource
+  Nouls are the best calibrated of the six.
+- **Calibration is the clearest loss.** Top-1 ECE is 0.28-0.34 for the Jev
+  variants versus 0.05-0.16 for the trained models. `jev_score` puts 40% of
+  patients in the 0.9+ confidence bin and is right about 58% of the time there.
+- **Zero-shot vs trained is the fair caveat.** The ML rows learned this
+  hospital pair's level distribution from 1,000+ labelled examples; Jev saw
+  none. An in-sample sweep of the `high_risk` gate (0.5 to 0.8) lifts
+  `jev_rules` accuracy from 0.35 to 0.47 and QWK to 0.52 while keeping
+  under-triage at 12%, and rounding `expected + 0.25` lifts `jev_score` to
+  0.52 accuracy. Those numbers are tuned on the test set and are only a
+  ceiling estimate; the honest next step is a held-out split (`Policy` makes it
+  a one-line change and the cache means no new inference).
+
+Things to try next, in order of expected payoff: recalibrate the Score with a
+per-level shift fitted on a held-out third; rewrite the `high_risk` criteria
+with explicit negative examples (stable vitals, alert, mild pain) since the
+model currently reads "could deteriorate" generously; ask a Choice over the
+five levels alongside the Score and compare; add `age >= 65` and
+danger-zone flags to the instructions rather than only the state.
 
 ## Layout
 
