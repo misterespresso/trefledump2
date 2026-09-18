@@ -17,7 +17,7 @@ load dataset -> bucket vitals in code -> one Jev call per patient
 ```bash
 cd jev-triage-eval
 pip install -r requirements.txt
-python -m pytest -q                                   # 16 tests, no network
+python -m pytest -q                                   # 19 tests, no network
 
 # Keyless dry run: exercises everything with a heuristic stand-in for Jev
 python -m triage_eval.run --dataset ktas --jev-backend mock --limit 200
@@ -212,12 +212,53 @@ Reading of the tuning:
   10% costs about 2 points of accuracy for the cut-point variant (0.564) and
   keeps level 1-2 sensitivity at 0.72-0.88, still above every trained model.
 
-Things to try next, in order of expected payoff: rewrite the `high_risk`
-criteria with explicit negative examples (stable vitals, alert, mild pain),
-since the model reads "could deteriorate" generously; ask a Choice over the
-five levels alongside the Score and compare; add the level 1-2 stacked
-probability to the random forest's features to see whether Jev adds
-information the raw features lack; then NHAMCS.
+## Prompt v2: rewriting `high_risk`
+
+`esi-v2` changes one question and nothing else. The v1 `high_risk` asked whether a
+serious condition was "plausible" and the patient "could deteriorate"; v2 states
+the bar as the nurse's action (would not let the patient sit in the waiting
+room), gives a base rate (about one in five), says to weigh the complaint with
+age, vitals and mental status, and lists explicit negatives. Both versions stay
+in `esi.py` (`--prompt-version`), the cache key includes the version, and v2 is
+scored on the fixed test half that never influenced the wording (`--subset test`).
+
+| Run | Acc | QWK | MAE | Under | Over | Sens (L1-2) | Spec (L1-2) | ECE |
+|---|---|---|---|---|---|---|---|---|
+| all, v1 jev_rules | 0.346 | 0.406 | 0.825 | 0.084 | 0.571 | 0.931 | 0.491 | 0.292 |
+| all, v2 jev_rules | 0.427 | 0.423 | 0.715 | 0.106 | 0.467 | 0.805 | 0.658 | 0.156 |
+| all, v1 jev_combined | 0.367 | 0.391 | 0.819 | 0.039 | 0.594 | 0.943 | 0.461 | 0.275 |
+| all, v2 jev_combined | 0.452 | 0.433 | 0.680 | 0.067 | 0.481 | 0.793 | 0.677 | 0.217 |
+| test half, v1 jev_combined | 0.363 | 0.381 | 0.828 | 0.046 | 0.591 | 0.943 | 0.452 | 0.275 |
+| test half, v2 jev_combined | 0.454 | 0.445 | 0.672 | 0.068 | 0.478 | 0.821 | 0.681 | 0.212 |
+| test half, rf | 0.674 | 0.658 | 0.377 | 0.181 | 0.145 | 0.593 | 0.937 | 0.073 |
+| test half, nurse | 0.869 | 0.884 | 0.147 | 0.095 | 0.036 | 0.878 | 0.984 | |
+
+What changed and what did not:
+
+- **The other five Nouls and the Score came back identical to the digit** for all
+  1,267 patients (mean `lifesaving` 0.078 before and after, Score-expected level
+  1.31 / 2.12 / 2.61 / 3.13 / 3.40 before and after). Questions in one request
+  really are answered independently, and the model is deterministic for a given
+  state and question, so this is a clean single-variable ablation.
+- **The rewrite did what it was asked.** `high_risk` now fires (P >= 0.5) on 37%
+  of patients instead of 57%; its mean by true level went from 0.93 / 0.79 /
+  0.62 / 0.37 / 0.35 to 0.82 / 0.61 / 0.38 / 0.22 / 0.22. Untuned ladder accuracy
+  rose 8-9 points on every split (all, dev, test), so the gain is not
+  prompt-overfitting to the patients that motivated it.
+- **It cost ranking information.** The AUROC of `high_risk` alone for true level
+  1-2 fell from 0.851 to 0.814, and level 1-2 sensitivity fell from 0.94 to 0.82.
+  Held-out tuning shows the consequence: with thresholds fitted in code,
+  v1's Noul beats v2's (tuned rules QWK 0.561 vs 0.495), and the variants that
+  depend only on ranking are unchanged (stacked LR 0.630 vs 0.631, Score shift
+  0.581 vs 0.580).
+- **Lesson.** When the model exposes calibrated probabilities, a base-rate
+  problem is cheaper and safer to fix with a threshold in code than with prompt
+  wording: the threshold keeps the ranking, the rewrite moved the whole curve
+  and blunted it. Prompt work should target discrimination (what the model
+  confuses), not the operating point.
+
+Next: a v3 that keeps v1's framing but adds the negative examples only, to see
+whether the discrimination loss came from the base-rate sentence; then NHAMCS.
 
 ## Layout
 
@@ -227,7 +268,8 @@ triage_eval/
   datasets/ktas.py    bundled KTAS csv -> records
   datasets/nhamcs.py  CDC Stata/SAS file -> records
   buckets.py          vital-sign buckets, danger-zone rule, shock index (code, not model)
-  esi.py              state builder, the seven questions, combination policies
+  esi.py              state builder, the seven questions (high_risk versioned), combination policies
+  datasets/split.py   fixed stratified dev/test split for prompt iteration
   jev.py              TypeSafe backend, mock backend, JSONL cache, threaded runner
   baselines.py        feature matrix + logreg / HistGradientBoosting / RandomForest, out-of-fold
   metrics.py          classification, ordinal and calibration metrics
@@ -235,7 +277,7 @@ triage_eval/
   run.py              CLI
   tune.py             cross-fitted tuning of the policy on cached answers
 scripts/check_key.py  one-patient smoke test of the API key
-tests/                16 tests, run without network
+tests/                19 tests, run without network
 ```
 
 ## Notes on the SDK
