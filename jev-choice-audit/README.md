@@ -1,0 +1,76 @@
+# Does Jev's `Choice` always return the highest-probability option?
+
+A reproducible experiment against TypeSafe's Jev. The short answer is no: in
+**16.3%** of 1,000 single-question requests the `choice` field named an option
+whose probability in the *same response* was lower than the maximum.
+
+Full write-up with statistics, charts and a minimal reproduction: **[report.md](report.md)**.
+
+## Run it
+
+```bash
+export TYPESAFE_API_KEY=...          # read from the environment, never logged or stored
+pip install -r requirements.txt
+python -m pytest tests -q            # 15 tests, no network
+
+python -m choice_audit.collect       # ~1,263 requests, resumable, appends to data/raw_responses.jsonl
+python -m choice_audit.analyze       # reads the JSONL only; writes the CSV, results.json, charts and report.md
+```
+
+`collect` is resumable: a `record_id` already recorded as successful is skipped, so
+re-running after an interruption costs nothing. `--dry-run` prints the plan without
+sending, `--limit N` sends only the next N, and `--experiment` restricts to one of
+`main`, `determinism` or `batch`.
+
+`analyze` makes **no network calls**. Every number in the report can be recomputed
+from the committed JSONL by anyone, with no API key.
+
+## What is tested
+
+| Experiment | Requests | Shape |
+|---|---|---|
+| `main` | 1,000 | one date per request |
+| `determinism` | 250 | 50 of those dates, 5 byte-identical repeats each |
+| `batch` | 13 | the same 50 dates, up to 4 questions per request |
+
+The task is "What day of the week is {date} in the Gregorian calendar?" with
+Monday to Sunday plus `Unknown` as the options, a constant neutral greeting as the
+state, and dates drawn with seed 20260919 from 2027 to 2099. Ground truth comes
+from Python's `datetime` and never enters a request.
+
+The model cannot do this task; both `choice` and the argmax score at chance. That
+is the point: it produces the near-uniform distributions in which the disagreement
+between `choice` and `probabilities` shows up.
+
+## Layout
+
+```
+choice_audit/
+  config.py    every knob of the experiment
+  plan.py      the deterministic request list
+  client.py    HTTP, retries with exponential backoff, rate limit, counters
+  store.py     append-only JSONL, resumability
+  collect.py   CLI: send requests, record raw exchanges
+  extract.py   raw records -> one row per question
+  stats.py     Wilson intervals, binomial and Fisher tests
+  analyze.py   CLI: statistics, CSV, results.json
+  charts.py    the seven figures
+  report.py    report.md
+data/          raw_responses.jsonl, per_question_results.csv, results.json
+charts/        PNGs at 1920x1080, 150 dpi
+tests/         offline
+```
+
+## Notes on method
+
+- The request schema was taken from the published OpenAPI document at
+  `https://api.typesafe.ai/openapi.json`, not guessed. That document is also the
+  source of the contract under test: `choice` is documented as "the name of the
+  choice with the highest probability among the question's criteria".
+- Probabilities are compared with a tolerance of 1e-9. A mismatch is
+  `probabilities[choice] < max(probabilities)` beyond that tolerance.
+- Where the argmax is tied, the tie is broken at random with a fixed seed, not by
+  the order the options were supplied, which would otherwise flatter whichever
+  option happens to be listed first.
+- `jev-latest` is requested; the version actually served is recorded on every
+  response and reported.

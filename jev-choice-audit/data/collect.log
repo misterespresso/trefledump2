@@ -1,0 +1,28 @@
+[plan] 1263 requests, 0 already done, 1263 to send
+[send] 50/1263 ok=50 failed=0 9.2 req/s
+[send] 100/1263 ok=100 failed=0 9.6 req/s
+[send] 150/1263 ok=150 failed=0 9.7 req/s
+[send] 200/1263 ok=200 failed=0 9.8 req/s
+[send] 250/1263 ok=250 failed=0 9.8 req/s
+[send] 300/1263 ok=300 failed=0 9.9 req/s
+[send] 350/1263 ok=350 failed=0 9.9 req/s
+[send] 400/1263 ok=400 failed=0 9.9 req/s
+[send] 450/1263 ok=450 failed=0 9.9 req/s
+[send] 500/1263 ok=500 failed=0 9.9 req/s
+[send] 550/1263 ok=550 failed=0 9.9 req/s
+[send] 600/1263 ok=600 failed=0 9.9 req/s
+[send] 650/1263 ok=650 failed=0 9.9 req/s
+[send] 700/1263 ok=700 failed=0 9.9 req/s
+[send] 750/1263 ok=750 failed=0 9.9 req/s
+[send] 800/1263 ok=800 failed=0 9.9 req/s
+[send] 850/1263 ok=850 failed=0 9.9 req/s
+[send] 900/1263 ok=900 failed=0 9.9 req/s
+[send] 950/1263 ok=950 failed=0 9.9 req/s
+[send] 1000/1263 ok=1000 failed=0 9.9 req/s
+[send] 1050/1263 ok=1050 failed=0 9.9 req/s
+[send] 1100/1263 ok=1100 failed=0 9.9 req/s
+[send] 1150/1263 ok=1150 failed=0 10.0 req/s
+[send] 1200/1263 ok=1200 failed=0 9.9 req/s
+[send] 1250/1263 ok=1250 failed=0 10.0 req/s
+[send] 1263/1263 ok=1263 failed=0 10.0 req/s
+[done] sent=1263 ok=1263 failed=0 retries=0 tokens_in=436243 tokens_out=96089 elapsed=126.9s -> /home/user/trefledump2/jev-choice-audit/data/raw_responses.jsonl
