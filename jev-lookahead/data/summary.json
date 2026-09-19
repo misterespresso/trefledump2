@@ -1,0 +1,61 @@
+{
+  "n_mazes": 200,
+  "fork": {
+    "n": 200,
+    "correct": 9,
+    "correct_rate": 0.045,
+    "correct_ci": [
+      0.023852543001492997,
+      0.0832967040018196
+    ],
+    "took_the_bait": 188,
+    "bait_rate": 0.94,
+    "bait_ci": [
+      0.8980683070423372,
+      0.9653478057456681
+    ],
+    "walked_into_a_wall": 0,
+    "illegal_rate": 0.0,
+    "backwards": 3,
+    "mean_top_p": 0.6657500000000001,
+    "mean_confidence": 0.5533,
+    "mean_legal_moves": 3.0,
+    "legal_baseline": 0.33333333333333326,
+    "uniform_baseline": 0.25,
+    "greedy_baseline": 0.0,
+    "top_p_when_right": 0.49222222222222217,
+    "top_p_when_wrong": 0.6739267015706806
+  },
+  "walk": {
+    "n": 30,
+    "reached": 8,
+    "reached_rate": 0.26666666666666666,
+    "reached_ci": [
+      0.14182663319596317,
+      0.4444796169518888
+    ],
+    "mean_steps_when_reached": 17.875,
+    "mean_optimal_steps": 14.875,
+    "illegal_attempts": 0,
+    "total_decisions": 803,
+    "greedy_baseline_reached": 0.0,
+    "fork_first_visit": {
+      "k": 2,
+      "n": 30,
+      "rate": 0.06666666666666667,
+      "ci": [
+        0.018477023791270378,
+        0.2132345836261692
+      ]
+    },
+    "fork_later_visits": {
+      "k": 9,
+      "n": 28,
+      "rate": 0.32142857142857145,
+      "ci": [
+        0.1793324692249496,
+        0.5066115681914238
+      ]
+    }
+  }
+}
