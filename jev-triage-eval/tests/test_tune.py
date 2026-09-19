@@ -3,7 +3,7 @@ from sklearn.metrics import cohen_kappa_score
 
 from triage_eval.datasets import load_ktas
 from triage_eval.jev import JudgmentCache, MockBackend, judge_all
-from triage_eval.tune import cuts_predict, fit_cuts, make_objectives, qwk, run
+from triage_eval.tune import cuts_predict, fit_cuts, load_judgments, make_objectives, qwk, run
 
 
 def test_qwk_matches_sklearn():
@@ -38,3 +38,21 @@ def test_run_is_out_of_fold(tmp_path):
     for k in ("jev_rules_tuned", "jev_score_shift", "jev_score_cuts", "jev_stacked_lr"):
         assert 1 <= pred_df[f"pred_{k}"].min() and pred_df[f"pred_{k}"].max() <= 5
         assert 0 <= results[k]["accuracy"] <= 1
+
+
+def test_cache_error_names_the_version_mismatch(tmp_path):
+    """A cache written for one prompt version must not look like an empty cache to the next."""
+    import pytest
+
+    recs = load_ktas(limit=5)
+    cache = JudgmentCache(tmp_path / "c.jsonl", backend="mock", version="esi-v1")
+    judge_all(recs, MockBackend(), cache, workers=1)
+
+    with pytest.raises(SystemExit) as e:
+        load_judgments(tmp_path / "c.jsonl", recs, backend="mock", version="esi-v2")
+    msg = str(e.value)
+    assert "esi-v1" in msg and "--prompt-version" in msg
+
+    with pytest.raises(SystemExit) as e:
+        load_judgments(tmp_path / "missing.jsonl", recs, backend="mock", version="esi-v1")
+    assert "No readable cache" in str(e.value)

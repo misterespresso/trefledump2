@@ -17,7 +17,7 @@ load dataset -> bucket vitals in code -> one Jev call per patient
 ```bash
 cd jev-triage-eval
 pip install -r requirements.txt
-python -m pytest -q                                   # 19 tests, no network
+python -m pytest -q                                   # 20 tests, no network
 
 # Keyless dry run: exercises everything with a heuristic stand-in for Jev
 python -m triage_eval.run --dataset ktas --jev-backend mock --limit 200
@@ -301,7 +301,7 @@ triage_eval/
   run.py              CLI
   tune.py             cross-fitted tuning of the policy on cached answers
 scripts/check_key.py  one-patient smoke test of the API key
-tests/                19 tests, run without network
+tests/                20 tests, run without network
 ```
 
 ## Notes on the SDK

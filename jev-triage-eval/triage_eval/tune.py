@@ -75,8 +75,31 @@ def load_judgments(cache_path: Path, records, backend: str = "typesafe", version
     cache = JudgmentCache(cache_path, backend=backend, version=version)
     missing = [r.record_id for r in records if cache.get(r.record_id) is None]
     if missing:
-        raise SystemExit(f"{len(missing)} records have no cached Jev answer (first: {missing[:3]}). Run triage_eval.run first.")
+        raise SystemExit(f"{len(missing)} of {len(records)} records have no cached answer for "
+                         f"{version!r}/{backend!r}.{_cache_hint(cache_path, version, backend)}")
     return [cache.get(r.record_id) for r in records]
+
+
+def _cache_hint(cache_path: Path, version: str, backend: str) -> str:
+    """Name the prompt versions the file does hold, since a version mismatch looks like an empty cache."""
+    present: set[str] = set()
+    try:
+        with Path(cache_path).open() as f:
+            for line in f:
+                if line.strip():
+                    key = json.loads(line).get("cache_key", "")
+                    if key:
+                        present.add(key)
+    except OSError:
+        return f" No readable cache at {cache_path}. Run triage_eval.run first."
+    if not present:
+        return f" {cache_path} is empty. Run triage_eval.run first."
+    others = sorted(p.split(":")[0] for p in present if not p.startswith(f"{version}:"))
+    if others:
+        return (f" That file holds answers for {', '.join(sorted(set(others)))} instead."
+                f" Pass --prompt-version {others[0]}, or run triage_eval.run to fetch {version} answers.")
+    return (f" The file holds {version} answers under a different question hash or backend,"
+            f" so the questions have changed since it was written. Re-run triage_eval.run.")
 
 
 def arrays(records, judgments):
