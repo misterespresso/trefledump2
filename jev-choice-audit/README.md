@@ -90,6 +90,21 @@ charts/        PNGs at 1920x1080, 150 dpi
 tests/         offline
 ```
 
+## Before citing any of this
+
+TypeSafe publishes a model-jaggedness page for jev-1.13 listing failure modes it
+already knows about, including arithmetic, counting and date comparison. The date
+task here was picked *because* the model is weak at it, since that is what produces
+the near-uniform distributions the main result needs, so the accuracy findings
+confirm published limitations rather than discover them.
+
+The page also lists assumed probability identities, though the guidance around it
+appears to concern identities *between separate questions*, while the finding here
+is a single Choice answer disagreeing with itself. That distinction matters and is
+discussed in [report.md](report.md). `docs.typesafe.ai` was unreachable from this
+environment, so that page could not be read directly and the scope of its caveat is
+unverified. Read it before acting on any of this.
+
 ## Notes on method
 
 - The request schema was taken from the published OpenAPI document at

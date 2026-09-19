@@ -114,6 +114,18 @@ That last prediction was tested directly. Re-asking 200 of the same dates with r
 
 What the data does not establish: which of the two is correct, whether the cause is precision, a separate pass, or an ordering step, and whether the behaviour extends to tasks where the model is not at chance. On this task neither rule beat chance (`choice` 14.70%, p = 0.7177; argmax 13.20%, p = 0.3428), which is what makes near-ties common enough to expose the disagreement at all. A task the model can do would produce larger gaps and, on this evidence, fewer mismatches.
 
+## Relation to TypeSafe's published limitations
+
+TypeSafe publishes a model-jaggedness page for jev-1.13 listing failure modes it already knows about. Two things follow from it, and both belong in front of any reader of this report.
+
+**Some of what is measured here is already documented.** Arithmetic, counting and date comparison are named on that page, and the guidance is to keep arithmetic in code. The date task used here was chosen precisely because the model is weak at it, since that is what produces the near-uniform distributions the main result depends on. The accuracy findings therefore confirm published limitations rather than discover them. The value of the date task here is as an instrument, not a result.
+
+**The main result appears to be a different claim.** The page also lists assumed probability identities, and the guidance found alongside it concerns identities *between separate questions*: not carrying a threshold from a Noul to a Choice, and not expecting a Choice and one Noul per option to agree, since a Choice is relative and a Noul is absolute. That is a caveat about comparing answers. The finding in this report is about a single Choice answer being internally inconsistent with itself: `choice` names an option that is not the maximum of the `probabilities` map returned in the same object, which is what the OpenAPI description of that field states it will be.
+
+**A caveat on this section.** `docs.typesafe.ai` is not reachable from the environment these experiments ran in, so the jaggedness page could not be read directly. The characterisation above comes from search results and secondary sources, and the precise scope of the documented caveat is therefore unverified. Anyone acting on this report should read that page first. If it does already cover intra-answer consistency, the finding here is a measurement of how often the documented non-guarantee bites, 16.30% of single questions, rather than a new defect.
+
+The `confidence` analysis above is consistent with the documented description of that field as a summary of distribution concentration: of the closed forms tested, one minus the normalised entropy of the probability vector had the strongest correlation with the reported value, though no candidate reproduced it exactly.
+
 ## Minimal reproduction
 
 Record `main:2099-02-24`. `choice` is `Friday` at 0.14, while `Saturday` is reported at 0.15 in the same response.
