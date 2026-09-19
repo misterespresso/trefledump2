@@ -1,0 +1,3168 @@
+{
+ "n_packages": 448,
+ "n_lenses": 40,
+ "served_models": [
+  "jev-1.13.0"
+ ],
+ "validation": [
+  {
+   "target": "topic: Software Development",
+   "positives": 179,
+   "n": 448,
+   "auroc_lenses": 0.6538273268776413,
+   "auroc_tfidf": 0.6982541346377824
+  },
+  {
+   "target": "topic: Internet",
+   "positives": 71,
+   "n": 448,
+   "auroc_lenses": 0.8269147869674185,
+   "auroc_tfidf": 0.8545906432748538
+  },
+  {
+   "target": "topic: Utilities",
+   "positives": 39,
+   "n": 448,
+   "auroc_lenses": 0.6466861315438552,
+   "auroc_tfidf": 0.5861465995612336
+  },
+  {
+   "target": "topic: Scientific/Engineering",
+   "positives": 32,
+   "n": 448,
+   "auroc_lenses": 0.8945878753107668,
+   "auroc_tfidf": 0.8152419200611971
+  },
+  {
+   "target": "topic: System",
+   "positives": 30,
+   "n": 448,
+   "auroc_lenses": 0.576338688085676,
+   "auroc_tfidf": 0.7007458405048765
+  },
+  {
+   "target": "topic: Text Processing",
+   "positives": 24,
+   "n": 448,
+   "auroc_lenses": 0.8647002801120449,
+   "auroc_tfidf": 0.8505882352941176
+  },
+  {
+   "target": "maturity: production/stable",
+   "positives": 289,
+   "n": 448,
+   "auroc_lenses": 0.6234103926389946,
+   "auroc_tfidf": 0.6559869762699295
+  }
+ ],
+ "mean_auroc_lenses": 0.7266379259337711,
+ "mean_auroc_tfidf": 0.7373649070862844,
+ "components": [
+  {
+   "component": 1,
+   "variance": 0.13653076424136693,
+   "high": [
+    {
+     "lens": "is_infrastructure",
+     "text": "It sounds like plumbing that most people will never interact with directly.",
+     "weight": 0.3209087951516725
+    },
+    {
+     "lens": "is_low_level",
+     "text": "It sounds like a small low-level building block rather than a complete solution.",
+     "weight": 0.3173639262247794
+    },
+    {
+     "lens": "sounds_boring",
+     "text": "It sounds reassuringly boring: unglamorous, stable, unexciting work.",
+     "weight": 0.2506578716207445
+    },
+    {
+     "lens": "is_sdk",
+     "text": "This is a client or SDK for one specific external service or vendor.",
+     "weight": 0.21254297874134126
+    }
+   ],
+   "low": [
+    {
+     "lens": "uses_superlative",
+     "text": "It uses a superlative or an intensifier such as 'blazing', 'ultimate', 'fully' or 'the most'.",
+     "weight": -0.22612569715510514
+    },
+    {
+     "lens": "is_full_sentence",
+     "text": "It is written as a complete sentence rather than a noun phrase.",
+     "weight": -0.22303236617156832
+    },
+    {
+     "lens": "is_batteries_included",
+     "text": "It sounds like a complete, batteries-included solution.",
+     "weight": -0.2078570305259462
+    },
+    {
+     "lens": "is_cli",
+     "text": "This is a command-line tool you run from a terminal.",
+     "weight": -0.2077838196349001
+    }
+   ]
+  },
+  {
+   "component": 2,
+   "variance": 0.09000088623133312,
+   "high": [
+    {
+     "lens": "hard_to_explain",
+     "text": "Explaining what it does to a non-programmer would be hard.",
+     "weight": 0.3933327912875462
+    },
+    {
+     "lens": "assumes_jargon",
+     "text": "Understanding it requires domain jargon that an outsider would not know.",
+     "weight": 0.3570720026799183
+    },
+    {
+     "lens": "sounds_early",
+     "text": "It sounds experimental, early or unfinished.",
+     "weight": 0.2769800043984293
+    },
+    {
+     "lens": "is_framework",
+     "text": "This is a framework that wants to own the structure of your program.",
+     "weight": 0.2467246832355173
+    }
+   ],
+   "low": [
+    {
+     "lens": "sounds_boring",
+     "text": "It sounds reassuringly boring: unglamorous, stable, unexciting work.",
+     "weight": -0.27867441144246563
+    },
+    {
+     "lens": "does_display",
+     "text": "Its job involves rendering, formatting or displaying output to a human.",
+     "weight": -0.12751091714391685
+    },
+    {
+     "lens": "explains_purpose",
+     "text": "It says what the thing is *for*, rather than only what it is.",
+     "weight": -0.12645333857954685
+    },
+    {
+     "lens": "does_text",
+     "text": "Its job involves manipulating text or strings.",
+     "weight": -0.12437367987336652
+    }
+   ]
+  },
+  {
+   "component": 3,
+   "variance": 0.08052638410904707,
+   "high": [
+    {
+     "lens": "is_modest",
+     "text": "It undersells itself, describing itself as small, simple or unambitious.",
+     "weight": 0.3709552440016432
+    },
+    {
+     "lens": "is_low_level",
+     "text": "It sounds like a small low-level building block rather than a complete solution.",
+     "weight": 0.21561822712328807
+    },
+    {
+     "lens": "sounds_early",
+     "text": "It sounds experimental, early or unfinished.",
+     "weight": 0.21452722362475474
+    },
+    {
+     "lens": "claims_simple",
+     "text": "It claims to be simple, easy or lightweight.",
+     "weight": 0.1951239705081992
+    }
+   ],
+   "low": [
+    {
+     "lens": "is_batteries_included",
+     "text": "It sounds like a complete, batteries-included solution.",
+     "weight": -0.337303912396438
+    },
+    {
+     "lens": "is_sdk",
+     "text": "This is a client or SDK for one specific external service or vendor.",
+     "weight": -0.3326296226514152
+    },
+    {
+     "lens": "does_network",
+     "text": "Its job involves talking over a network.",
+     "weight": -0.327704815094949
+    },
+    {
+     "lens": "names_a_vendor",
+     "text": "It names a specific company, product or brand.",
+     "weight": -0.3124950251970435
+    }
+   ]
+  },
+  {
+   "component": 4,
+   "variance": 0.06345817236812724,
+   "high": [
+    {
+     "lens": "is_library",
+     "text": "This is a library you import into your own code, rather than a program you run.",
+     "weight": 0.4679583902747644
+    },
+    {
+     "lens": "does_math",
+     "text": "Its job involves numerical, scientific or statistical computation.",
+     "weight": 0.2001078086039715
+    },
+    {
+     "lens": "claims_fast",
+     "text": "It claims to be fast, efficient or high-performance.",
+     "weight": 0.18794504665904854
+    },
+    {
+     "lens": "claims_simple",
+     "text": "It claims to be simple, easy or lightweight.",
+     "weight": 0.1696713692752125
+    }
+   ],
+   "low": [
+    {
+     "lens": "is_cli",
+     "text": "This is a command-line tool you run from a terminal.",
+     "weight": -0.4402598294869833
+    },
+    {
+     "lens": "does_packaging",
+     "text": "Its job is building, packaging, installing or deploying software.",
+     "weight": -0.33940064639221795
+    },
+    {
+     "lens": "is_plugin",
+     "text": "This is a plugin, extension or backend for some other named tool.",
+     "weight": -0.22748419554941382
+    },
+    {
+     "lens": "does_testing",
+     "text": "Its job is testing, linting, type-checking or otherwise checking quality.",
+     "weight": -0.17743262645747956
+    }
+   ]
+  },
+  {
+   "component": 5,
+   "variance": 0.06100444003693864,
+   "high": [
+    {
+     "lens": "promises_safety",
+     "text": "It makes a promise about safety, correctness, reliability or standards compliance.",
+     "weight": 0.39215029227200526
+    },
+    {
+     "lens": "does_parsing",
+     "text": "Its job involves reading, parsing or writing a data format.",
+     "weight": 0.38720163905836785
+    },
+    {
+     "lens": "does_text",
+     "text": "Its job involves manipulating text or strings.",
+     "weight": 0.35429121551555526
+    },
+    {
+     "lens": "has_acronym",
+     "text": "It contains an acronym or initialism.",
+     "weight": 0.24593650728291108
+    }
+   ],
+   "low": [
+    {
+     "lens": "does_math",
+     "text": "Its job involves numerical, scientific or statistical computation.",
+     "weight": -0.223113798315937
+    },
+    {
+     "lens": "is_terse",
+     "text": "It is very short, under about ten words.",
+     "weight": -0.2004034327036203
+    },
+    {
+     "lens": "is_framework",
+     "text": "This is a framework that wants to own the structure of your program.",
+     "weight": -0.17117759356589868
+    },
+    {
+     "lens": "is_sdk",
+     "text": "This is a client or SDK for one specific external service or vendor.",
+     "weight": -0.16377912306167383
+    }
+   ]
+  },
+  {
+   "component": 6,
+   "variance": 0.045518222501587956,
+   "high": [
+    {
+     "lens": "is_playful",
+     "text": "There is humour, wordplay or a joke in how it is written.",
+     "weight": 0.35989803899981226
+    },
+    {
+     "lens": "claims_simple",
+     "text": "It claims to be simple, easy or lightweight.",
+     "weight": 0.3510111100453569
+    },
+    {
+     "lens": "is_modest",
+     "text": "It undersells itself, describing itself as small, simple or unambitious.",
+     "weight": 0.33960380253966777
+    },
+    {
+     "lens": "has_metaphor",
+     "text": "It uses a metaphor or a figurative image.",
+     "weight": 0.27536524191191136
+    }
+   ],
+   "low": [
+    {
+     "lens": "does_math",
+     "text": "Its job involves numerical, scientific or statistical computation.",
+     "weight": -0.2946229953586439
+    },
+    {
+     "lens": "lists_features",
+     "text": "It is largely a list of features separated by commas.",
+     "weight": -0.23918650368891683
+    },
+    {
+     "lens": "assumes_jargon",
+     "text": "Understanding it requires domain jargon that an outsider would not know.",
+     "weight": -0.13854236737741468
+    },
+    {
+     "lens": "is_framework",
+     "text": "This is a framework that wants to own the structure of your program.",
+     "weight": -0.1287293703212395
+    }
+   ]
+  },
+  {
+   "component": 7,
+   "variance": 0.043060363964481436,
+   "high": [
+    {
+     "lens": "is_imperative",
+     "text": "It is phrased as an instruction or imperative to the reader.",
+     "weight": 0.3795020771417598
+    },
+    {
+     "lens": "is_full_sentence",
+     "text": "It is written as a complete sentence rather than a noun phrase.",
+     "weight": 0.3110227641054317
+    },
+    {
+     "lens": "is_framework",
+     "text": "This is a framework that wants to own the structure of your program.",
+     "weight": 0.2480851943730334
+    },
+    {
+     "lens": "has_acronym",
+     "text": "It contains an acronym or initialism.",
+     "weight": 0.2347078959824528
+    }
+   ],
+   "low": [
+    {
+     "lens": "mentions_python",
+     "text": "It mentions Python by name.",
+     "weight": -0.29035004308502943
+    },
+    {
+     "lens": "claims_best",
+     "text": "It claims to be the best, the only, or the definitive option.",
+     "weight": -0.279124691300131
+    },
+    {
+     "lens": "uses_superlative",
+     "text": "It uses a superlative or an intensifier such as 'blazing', 'ultimate', 'fully' or 'the most'.",
+     "weight": -0.2558339603274144
+    },
+    {
+     "lens": "does_testing",
+     "text": "Its job is testing, linting, type-checking or otherwise checking quality.",
+     "weight": -0.18591812094883237
+    }
+   ]
+  },
+  {
+   "component": 8,
+   "variance": 0.04054887081687182,
+   "high": [
+    {
+     "lens": "does_display",
+     "text": "Its job involves rendering, formatting or displaying output to a human.",
+     "weight": 0.4195248401082196
+    },
+    {
+     "lens": "does_text",
+     "text": "Its job involves manipulating text or strings.",
+     "weight": 0.2976764198864996
+    },
+    {
+     "lens": "does_parsing",
+     "text": "Its job involves reading, parsing or writing a data format.",
+     "weight": 0.2505664004139441
+    },
+    {
+     "lens": "is_data",
+     "text": "What it ships is mainly data, assets or definitions rather than executable logic.",
+     "weight": 0.2125666969460848
+    }
+   ],
+   "low": [
+    {
+     "lens": "explains_purpose",
+     "text": "It says what the thing is *for*, rather than only what it is.",
+     "weight": -0.28371828200592347
+    },
+    {
+     "lens": "for_developers",
+     "text": "Its audience is programmers rather than end users.",
+     "weight": -0.21669746728311598
+    },
+    {
+     "lens": "is_infrastructure",
+     "text": "It sounds like plumbing that most people will never interact with directly.",
+     "weight": -0.2094825000261433
+    },
+    {
+     "lens": "claims_simple",
+     "text": "It claims to be simple, easy or lightweight.",
+     "weight": -0.18921999715606594
+    }
+   ]
+  },
+  {
+   "component": 9,
+   "variance": 0.03458181313925497,
+   "high": [
+    {
+     "lens": "for_developers",
+     "text": "Its audience is programmers rather than end users.",
+     "weight": 0.3722059727120829
+    },
+    {
+     "lens": "explains_purpose",
+     "text": "It says what the thing is *for*, rather than only what it is.",
+     "weight": 0.3709127196395183
+    },
+    {
+     "lens": "mentions_python",
+     "text": "It mentions Python by name.",
+     "weight": 0.33832813374567666
+    },
+    {
+     "lens": "is_plugin",
+     "text": "This is a plugin, extension or backend for some other named tool.",
+     "weight": 0.33829652357845114
+    }
+   ],
+   "low": [
+    {
+     "lens": "does_security",
+     "text": "Its job involves security, cryptography, authentication or certificates.",
+     "weight": -0.2319999490234711
+    },
+    {
+     "lens": "lists_features",
+     "text": "It is largely a list of features separated by commas.",
+     "weight": -0.22911750901565395
+    },
+    {
+     "lens": "is_terse",
+     "text": "It is very short, under about ten words.",
+     "weight": -0.19790102676976237
+    },
+    {
+     "lens": "promises_safety",
+     "text": "It makes a promise about safety, correctness, reliability or standards compliance.",
+     "weight": -0.19694149982245088
+    }
+   ]
+  },
+  {
+   "component": 10,
+   "variance": 0.032816368322535816,
+   "high": [
+    {
+     "lens": "for_developers",
+     "text": "Its audience is programmers rather than end users.",
+     "weight": 0.3232079677071387
+    },
+    {
+     "lens": "claims_simple",
+     "text": "It claims to be simple, easy or lightweight.",
+     "weight": 0.30974071994196095
+    },
+    {
+     "lens": "mentions_python",
+     "text": "It mentions Python by name.",
+     "weight": 0.23364806145886222
+    },
+    {
+     "lens": "does_text",
+     "text": "Its job involves manipulating text or strings.",
+     "weight": 0.21883696784644
+    }
+   ],
+   "low": [
+    {
+     "lens": "does_math",
+     "text": "Its job involves numerical, scientific or statistical computation.",
+     "weight": -0.2833303687447591
+    },
+    {
+     "lens": "is_imperative",
+     "text": "It is phrased as an instruction or imperative to the reader.",
+     "weight": -0.25323953357066337
+    },
+    {
+     "lens": "is_data",
+     "text": "What it ships is mainly data, assets or definitions rather than executable logic.",
+     "weight": -0.22972205535405696
+    },
+    {
+     "lens": "is_full_sentence",
+     "text": "It is written as a complete sentence rather than a noun phrase.",
+     "weight": -0.22319973195413922
+    }
+   ]
+  }
+ ],
+ "strongest_pairs": [
+  {
+   "a": "is_library",
+   "b": "is_cli",
+   "r": -0.8558902979831071
+  },
+  {
+   "a": "assumes_jargon",
+   "b": "hard_to_explain",
+   "r": 0.7680567338142222
+  },
+  {
+   "a": "is_sdk",
+   "b": "names_a_vendor",
+   "r": 0.7200529730256514
+  },
+  {
+   "a": "is_infrastructure",
+   "b": "is_low_level",
+   "r": 0.70636671163558
+  },
+  {
+   "a": "is_sdk",
+   "b": "does_network",
+   "r": 0.6883125638742437
+  },
+  {
+   "a": "claims_simple",
+   "b": "is_modest",
+   "r": 0.6804373616347511
+  },
+  {
+   "a": "claims_best",
+   "b": "uses_superlative",
+   "r": 0.6091563562388246
+  },
+  {
+   "a": "is_low_level",
+   "b": "sounds_boring",
+   "r": 0.5829405465146754
+  },
+  {
+   "a": "is_playful",
+   "b": "has_metaphor",
+   "r": 0.5803216151191162
+  },
+  {
+   "a": "is_library",
+   "b": "does_packaging",
+   "r": -0.5741686043381662
+  },
+  {
+   "a": "is_framework",
+   "b": "sounds_boring",
+   "r": -0.5666742168387336
+  },
+  {
+   "a": "does_display",
+   "b": "is_infrastructure",
+   "r": -0.5512122745833249
+  }
+ ],
+ "lens_spread": [
+  {
+   "lens": "mentions_python",
+   "text": "It mentions Python by name.",
+   "group": "style",
+   "mean": 0.40225446428571426,
+   "sd": 0.46275722333414454,
+   "share_above_half": 0.390625
+  },
+  {
+   "lens": "has_acronym",
+   "text": "It contains an acronym or initialism.",
+   "group": "style",
+   "mean": 0.5326339285714285,
+   "sd": 0.3784227486634424,
+   "share_above_half": 0.5379464285714286
+  },
+  {
+   "lens": "names_a_vendor",
+   "text": "It names a specific company, product or brand.",
+   "group": "rhetoric",
+   "mean": 0.3773660714285714,
+   "sd": 0.3766425099181231,
+   "share_above_half": 0.39732142857142855
+  },
+  {
+   "lens": "does_network",
+   "text": "Its job involves talking over a network.",
+   "group": "function",
+   "mean": 0.3358258928571428,
+   "sd": 0.3516894633270582,
+   "share_above_half": 0.328125
+  },
+  {
+   "lens": "is_sdk",
+   "text": "This is a client or SDK for one specific external service or vendor.",
+   "group": "form",
+   "mean": 0.21488839285714284,
+   "sd": 0.31700465584839593,
+   "share_above_half": 0.171875
+  },
+  {
+   "lens": "does_parsing",
+   "text": "Its job involves reading, parsing or writing a data format.",
+   "group": "function",
+   "mean": 0.5289285714285714,
+   "sd": 0.28505280570591884,
+   "share_above_half": 0.5290178571428571
+  },
+  {
+   "lens": "does_text",
+   "text": "Its job involves manipulating text or strings.",
+   "group": "function",
+   "mean": 0.4669196428571429,
+   "sd": 0.2711036846456423,
+   "share_above_half": 0.390625
+  },
+  {
+   "lens": "claims_fast",
+   "text": "It claims to be fast, efficient or high-performance.",
+   "group": "rhetoric",
+   "mean": 0.11921875,
+   "sd": 0.24873800474712413,
+   "share_above_half": 0.08258928571428571
+  },
+  {
+   "lens": "is_plugin",
+   "text": "This is a plugin, extension or backend for some other named tool.",
+   "group": "form",
+   "mean": 0.2613392857142857,
+   "sd": 0.24280998426059966,
+   "share_above_half": 0.16071428571428573
+  },
+  {
+   "lens": "claims_simple",
+   "text": "It claims to be simple, easy or lightweight.",
+   "group": "rhetoric",
+   "mean": 0.1308482142857143,
+   "sd": 0.23603721369057723,
+   "share_above_half": 0.08035714285714286
+  },
+  {
+   "lens": "does_security",
+   "text": "Its job involves security, cryptography, authentication or certificates.",
+   "group": "function",
+   "mean": 0.16863839285714285,
+   "sd": 0.23407335073858476,
+   "share_above_half": 0.08928571428571429
+  },
+  {
+   "lens": "explains_purpose",
+   "text": "It says what the thing is *for*, rather than only what it is.",
+   "group": "rhetoric",
+   "mean": 0.6264732142857142,
+   "sd": 0.23273331073437395,
+   "share_above_half": 0.6584821428571429
+  },
+  {
+   "lens": "is_imperative",
+   "text": "It is phrased as an instruction or imperative to the reader.",
+   "group": "style",
+   "mean": 0.095625,
+   "sd": 0.2217957604982566,
+   "share_above_half": 0.08035714285714286
+  },
+  {
+   "lens": "promises_safety",
+   "text": "It makes a promise about safety, correctness, reliability or standards compliance.",
+   "group": "rhetoric",
+   "mean": 0.19303571428571428,
+   "sd": 0.21195977248775585,
+   "share_above_half": 0.09375
+  },
+  {
+   "lens": "is_full_sentence",
+   "text": "It is written as a complete sentence rather than a noun phrase.",
+   "group": "style",
+   "mean": 0.1887276785714286,
+   "sd": 0.20848290642067271,
+   "share_above_half": 0.11830357142857142
+  },
+  {
+   "lens": "uses_superlative",
+   "text": "It uses a superlative or an intensifier such as 'blazing', 'ultimate', 'fully' or 'the most'.",
+   "group": "rhetoric",
+   "mean": 0.09328124999999998,
+   "sd": 0.2084224149205038,
+   "share_above_half": 0.06919642857142858
+  },
+  {
+   "lens": "does_display",
+   "text": "Its job involves rendering, formatting or displaying output to a human.",
+   "group": "function",
+   "mean": 0.19357142857142856,
+   "sd": 0.2024839373825963,
+   "share_above_half": 0.09598214285714286
+  },
+  {
+   "lens": "does_testing",
+   "text": "Its job is testing, linting, type-checking or otherwise checking quality.",
+   "group": "function",
+   "mean": 0.11167410714285715,
+   "sd": 0.1867858089810433,
+   "share_above_half": 0.060267857142857144
+  },
+  {
+   "lens": "assumes_jargon",
+   "text": "Understanding it requires domain jargon that an outsider would not know.",
+   "group": "rhetoric",
+   "mean": 0.6142187499999999,
+   "sd": 0.18646456099103753,
+   "share_above_half": 0.7388392857142857
+  },
+  {
+   "lens": "does_math",
+   "text": "Its job involves numerical, scientific or statistical computation.",
+   "group": "function",
+   "mean": 0.13814732142857142,
+   "sd": 0.171484864211217,
+   "share_above_half": 0.05133928571428571
+  },
+  {
+   "lens": "lists_features",
+   "text": "It is largely a list of features separated by commas.",
+   "group": "style",
+   "mean": 0.10060267857142859,
+   "sd": 0.16715006942000046,
+   "share_above_half": 0.05580357142857143
+  },
+  {
+   "lens": "sounds_boring",
+   "text": "It sounds reassuringly boring: unglamorous, stable, unexciting work.",
+   "group": "stance",
+   "mean": 0.696763392857143,
+   "sd": 0.16508389993291275,
+   "share_above_half": 0.8772321428571429
+  },
+  {
+   "lens": "is_low_level",
+   "text": "It sounds like a small low-level building block rather than a complete solution.",
+   "group": "stance",
+   "mean": 0.7376116071428572,
+   "sd": 0.1638266207030729,
+   "share_above_half": 0.8928571428571429
+  },
+  {
+   "lens": "positions_against",
+   "text": "It defines itself against an existing alternative, as a replacement, drop-in, successor or improvement on something else.",
+   "group": "rhetoric",
+   "mean": 0.12261160714285714,
+   "sd": 0.16287076123501798,
+   "share_above_half": 0.05133928571428571
+  },
+  {
+   "lens": "is_data",
+   "text": "What it ships is mainly data, assets or definitions rather than executable logic.",
+   "group": "form",
+   "mean": 0.171875,
+   "sd": 0.15782014656156634,
+   "share_above_half": 0.05580357142857143
+  },
+  {
+   "lens": "is_modest",
+   "text": "It undersells itself, describing itself as small, simple or unambitious.",
+   "group": "rhetoric",
+   "mean": 0.19002232142857145,
+   "sd": 0.15716162472902892,
+   "share_above_half": 0.060267857142857144
+  },
+  {
+   "lens": "does_time",
+   "text": "Its job involves dates, times, scheduling or timezones.",
+   "group": "function",
+   "mean": 0.09957589285714287,
+   "sd": 0.1570843396904622,
+   "share_above_half": 0.033482142857142856
+  },
+  {
+   "lens": "has_metaphor",
+   "text": "It uses a metaphor or a figurative image.",
+   "group": "style",
+   "mean": 0.10912946428571431,
+   "sd": 0.15662284438055601,
+   "share_above_half": 0.04241071428571429
+  },
+  {
+   "lens": "is_cli",
+   "text": "This is a command-line tool you run from a terminal.",
+   "group": "form",
+   "mean": 0.13339285714285715,
+   "sd": 0.15592067334882512,
+   "share_above_half": 0.05580357142857143
+  },
+  {
+   "lens": "is_infrastructure",
+   "text": "It sounds like plumbing that most people will never interact with directly.",
+   "group": "stance",
+   "mean": 0.6924776785714286,
+   "sd": 0.15374310217385215,
+   "share_above_half": 0.8705357142857143
+  },
+  {
+   "lens": "does_packaging",
+   "text": "Its job is building, packaging, installing or deploying software.",
+   "group": "function",
+   "mean": 0.1250669642857143,
+   "sd": 0.1518266603778754,
+   "share_above_half": 0.03794642857142857
+  },
+  {
+   "lens": "is_library",
+   "text": "This is a library you import into your own code, rather than a program you run.",
+   "group": "form",
+   "mean": 0.8607812499999999,
+   "sd": 0.1500582220525765,
+   "share_above_half": 0.9508928571428571
+  },
+  {
+   "lens": "is_terse",
+   "text": "It is very short, under about ten words.",
+   "group": "style",
+   "mean": 0.9320089285714287,
+   "sd": 0.14956180014675458,
+   "share_above_half": 0.9665178571428571
+  },
+  {
+   "lens": "sounds_early",
+   "text": "It sounds experimental, early or unfinished.",
+   "group": "stance",
+   "mean": 0.2182142857142857,
+   "sd": 0.11958794048817833,
+   "share_above_half": 0.03571428571428571
+  },
+  {
+   "lens": "claims_best",
+   "text": "It claims to be the best, the only, or the definitive option.",
+   "group": "rhetoric",
+   "mean": 0.06685267857142858,
+   "sd": 0.11910437983716922,
+   "share_above_half": 0.029017857142857144
+  },
+  {
+   "lens": "hard_to_explain",
+   "text": "Explaining what it does to a non-programmer would be hard.",
+   "group": "stance",
+   "mean": 0.75953125,
+   "sd": 0.11672427793373488,
+   "share_above_half": 0.9598214285714286
+  },
+  {
+   "lens": "is_batteries_included",
+   "text": "It sounds like a complete, batteries-included solution.",
+   "group": "stance",
+   "mean": 0.3067857142857143,
+   "sd": 0.11113629249801382,
+   "share_above_half": 0.05357142857142857
+  },
+  {
+   "lens": "is_playful",
+   "text": "There is humour, wordplay or a joke in how it is written.",
+   "group": "rhetoric",
+   "mean": 0.06337053571428572,
+   "sd": 0.10712361945967648,
+   "share_above_half": 0.017857142857142856
+  },
+  {
+   "lens": "is_framework",
+   "text": "This is a framework that wants to own the structure of your program.",
+   "group": "form",
+   "mean": 0.11937500000000002,
+   "sd": 0.09257025565559845,
+   "share_above_half": 0.013392857142857142
+  },
+  {
+   "lens": "for_developers",
+   "text": "Its audience is programmers rather than end users.",
+   "group": "stance",
+   "mean": 0.9259598214285713,
+   "sd": 0.04452595743700967,
+   "share_above_half": 0.9977678571428571
+  }
+ ],
+ "coords": [
+  {
+   "name": "boto3",
+   "x": 1.6012171238214012,
+   "y": -0.782276903342954
+  },
+  {
+   "name": "packaging",
+   "x": 0.7094930912934139,
+   "y": -1.3429008681683452
+  },
+  {
+   "name": "typing-extensions",
+   "x": 0.21499660169446064,
+   "y": 2.9969916798593164
+  },
+  {
+   "name": "certifi",
+   "x": 1.7045909283737777,
+   "y": -1.2091019760965926
+  },
+  {
+   "name": "idna",
+   "x": 1.0758286799412509,
+   "y": -0.42345955630734755
+  },
+  {
+   "name": "urllib3",
+   "x": 0.7062640932089029,
+   "y": -0.2906957747803003
+  },
+  {
+   "name": "charset-normalizer",
+   "x": -4.327323007590844,
+   "y": 3.2756958442666018
+  },
+  {
+   "name": "setuptools",
+   "x": -2.4154516354392426,
+   "y": 5.26686075521506
+  },
+  {
+   "name": "cryptography",
+   "x": -1.2733880335804637,
+   "y": -1.93329237928691
+  },
+  {
+   "name": "cffi",
+   "x": 1.1508029997255005,
+   "y": 0.22701742726118926
+  },
+  {
+   "name": "pluggy",
+   "x": 0.8759445849686435,
+   "y": 0.28224026774764915
+  },
+  {
+   "name": "Pygments",
+   "x": -2.1348569609140418,
+   "y": -3.5482314606290086
+  },
+  {
+   "name": "PyYAML",
+   "x": -0.3051726448258213,
+   "y": -2.762432962519764
+  },
+  {
+   "name": "botocore",
+   "x": 3.5698342282337165,
+   "y": 2.2629854500880637
+  },
+  {
+   "name": "python-dateutil",
+   "x": 0.9786037248882394,
+   "y": -1.3667611594552604
+  },
+  {
+   "name": "six",
+   "x": 0.748316900403528,
+   "y": -1.4690936726571453
+  },
+  {
+   "name": "pydantic",
+   "x": -0.5614400889863197,
+   "y": -0.6377023043536278
+  },
+  {
+   "name": "numpy",
+   "x": -0.20995267807751639,
+   "y": -2.2332791979372355
+  },
+  {
+   "name": "click",
+   "x": -0.7206224232829418,
+   "y": -0.048319256665552715
+  },
+  {
+   "name": "anyio",
+   "x": -0.3846377171948261,
+   "y": 3.262433683594677
+  },
+  {
+   "name": "pytest",
+   "x": -3.9916858627288176,
+   "y": -0.0934089623617896
+  },
+  {
+   "name": "pydantic_core",
+   "x": 1.873977022082876,
+   "y": 0.4686710908335708
+  },
+  {
+   "name": "iniconfig",
+   "x": -2.8061157430510226,
+   "y": 2.2560381045798628
+  },
+  {
+   "name": "aiobotocore",
+   "x": 2.8265120703974898,
+   "y": 0.9439810187274357
+  },
+  {
+   "name": "annotated-types",
+   "x": 1.7290033763672121,
+   "y": 0.611255025553944
+  },
+  {
+   "name": "h11",
+   "x": 1.0918016089271663,
+   "y": 2.106094480865739
+  },
+  {
+   "name": "attrs",
+   "x": -1.3000999340161687,
+   "y": 1.4109832819205796
+  },
+  {
+   "name": "typing-inspection",
+   "x": 1.3062298864374844,
+   "y": 0.0930947271275734
+  },
+  {
+   "name": "fsspec",
+   "x": 0.5758838021715983,
+   "y": -0.048855664504572224
+  },
+  {
+   "name": "httpx",
+   "x": -1.6475205056368605,
+   "y": 2.6192038615215143
+  },
+  {
+   "name": "MarkupSafe",
+   "x": -1.7391819363855545,
+   "y": -3.5070971849719066
+  },
+  {
+   "name": "httpcore",
+   "x": 2.1148056002079025,
+   "y": 0.5114157553278519
+  },
+  {
+   "name": "s3transfer",
+   "x": 1.82405012651742,
+   "y": 0.6809825788494486
+  },
+  {
+   "name": "python-dotenv",
+   "x": -1.3181735733296809,
+   "y": -2.964352210504632
+  },
+  {
+   "name": "platformdirs",
+   "x": 0.07557233640639481,
+   "y": -1.099074003072243
+  },
+  {
+   "name": "pandas",
+   "x": -3.903227278138485,
+   "y": -1.4551167776786451
+  },
+  {
+   "name": "Jinja2",
+   "x": -4.404875964236605,
+   "y": 0.1792403721186237
+  },
+  {
+   "name": "pathspec",
+   "x": 0.3236897129515435,
+   "y": -2.2656236685483715
+  },
+  {
+   "name": "grpcio-status",
+   "x": 2.397814554942105,
+   "y": 2.0304966553625916
+  },
+  {
+   "name": "filelock",
+   "x": 0.31028284162081865,
+   "y": -1.948922391303858
+  },
+  {
+   "name": "pip",
+   "x": -4.110822795621211,
+   "y": 1.9540418259077745
+  },
+  {
+   "name": "PyJWT",
+   "x": 1.1145427774360332,
+   "y": -1.257626894324007
+  },
+  {
+   "name": "starlette",
+   "x": -1.727739019178264,
+   "y": 6.195860855194878
+  },
+  {
+   "name": "uvicorn",
+   "x": -2.48559303598853,
+   "y": 5.283066831948643
+  },
+  {
+   "name": "litellm",
+   "x": 0.1832841766239919,
+   "y": 0.09384926604035819
+  },
+  {
+   "name": "aiohttp",
+   "x": 0.6339223085007547,
+   "y": 1.8702669343695981
+  },
+  {
+   "name": "tqdm",
+   "x": -3.017953495219527,
+   "y": -1.5136417169737186
+  },
+  {
+   "name": "jmespath",
+   "x": -0.24712191589504007,
+   "y": -0.2579546538984875
+  },
+  {
+   "name": "rpds-py",
+   "x": 1.65151015415425,
+   "y": 0.8218193999968328
+  },
+  {
+   "name": "jsonschema",
+   "x": -0.4731566302724791,
+   "y": -1.7048037557856333
+  },
+  {
+   "name": "rich",
+   "x": -7.209743382204621,
+   "y": -3.0402024359590465
+  },
+  {
+   "name": "markdown-it-py",
+   "x": -5.201166253469761,
+   "y": 1.1739714502532699
+  },
+  {
+   "name": "propcache",
+   "x": 0.5554182403568383,
+   "y": 0.8286296021594224
+  },
+  {
+   "name": "s3fs",
+   "x": 1.1749404853931824,
+   "y": 0.9697933809467971
+  },
+  {
+   "name": "fastapi",
+   "x": -4.462204301833132,
+   "y": 2.5328452412592406
+  },
+  {
+   "name": "referencing",
+   "x": 0.7436547460936348,
+   "y": 0.9334309577653043
+  },
+  {
+   "name": "tomlkit",
+   "x": 0.1435922153613556,
+   "y": -0.3506475905469066
+  },
+  {
+   "name": "frozenlist",
+   "x": 1.806590518171737,
+   "y": 0.9186947697308228
+  },
+  {
+   "name": "jsonschema-specifications",
+   "x": 1.4097964234319955,
+   "y": 1.493206054693111
+  },
+  {
+   "name": "pyasn1",
+   "x": 1.4973312291308294,
+   "y": 0.14607753852460398
+  },
+  {
+   "name": "wheel",
+   "x": -1.8113356499456055,
+   "y": 0.08936469495571907
+  },
+  {
+   "name": "websockets",
+   "x": 1.6180722211357672,
+   "y": 0.05008532405266909
+  },
+  {
+   "name": "aiohappyeyeballs",
+   "x": 0.774109542368108,
+   "y": 3.039703460782865
+  },
+  {
+   "name": "aiosignal",
+   "x": 2.0714448620790793,
+   "y": 0.4756946311946061
+  },
+  {
+   "name": "google-auth",
+   "x": 2.4619760007507523,
+   "y": -1.8539190306232565
+  },
+  {
+   "name": "pillow",
+   "x": -0.6402335179593213,
+   "y": 1.281334951266917
+  },
+  {
+   "name": "googleapis-common-protos",
+   "x": 3.10016216440372,
+   "y": 0.3828081471081993
+  },
+  {
+   "name": "pytz",
+   "x": -0.2746508493925763,
+   "y": -3.3916294442294492
+  },
+  {
+   "name": "sniffio",
+   "x": -2.354745617637688,
+   "y": 1.887907156504051
+  },
+  {
+   "name": "importlib-metadata",
+   "x": -0.8975372983391174,
+   "y": -2.8671594698017713
+  },
+  {
+   "name": "trove-classifiers",
+   "x": -0.1463051582997378,
+   "y": 2.320567271463491
+  },
+  {
+   "name": "zipp",
+   "x": 1.0194014845146313,
+   "y": 1.0040778961360763
+  },
+  {
+   "name": "opentelemetry-semantic-conventions",
+   "x": 2.828214903225821,
+   "y": 1.1866823527083206
+  },
+  {
+   "name": "annotated-doc",
+   "x": -1.0730078947961479,
+   "y": -0.08545413829919433
+  },
+  {
+   "name": "virtualenv",
+   "x": -1.4678726061660443,
+   "y": 0.34799138246685457
+  },
+  {
+   "name": "hatchling",
+   "x": -0.05031572612922809,
+   "y": 2.1093313477070046
+  },
+  {
+   "name": "pydantic-settings",
+   "x": 0.7572746628973247,
+   "y": 0.09125817288037333
+  },
+  {
+   "name": "tzdata",
+   "x": 1.1318214688041768,
+   "y": -1.373667653222881
+  },
+  {
+   "name": "wrapt",
+   "x": 0.712563827621374,
+   "y": 0.16111926891934852
+  },
+  {
+   "name": "ghapi",
+   "x": 1.9024641685624153,
+   "y": -2.0326284709660136
+  },
+  {
+   "name": "greenlet",
+   "x": 0.10493879567755758,
+   "y": 1.1292382263957033
+  },
+  {
+   "name": "huggingface-hub",
+   "x": 0.45294917903005477,
+   "y": -1.8084102041288619
+  },
+  {
+   "name": "pyasn1-modules",
+   "x": 2.5962050193863364,
+   "y": 0.3686853337622666
+  },
+  {
+   "name": "tenacity",
+   "x": -1.2266390385196853,
+   "y": -2.7320849543635553
+  },
+  {
+   "name": "google-api-core",
+   "x": 3.6019535326176246,
+   "y": -0.4768659365963855
+  },
+  {
+   "name": "regex",
+   "x": -1.1222947646647135,
+   "y": 0.9397441076134134
+  },
+  {
+   "name": "pyarrow",
+   "x": 1.5538038271353352,
+   "y": -0.47174857681249494
+  },
+  {
+   "name": "python-multipart",
+   "x": 1.1474136485067383,
+   "y": -1.0567353062369536
+  },
+  {
+   "name": "textual",
+   "x": -2.543394207507612,
+   "y": 0.08724390855293458
+  },
+  {
+   "name": "openai",
+   "x": -0.3277753455799933,
+   "y": -1.686158091082212
+  },
+  {
+   "name": "grpcio",
+   "x": 0.8039231574416119,
+   "y": 2.2130685559402985
+  },
+  {
+   "name": "soupsieve",
+   "x": 0.030381096780916425,
+   "y": 0.7386047765277428
+  },
+  {
+   "name": "jiter",
+   "x": -0.2763370451409365,
+   "y": -0.16186538621479352
+  },
+  {
+   "name": "pyparsing",
+   "x": 0.2507387966305663,
+   "y": -1.286533337765403
+  },
+  {
+   "name": "SQLAlchemy",
+   "x": 1.0395089477510995,
+   "y": -1.0744801377403017
+  },
+  {
+   "name": "distro",
+   "x": 0.851912435086384,
+   "y": -0.9649837914150462
+  },
+  {
+   "name": "scipy",
+   "x": -0.4065397704892532,
+   "y": -1.910395572133478
+  },
+  {
+   "name": "colorama",
+   "x": -2.299863239776596,
+   "y": -3.299908296562149
+  },
+  {
+   "name": "lxml",
+   "x": -2.346874169366794,
+   "y": 0.9454313807584223
+  },
+  {
+   "name": "watchfiles",
+   "x": -3.0581494816578134,
+   "y": -0.13376004835463878
+  },
+  {
+   "name": "opentelemetry-proto",
+   "x": 3.151898853950744,
+   "y": 2.041676318217714
+  },
+  {
+   "name": "psutil",
+   "x": -0.02774734382957479,
+   "y": -2.148079502420086
+  },
+  {
+   "name": "shellingham",
+   "x": -1.6669371494700345,
+   "y": -0.6679034483238696
+  },
+  {
+   "name": "opentelemetry-instrumentation",
+   "x": 1.3559625288519723,
+   "y": 1.542981020405658
+  },
+  {
+   "name": "typer",
+   "x": -4.84849360546659,
+   "y": 0.550666215853727
+  },
+  {
+   "name": "requests-oauthlib",
+   "x": 2.846244034801161,
+   "y": 0.49541543188711057
+  },
+  {
+   "name": "opentelemetry-exporter-otlp-proto-http",
+   "x": 3.3641199741867482,
+   "y": 1.7435550585342465
+  },
+  {
+   "name": "proto-plus",
+   "x": -0.8967399596819268,
+   "y": 2.9016304413761236
+  },
+  {
+   "name": "openpyxl",
+   "x": -0.40531381286441037,
+   "y": -2.9551703720391793
+  },
+  {
+   "name": "et-xmlfile",
+   "x": 1.278175523474208,
+   "y": 1.9931275648685178
+  },
+  {
+   "name": "mcp",
+   "x": 2.2961726456868243,
+   "y": 1.9151748857454172
+  },
+  {
+   "name": "ruff",
+   "x": -6.450404550123634,
+   "y": 1.178009125609454
+  },
+  {
+   "name": "opentelemetry-exporter-otlp-proto-common",
+   "x": 2.889589037884691,
+   "y": 1.1400248715926151
+  },
+  {
+   "name": "coverage",
+   "x": -1.145962718181054,
+   "y": -1.2620751020619945
+  },
+  {
+   "name": "exceptiongroup",
+   "x": 1.2627250470696119,
+   "y": 1.7214034588866536
+  },
+  {
+   "name": "sglang",
+   "x": -3.9663571740179666,
+   "y": 1.729355571206119
+  },
+  {
+   "name": "oauthlib",
+   "x": 0.6643426765623753,
+   "y": 0.045476553716838244
+  },
+  {
+   "name": "mypy-extensions",
+   "x": 1.7896143655125134,
+   "y": 1.480053551207318
+  },
+  {
+   "name": "more-itertools",
+   "x": 0.4744549033414361,
+   "y": 0.9275485054083714
+  },
+  {
+   "name": "wcwidth",
+   "x": -1.409329448806289,
+   "y": -3.2728491804187763
+  },
+  {
+   "name": "cachetools",
+   "x": 1.1850201628766155,
+   "y": 0.21001486512899248
+  },
+  {
+   "name": "hf-xet",
+   "x": -1.1565337959180024,
+   "y": -0.7976159653151663
+  },
+  {
+   "name": "multiprocess",
+   "x": -1.35994518155521,
+   "y": 1.2347758558919348
+  },
+  {
+   "name": "pytest-asyncio",
+   "x": 1.2671619887595367,
+   "y": 1.2316698115801088
+  },
+  {
+   "name": "python-discovery",
+   "x": 0.8401287750076555,
+   "y": -0.30759383905538884
+  },
+  {
+   "name": "docstring-parser",
+   "x": -0.8693793169375943,
+   "y": -1.4533148915789607
+  },
+  {
+   "name": "sortedcontainers",
+   "x": 0.4994595512094841,
+   "y": -1.1241858551948951
+  },
+  {
+   "name": "requests-toolbelt",
+   "x": -0.6651345895323822,
+   "y": 3.1228566939979165
+  },
+  {
+   "name": "pyOpenSSL",
+   "x": 2.50499409133476,
+   "y": -0.5089098775314908
+  },
+  {
+   "name": "psycopg2-binary",
+   "x": 2.578375335652097,
+   "y": -1.3798538178710944
+  },
+  {
+   "name": "rsa",
+   "x": 1.2757870801109519,
+   "y": -0.43414330095613557
+  },
+  {
+   "name": "uvloop",
+   "x": 0.6133051738718522,
+   "y": 3.879312709982643
+  },
+  {
+   "name": "opentelemetry-exporter-otlp-proto-grpc",
+   "x": 3.2771044108579304,
+   "y": 1.8803499709121083
+  },
+  {
+   "name": "tiktoken",
+   "x": -0.3391506235642078,
+   "y": -0.17614053034376279
+  },
+  {
+   "name": "httptools",
+   "x": 1.649327654461334,
+   "y": -0.48951126539483
+  },
+  {
+   "name": "networkx",
+   "x": -2.050869756126394,
+   "y": -3.47254814793301
+  },
+  {
+   "name": "Werkzeug",
+   "x": -1.670637939473576,
+   "y": 2.135567458722613
+  },
+  {
+   "name": "redis",
+   "x": 2.2297905275509518,
+   "y": -1.3769932614259066
+  },
+  {
+   "name": "GitPython",
+   "x": -0.6838966992365617,
+   "y": -2.805133577098786
+  },
+  {
+   "name": "fonttools",
+   "x": -1.283221531009053,
+   "y": -3.922828163293654
+  },
+  {
+   "name": "langchain",
+   "x": -1.7359374330765773,
+   "y": 2.145326530926659
+  },
+  {
+   "name": "prompt_toolkit",
+   "x": -4.293305894681652,
+   "y": -1.9531317007468156
+  },
+  {
+   "name": "defusedxml",
+   "x": -0.2176295739057227,
+   "y": 0.769301680325809
+  },
+  {
+   "name": "grpcio-tools",
+   "x": 0.5286155897512681,
+   "y": 1.8299540838384132
+  },
+  {
+   "name": "scikit-learn",
+   "x": -0.9343509386762484,
+   "y": -1.952341237592322
+  },
+  {
+   "name": "smmap",
+   "x": 0.8232451882497477,
+   "y": 0.9293562991981172
+  },
+  {
+   "name": "pytest-cov",
+   "x": 0.5379424773454021,
+   "y": 0.028762109267516867
+  },
+  {
+   "name": "google-cloud-storage",
+   "x": 3.1197998647161986,
+   "y": -1.4886364307069888
+  },
+  {
+   "name": "orjson",
+   "x": -2.3080052591184215,
+   "y": -0.9152712369635614
+  },
+  {
+   "name": "email-validator",
+   "x": -1.5643540338421158,
+   "y": -2.7315036766968714
+  },
+  {
+   "name": "PyNaCl",
+   "x": 2.645204531641259,
+   "y": 0.002294290996988012
+  },
+  {
+   "name": "httpx-sse",
+   "x": 0.8978491912863553,
+   "y": -0.005062330998457194
+  },
+  {
+   "name": "isodate",
+   "x": -0.9637352108421552,
+   "y": -3.2098831911056966
+  },
+  {
+   "name": "chardet",
+   "x": -1.4792948592475015,
+   "y": -2.259591931612166
+  },
+  {
+   "name": "azure-core",
+   "x": 3.2824001778789578,
+   "y": -0.5685599066189837
+  },
+  {
+   "name": "tzlocal",
+   "x": 2.0293351661087,
+   "y": -0.2243839213347575
+  },
+  {
+   "name": "alembic",
+   "x": 0.07753433971003158,
+   "y": 0.398870866933443
+  },
+  {
+   "name": "itsdangerous",
+   "x": -1.5329979798585454,
+   "y": -1.5133217962132985
+  },
+  {
+   "name": "websocket-client",
+   "x": 1.7251442150455727,
+   "y": -0.2869421372479521
+  },
+  {
+   "name": "nodeenv",
+   "x": -1.312068640357441,
+   "y": 2.0437921451019316
+  },
+  {
+   "name": "joblib",
+   "x": -0.7536627908958636,
+   "y": 1.3962029011340171
+  },
+  {
+   "name": "tabulate",
+   "x": -4.042549879937752,
+   "y": -4.887346101744582
+  },
+  {
+   "name": "Mako",
+   "x": -5.660931242684524,
+   "y": 1.7728693435989809
+  },
+  {
+   "name": "opentelemetry-instrumentation-requests",
+   "x": 2.5113847863747214,
+   "y": 1.846287389702553
+  },
+  {
+   "name": "ruamel.yaml",
+   "x": -2.398311143576129,
+   "y": -1.4622799636313284
+  },
+  {
+   "name": "h2",
+   "x": 1.5127168226164245,
+   "y": 0.4374717832100498
+  },
+  {
+   "name": "azure-identity",
+   "x": 2.649331095746697,
+   "y": -1.3428964585589702
+  },
+  {
+   "name": "keyring",
+   "x": -7.351816814042173,
+   "y": -8.004637096480232
+  },
+  {
+   "name": "google-cloud-core",
+   "x": 3.561765786079558,
+   "y": -0.38199492309210825
+  },
+  {
+   "name": "mypy",
+   "x": -0.4512873229681283,
+   "y": 0.3938153218526914
+  },
+  {
+   "name": "kiwisolver",
+   "x": -0.7103702626703969,
+   "y": 1.3002587933878818
+  },
+  {
+   "name": "bcrypt",
+   "x": -0.9762550611153665,
+   "y": -1.9361921957825028
+  },
+  {
+   "name": "hpack",
+   "x": 1.8241114086961945,
+   "y": 0.1204849339830021
+  },
+  {
+   "name": "pytest-json-ctrf",
+   "x": 0.278198084983347,
+   "y": 0.1382834095797556
+  },
+  {
+   "name": "Flask",
+   "x": -3.5931580645214587,
+   "y": 0.38072336920589905
+  },
+  {
+   "name": "opentelemetry-util-http",
+   "x": 2.3528175064411827,
+   "y": 1.6118787327269886
+  },
+  {
+   "name": "contourpy",
+   "x": -0.010060148122334809,
+   "y": -1.565693406783536
+  },
+  {
+   "name": "jaraco.classes",
+   "x": 1.1589518987302156,
+   "y": -1.202514108168166
+  },
+  {
+   "name": "docutils",
+   "x": -0.8905460218443534,
+   "y": -2.7215489940562847
+  },
+  {
+   "name": "truststore",
+   "x": -0.4728851214972453,
+   "y": -2.195450813907041
+  },
+  {
+   "name": "hyperframe",
+   "x": 2.296725245420925,
+   "y": 0.9310741957027935
+  },
+  {
+   "name": "jeepney",
+   "x": 2.333540087038272,
+   "y": 1.0928285838617298
+  },
+  {
+   "name": "jaraco.functools",
+   "x": 1.146027115204623,
+   "y": 1.5517134991773263
+  },
+  {
+   "name": "zstandard",
+   "x": 1.4099703767127933,
+   "y": -0.9968518550490146
+  },
+  {
+   "name": "anthropic",
+   "x": -0.11594698119404413,
+   "y": -1.64538668615452
+  },
+  {
+   "name": "pre-commit",
+   "x": -2.3690061746565467,
+   "y": -0.049618320000141894
+  },
+  {
+   "name": "SecretStorage",
+   "x": 2.8029063243559156,
+   "y": -0.375730633431256
+  },
+  {
+   "name": "identify",
+   "x": 0.24675404910457185,
+   "y": -2.748990699488734
+  },
+  {
+   "name": "cfgv",
+   "x": -2.895044918808015,
+   "y": -3.8313561651548924
+  },
+  {
+   "name": "toml",
+   "x": -0.7157484308176559,
+   "y": 1.320425526584519
+  },
+  {
+   "name": "docker",
+   "x": 2.3564665045366193,
+   "y": -0.9759724021300983
+  },
+  {
+   "name": "xxhash",
+   "x": 1.5560955264251235,
+   "y": -0.694319193591702
+  },
+  {
+   "name": "jaraco.context",
+   "x": 1.0117561252759848,
+   "y": -0.6228900106952431
+  },
+  {
+   "name": "blinker",
+   "x": -1.1471483791603974,
+   "y": 1.797148160394524
+  },
+  {
+   "name": "uv",
+   "x": -6.252394790213493,
+   "y": 3.334848439754103
+  },
+  {
+   "name": "google-resumable-media",
+   "x": 1.8793993047708222,
+   "y": -1.9921956708673128
+  },
+  {
+   "name": "httpx2",
+   "x": -1.4956673250825143,
+   "y": 2.578598661781159
+  },
+  {
+   "name": "ptyprocess",
+   "x": -0.4814143454915951,
+   "y": -0.8208483962047302
+  },
+  {
+   "name": "google-crc32c",
+   "x": 1.6835675487418,
+   "y": -0.6262192539264466
+  },
+  {
+   "name": "sympy",
+   "x": -1.8513471344072823,
+   "y": 0.04573337943380791
+  },
+  {
+   "name": "transformers",
+   "x": -6.383966592240646,
+   "y": 2.1657575745483086
+  },
+  {
+   "name": "httpcore2",
+   "x": 2.129592727409456,
+   "y": 0.4438934872861946
+  },
+  {
+   "name": "pexpect",
+   "x": -2.2169755732434036,
+   "y": -1.9734953884650905
+  },
+  {
+   "name": "google-cloud-bigquery",
+   "x": 3.2874016448112484,
+   "y": -1.023197367765026
+  },
+  {
+   "name": "google-api-python-client",
+   "x": 2.280865997777318,
+   "y": -1.7071611014155001
+  },
+  {
+   "name": "uritemplate",
+   "x": 0.8703599320942531,
+   "y": -0.3668904178201986
+  },
+  {
+   "name": "black",
+   "x": -7.200180730383527,
+   "y": 1.0964012348360361
+  },
+  {
+   "name": "prometheus-client",
+   "x": 2.4910832324216936,
+   "y": -1.2832584004850915
+  },
+  {
+   "name": "jsonpointer",
+   "x": -0.3708056962327789,
+   "y": -0.8629976592886438
+  },
+  {
+   "name": "google-auth-httplib2",
+   "x": 4.204068780944117,
+   "y": 0.8307166302707203
+  },
+  {
+   "name": "sentry-sdk",
+   "x": 2.332399587930965,
+   "y": -1.251990421916141
+  },
+  {
+   "name": "langchain-core",
+   "x": -1.696623800944052,
+   "y": 2.2026776592483843
+  },
+  {
+   "name": "opentelemetry-instrumentation-threading",
+   "x": 2.716961434617858,
+   "y": 1.0733028520644157
+  },
+  {
+   "name": "Deprecated",
+   "x": 0.21151161627916137,
+   "y": -1.049881110115239
+  },
+  {
+   "name": "backoff",
+   "x": 0.9224313214444927,
+   "y": -0.5821121113062795
+  },
+  {
+   "name": "snowflake-connector-python",
+   "x": 2.398598880309936,
+   "y": -1.191269471208263
+  },
+  {
+   "name": "async-timeout",
+   "x": 1.4249358140637827,
+   "y": -0.22116862328118891
+  },
+  {
+   "name": "google-auth-oauthlib",
+   "x": 2.5046784072357173,
+   "y": -1.684163524520409
+  },
+  {
+   "name": "RapidFuzz",
+   "x": -1.873885476603775,
+   "y": -1.144063084097153
+  },
+  {
+   "name": "mpmath",
+   "x": 0.09018838191126542,
+   "y": -1.4333329691863355
+  },
+  {
+   "name": "asn1crypto",
+   "x": -1.1937512702379112,
+   "y": 0.35885072196167345
+  },
+  {
+   "name": "httplib2",
+   "x": -0.8532433083047113,
+   "y": -1.0158205520260026
+  },
+  {
+   "name": "opentelemetry-exporter-otlp",
+   "x": 2.694801091195796,
+   "y": 1.762458646790953
+  },
+  {
+   "name": "ipython",
+   "x": -4.311290193331693,
+   "y": -0.08371140316453086
+  },
+  {
+   "name": "awscli",
+   "x": -3.961989129735968,
+   "y": 0.9191237179884231
+  },
+  {
+   "name": "pytest-xdist",
+   "x": -0.825140029376415,
+   "y": 1.897446967804686
+  },
+  {
+   "name": "narwhals",
+   "x": -1.3412068954522238,
+   "y": 3.0191814882748793
+  },
+  {
+   "name": "aiofiles",
+   "x": 1.3578596015461217,
+   "y": 0.8627363798141762
+  },
+  {
+   "name": "types-requests",
+   "x": 2.6955085703816066,
+   "y": 0.6217015695377373
+  },
+  {
+   "name": "poetry-core",
+   "x": 1.277386251976477,
+   "y": 2.7591959824723333
+  },
+  {
+   "name": "datasets",
+   "x": -0.8224740245721334,
+   "y": -0.9083818091530058
+  },
+  {
+   "name": "pypdf",
+   "x": -3.004695347384862,
+   "y": -3.7536810908430907
+  },
+  {
+   "name": "execnet",
+   "x": -1.150426287567337,
+   "y": 2.253834997170803
+  },
+  {
+   "name": "traitlets",
+   "x": 0.7805015791170429,
+   "y": -0.6977447226334539
+  },
+  {
+   "name": "cloudpickle",
+   "x": 2.01513471809377,
+   "y": 0.9532996750901851
+  },
+  {
+   "name": "asgiref",
+   "x": 2.142360719133069,
+   "y": 1.7445777787716772
+  },
+  {
+   "name": "jsonpatch",
+   "x": -0.04706273302846693,
+   "y": -0.6659342095014226
+  },
+  {
+   "name": "sqlparse",
+   "x": 0.8277263569838653,
+   "y": 0.8373852410492151
+  },
+  {
+   "name": "google-cloud-secret-manager",
+   "x": 3.822138762777509,
+   "y": -0.9928589113438391
+  },
+  {
+   "name": "pyproject-hooks",
+   "x": 1.3053074620895606,
+   "y": 2.360659804128187
+  },
+  {
+   "name": "webencodings",
+   "x": 0.6635894380413053,
+   "y": -1.4012427810245267
+  },
+  {
+   "name": "fastjsonschema",
+   "x": -3.621374097209166,
+   "y": 2.639088334098773
+  },
+  {
+   "name": "Authlib",
+   "x": -4.9493053055822855,
+   "y": 3.5089266275563076
+  },
+  {
+   "name": "psycopg",
+   "x": 2.1612879400733522,
+   "y": -1.8042395407410305
+  },
+  {
+   "name": "build",
+   "x": -1.5008780505925499,
+   "y": 2.008327138676696
+  },
+  {
+   "name": "gunicorn",
+   "x": 0.5465949849039143,
+   "y": 1.3208273837893763
+  },
+  {
+   "name": "executing",
+   "x": 0.3039101686938167,
+   "y": 0.3887196489181183
+  },
+  {
+   "name": "databricks-sdk",
+   "x": 1.8886525661483873,
+   "y": 2.4497254638352963
+  },
+  {
+   "name": "isort",
+   "x": -1.6976695879322827,
+   "y": -2.6086618826216488
+  },
+  {
+   "name": "joserfc",
+   "x": -4.6787869352320515,
+   "y": 2.35754905474778
+  },
+  {
+   "name": "azure-storage-blob",
+   "x": 2.6578302257457587,
+   "y": -1.580062249644863
+  },
+  {
+   "name": "jedi",
+   "x": -2.990226099796797,
+   "y": -2.768369611033246
+  },
+  {
+   "name": "babel",
+   "x": 0.29769001527372946,
+   "y": -1.5589017825758693
+  },
+  {
+   "name": "asttokens",
+   "x": 0.8908716256499951,
+   "y": -0.050972627679472346
+  },
+  {
+   "name": "psycopg-binary",
+   "x": 1.4499742451632653,
+   "y": 0.9143218036326263
+  },
+  {
+   "name": "google-cloud-aiplatform",
+   "x": 3.345856997676514,
+   "y": -0.301151177129659
+  },
+  {
+   "name": "matplotlib-inline",
+   "x": 0.501848221992138,
+   "y": 1.542654018430845
+  },
+  {
+   "name": "Cython",
+   "x": -1.270434068224986,
+   "y": 0.2390114234144941
+  },
+  {
+   "name": "tornado",
+   "x": -2.9676910959687004,
+   "y": 0.1754632287727672
+  },
+  {
+   "name": "Markdown",
+   "x": -1.9434381885192797,
+   "y": -2.2712716932012165
+  },
+  {
+   "name": "setuptools-scm",
+   "x": -4.4708521062328375,
+   "y": 4.321923535950071
+  },
+  {
+   "name": "xmltodict",
+   "x": -4.2791280334814745,
+   "y": 1.453277626643264
+  },
+  {
+   "name": "pydantic-ai-slim",
+   "x": -1.4979015964722686,
+   "y": 4.920678169464052
+  },
+  {
+   "name": "stack-data",
+   "x": -1.287561375755018,
+   "y": -1.5142521368904966
+  },
+  {
+   "name": "pure-eval",
+   "x": 0.1661518233798893,
+   "y": -0.4008889916968206
+  },
+  {
+   "name": "asyncpg",
+   "x": 2.9299786386173743,
+   "y": -0.025856800148740974
+  },
+  {
+   "name": "gcsfs",
+   "x": 1.8310338335324563,
+   "y": 1.411515352250587
+  },
+  {
+   "name": "google-cloud-batch",
+   "x": 3.410758570130583,
+   "y": -0.5513367445280674
+  },
+  {
+   "name": "marshmallow",
+   "x": -0.6331947699587804,
+   "y": -1.2674956511558724
+  },
+  {
+   "name": "CacheControl",
+   "x": 2.2503685489673773,
+   "y": 1.102406948865932
+  },
+  {
+   "name": "langsmith",
+   "x": 2.0763834682513673,
+   "y": -1.2318279505295877
+  },
+  {
+   "name": "python-json-logger",
+   "x": 0.7367009728882715,
+   "y": -1.5580956208670977
+  },
+  {
+   "name": "vcs-versioning",
+   "x": -3.5664471724201006,
+   "y": 4.512713061716118
+  },
+  {
+   "name": "fastuuid",
+   "x": 1.485761788759039,
+   "y": -0.7455380450912624
+  },
+  {
+   "name": "python-docx",
+   "x": -3.0435753289255345,
+   "y": -5.063972487755037
+  },
+  {
+   "name": "structlog",
+   "x": -0.5630139000786183,
+   "y": -1.860309164672774
+  },
+  {
+   "name": "watchdog",
+   "x": 0.4857554301341532,
+   "y": -1.6483190987571092
+  },
+  {
+   "name": "playwright",
+   "x": -3.26579786498865,
+   "y": -1.108503746293678
+  },
+  {
+   "name": "google-cloud-kms",
+   "x": 4.086652218739871,
+   "y": -0.43818687450715144
+  },
+  {
+   "name": "termcolor",
+   "x": -1.6601090939529857,
+   "y": -2.92503936356488
+  },
+  {
+   "name": "google-analytics-admin",
+   "x": 3.501608363164542,
+   "y": -0.9622713577130556
+  },
+  {
+   "name": "google-cloud-compute",
+   "x": 3.308499905964088,
+   "y": -1.0243914800679088
+  },
+  {
+   "name": "pytokens",
+   "x": -1.018327166155187,
+   "y": 1.0581936323106096
+  },
+  {
+   "name": "aioitertools",
+   "x": 1.3588397277482438,
+   "y": 1.8795438495021612
+  },
+  {
+   "name": "brotli",
+   "x": 1.2158840226554928,
+   "y": -2.1237197120751334
+  },
+  {
+   "name": "pymupdf",
+   "x": -4.417242925208492,
+   "y": -2.299292868370261
+  },
+  {
+   "name": "pyee",
+   "x": 0.23626798425470114,
+   "y": 3.3442976880365465
+  },
+  {
+   "name": "xlsxwriter",
+   "x": -1.2836194480581908,
+   "y": -4.194691948976698
+  },
+  {
+   "name": "pymongo",
+   "x": 1.4067007454260325,
+   "y": -0.34571232029700055
+  },
+  {
+   "name": "mdit-py-plugins",
+   "x": 1.359599412723787,
+   "y": -0.16447503000061692
+  },
+  {
+   "name": "google-cloud-pubsub",
+   "x": 3.4159135691521083,
+   "y": -0.8481246425003158
+  },
+  {
+   "name": "pydantic-graph",
+   "x": 0.7801532261785263,
+   "y": -0.5143765804918812
+  },
+  {
+   "name": "cbor2",
+   "x": 0.5840313384872443,
+   "y": 0.39975037513608513
+  },
+  {
+   "name": "pytest-mock",
+   "x": 1.0437601743913292,
+   "y": 3.4055582677434537
+  },
+  {
+   "name": "pytest-timeout",
+   "x": 0.03879654189250002,
+   "y": 0.731223898879733
+  },
+  {
+   "name": "py4j",
+   "x": -0.6084590312777399,
+   "y": -0.27772932390638383
+  },
+  {
+   "name": "linkify-it-py",
+   "x": -2.996574710786624,
+   "y": -0.9506975745449685
+  },
+  {
+   "name": "flatbuffers",
+   "x": 1.4906679340752689,
+   "y": 0.09237915477997251
+  },
+  {
+   "name": "google-cloud-dlp",
+   "x": 3.4778706831635025,
+   "y": -0.6405930115565863
+  },
+  {
+   "name": "pyperclip",
+   "x": -0.44503832066356397,
+   "y": -1.4420524821518894
+  },
+  {
+   "name": "nest-asyncio",
+   "x": 0.5418199922349767,
+   "y": 2.061087828377801
+  },
+  {
+   "name": "google-cloud-speech",
+   "x": 2.623197307777758,
+   "y": -1.392119817684369
+  },
+  {
+   "name": "dbt-adapters",
+   "x": 1.8478174312426296,
+   "y": 1.6730269584024575
+  },
+  {
+   "name": "wsproto",
+   "x": 1.3800974817750151,
+   "y": -0.5301379611731729
+  },
+  {
+   "name": "debugpy",
+   "x": 1.0760950777610543,
+   "y": 0.5234619728246176
+  },
+  {
+   "name": "typedload",
+   "x": -1.7165073290232256,
+   "y": -1.826433742166812
+  },
+  {
+   "name": "google-cloud-texttospeech",
+   "x": 2.4958705685263407,
+   "y": -1.7260378605434552
+  },
+  {
+   "name": "ruamel.yaml.clib",
+   "x": 0.21824685632303312,
+   "y": 1.183176404381298
+  },
+  {
+   "name": "croniter",
+   "x": -0.12530462530760225,
+   "y": -1.34621557983714
+  },
+  {
+   "name": "slack-sdk",
+   "x": 1.602431045402551,
+   "y": -0.9572017871803065
+  },
+  {
+   "name": "uc-micro-py",
+   "x": 2.0180440634993237,
+   "y": 1.4143463894608657
+  },
+  {
+   "name": "weaviate-client",
+   "x": 2.6548940937194656,
+   "y": 0.5645386082092222
+  },
+  {
+   "name": "griffelib",
+   "x": -4.856800590298876,
+   "y": 2.0951629245657473
+  },
+  {
+   "name": "importlib-resources",
+   "x": -0.16879977358469372,
+   "y": -2.0899494052902106
+  },
+  {
+   "name": "pycryptodome",
+   "x": 0.3498549524635637,
+   "y": -2.8584026630917747
+  },
+  {
+   "name": "google-cloud-logging",
+   "x": 3.199573103761179,
+   "y": -1.2187211546237637
+  },
+  {
+   "name": "opentelemetry-instrumentation-fastapi",
+   "x": 3.0595083997290624,
+   "y": 1.6966386426452806
+  },
+  {
+   "name": "torch",
+   "x": -3.174880317765184,
+   "y": 3.061369176782167
+  },
+  {
+   "name": "fastmcp",
+   "x": -2.5262486798966473,
+   "y": 3.9199102231636616
+  },
+  {
+   "name": "mccabe",
+   "x": 0.6771611255447822,
+   "y": 1.1011218011299144
+  },
+  {
+   "name": "tree-sitter",
+   "x": 1.921234644584143,
+   "y": -0.5749352643086765
+  },
+  {
+   "name": "jupyter-core",
+   "x": 0.7826549442515615,
+   "y": -0.707686821121084
+  },
+  {
+   "name": "deprecation",
+   "x": -0.1764707294773244,
+   "y": -1.2553137364898495
+  },
+  {
+   "name": "beartype",
+   "x": -4.61421844306942,
+   "y": 5.552807673832086
+  },
+  {
+   "name": "opentelemetry-instrumentation-asgi",
+   "x": 3.0752919848137172,
+   "y": 1.6460406392311453
+  },
+  {
+   "name": "cyclopts",
+   "x": -2.871750937251098,
+   "y": 1.1231872447105584
+  },
+  {
+   "name": "text-unidecode",
+   "x": -1.9476005653786386,
+   "y": 3.176435453736999
+  },
+  {
+   "name": "semver",
+   "x": 0.0942374853590665,
+   "y": -1.8015752944198866
+  },
+  {
+   "name": "loguru",
+   "x": -4.7358384934963444,
+   "y": 1.2738874463632244
+  },
+  {
+   "name": "ast-serialize",
+   "x": 1.9929225367310008,
+   "y": 1.1508865142754792
+  },
+  {
+   "name": "grpclib",
+   "x": 1.558916083672654,
+   "y": 2.285235660108497
+  },
+  {
+   "name": "nbformat",
+   "x": -1.2434023373481995,
+   "y": -0.2589082731390387
+  },
+  {
+   "name": "uuid-utils",
+   "x": -1.8973534946124628,
+   "y": 1.9744135171312205
+  },
+  {
+   "name": "jsonschema-path",
+   "x": 0.8216471512498801,
+   "y": 1.8614226790926414
+  },
+  {
+   "name": "sqlglot",
+   "x": -0.20633203224603255,
+   "y": 0.40921781622371545
+  },
+  {
+   "name": "typing-inspect",
+   "x": 1.3226107387797765,
+   "y": -0.23784665167916533
+  },
+  {
+   "name": "python-slugify",
+   "x": -1.2723200192810156,
+   "y": -1.892336217597762
+  },
+  {
+   "name": "onnxruntime",
+   "x": -1.4210489688055579,
+   "y": 0.3301222153698836
+  },
+  {
+   "name": "xlrd",
+   "x": 0.187771175411618,
+   "y": -2.9055440449184666
+  },
+  {
+   "name": "aiosqlite",
+   "x": 1.2733552181745362,
+   "y": 1.7893115699133728
+  },
+  {
+   "name": "jsonref",
+   "x": -0.6820853865602775,
+   "y": -1.4293666522690522
+  },
+  {
+   "name": "dbt-core",
+   "x": -5.400354904059387,
+   "y": 2.410939129202469
+  },
+  {
+   "name": "opentelemetry-exporter-prometheus",
+   "x": 2.3984110215222945,
+   "y": 0.9292003628719673
+  },
+  {
+   "name": "jupyter-client",
+   "x": 1.7897322250711665,
+   "y": 0.42900845189513187
+  },
+  {
+   "name": "google-cloud-monitoring",
+   "x": 3.3738458290550746,
+   "y": -1.1333188812981727
+  },
+  {
+   "name": "fastmcp-slim",
+   "x": -0.8729480801777793,
+   "y": 3.6269944634658358
+  },
+  {
+   "name": "modal",
+   "x": 2.455151721524104,
+   "y": -0.19239640740284586
+  },
+  {
+   "name": "synchronicity",
+   "x": 0.29552850245952644,
+   "y": 1.4369961057010554
+  },
+  {
+   "name": "graphql-core",
+   "x": -0.9763983860894981,
+   "y": 1.4088426578059288
+  },
+  {
+   "name": "pycodestyle",
+   "x": -2.799316453553429,
+   "y": -1.9422081075032793
+  },
+  {
+   "name": "google-cloud-tasks",
+   "x": 3.3796843094962354,
+   "y": -1.1685595427477973
+  },
+  {
+   "name": "argcomplete",
+   "x": 0.38979271456841336,
+   "y": 0.337565154641768
+  },
+  {
+   "name": "Faker",
+   "x": -4.073283629362806,
+   "y": -4.722783823696362
+  },
+  {
+   "name": "fastapi-cli",
+   "x": -5.258949139599509,
+   "y": 2.994574076405948
+  },
+  {
+   "name": "databricks-sql-connector",
+   "x": 2.7925923975770157,
+   "y": -0.8200938382064002
+  },
+  {
+   "name": "installer",
+   "x": 0.18388970914050737,
+   "y": 0.10081827691121668
+  },
+  {
+   "name": "rfc3339-validator",
+   "x": 0.6034954848337393,
+   "y": -1.189972777039391
+  },
+  {
+   "name": "pkginfo",
+   "x": -0.11342297774786841,
+   "y": -0.39090606958965096
+  },
+  {
+   "name": "rich-rst",
+   "x": -3.098634555511852,
+   "y": 1.9549419501187695
+  },
+  {
+   "name": "shapely",
+   "x": -2.2505944148259753,
+   "y": -3.3438142216590725
+  },
+  {
+   "name": "py-key-value-aio",
+   "x": 1.5912681936773314,
+   "y": 1.2263721176258473
+  },
+  {
+   "name": "backports.zstd",
+   "x": 1.6245465576681766,
+   "y": 1.376369076063389
+  },
+  {
+   "name": "ipython-pygments-lexers",
+   "x": 0.0059249805243062744,
+   "y": -0.39486502870859896
+  },
+  {
+   "name": "numba",
+   "x": -0.04486621658374558,
+   "y": 1.9911702941149687
+  },
+  {
+   "name": "arrow",
+   "x": -2.5099884366004903,
+   "y": -1.6140058194340388
+  },
+  {
+   "name": "markdownify",
+   "x": -4.032211375201972,
+   "y": -4.867406438191665
+  },
+  {
+   "name": "deepdiff",
+   "x": -1.7345624908617736,
+   "y": 1.3043240390539632
+  },
+  {
+   "name": "dbt-common",
+   "x": 1.6442335082706312,
+   "y": 0.6405245991748162
+  },
+  {
+   "name": "smart-open",
+   "x": 0.8557819377229753,
+   "y": -0.16142586993415386
+  },
+  {
+   "name": "requests-file",
+   "x": 2.6145542437689513,
+   "y": 0.7973477719273465
+  },
+  {
+   "name": "rich-toolkit",
+   "x": -4.091287930631427,
+   "y": -1.8320243954155089
+  },
+  {
+   "name": "polars",
+   "x": -4.779251803372342,
+   "y": 3.7099636302644288
+  },
+  {
+   "name": "mistune",
+   "x": -4.112062983347289,
+   "y": -0.9264209772068268
+  },
+  {
+   "name": "argon2-cffi-bindings",
+   "x": 3.2597624026969707,
+   "y": 1.2254534811990596
+  },
+  {
+   "name": "bleach",
+   "x": -0.6625521069132903,
+   "y": -1.5970788373187983
+  },
+  {
+   "name": "durationpy",
+   "x": 0.9688452391316474,
+   "y": -1.4995490715562387
+  },
+  {
+   "name": "msrest",
+   "x": 2.3587843434402096,
+   "y": 1.150115935673973
+  },
+  {
+   "name": "mmh3",
+   "x": 0.24029261388352716,
+   "y": -0.15745361486276255
+  },
+  {
+   "name": "snowflake-snowpark-python",
+   "x": 0.36661981855061354,
+   "y": 1.6066812689727266
+  },
+  {
+   "name": "pypdfium2",
+   "x": 1.3898990342494624,
+   "y": -0.8328617606677846
+  },
+  {
+   "name": "llama-parse",
+   "x": -1.2626235208072607,
+   "y": 0.36247601117257144
+  },
+  {
+   "name": "llama-cloud-services",
+   "x": 2.118476702886642,
+   "y": 1.083441485384618
+  },
+  {
+   "name": "google-cloud-bigtable",
+   "x": 3.416994880045374,
+   "y": -0.8426955282289631
+  },
+  {
+   "name": "langchain-openai",
+   "x": 1.5070538801945252,
+   "y": 0.4990657146386506
+  },
+  {
+   "name": "poetry",
+   "x": -2.5429388692776986,
+   "y": -0.12166359288434604
+  },
+  {
+   "name": "pendulum",
+   "x": -2.4144185413817087,
+   "y": -2.310138087936578
+  },
+  {
+   "name": "typeguard",
+   "x": -1.5720971886928394,
+   "y": -0.32880872749904766
+  },
+  {
+   "name": "PyGithub",
+   "x": -0.6860289064262609,
+   "y": 0.43728876146127404
+  },
+  {
+   "name": "types-protobuf",
+   "x": 2.444278311027686,
+   "y": 1.0782600066741916
+  },
+  {
+   "name": "jsonpath-ng",
+   "x": -3.6469753307480355,
+   "y": 1.2505477801475195
+  },
+  {
+   "name": "uncalled-for",
+   "x": 0.9068996607193034,
+   "y": 0.8800484325684839
+  },
+  {
+   "name": "scramp",
+   "x": 2.412625979836542,
+   "y": 0.09473353457217552
+  },
+  {
+   "name": "llvmlite",
+   "x": 1.6272274754640534,
+   "y": 2.6687599046403805
+  },
+  {
+   "name": "Sphinx",
+   "x": -3.0323096143094626,
+   "y": -2.9128731029828216
+  },
+  {
+   "name": "grpcio-health-checking",
+   "x": 1.2448193503771625,
+   "y": 0.7365196584110184
+  },
+  {
+   "name": "fastcore",
+   "x": -4.427580308223409,
+   "y": 6.182900943014915
+  },
+  {
+   "name": "comm",
+   "x": 2.5664507190971113,
+   "y": 1.2524345881098131
+  },
+  {
+   "name": "plotly",
+   "x": -4.207255464296478,
+   "y": -3.7121648917895995
+  },
+  {
+   "name": "crashtest",
+   "x": -3.238103874440421,
+   "y": -2.044489753417683
+  },
+  {
+   "name": "ipykernel",
+   "x": 1.4975662774089964,
+   "y": 0.5845654814391483
+  },
+  {
+   "name": "langgraph",
+   "x": -3.0845178733355905,
+   "y": 2.8457938978145814
+  },
+  {
+   "name": "aiofile",
+   "x": 0.6391648012741186,
+   "y": -0.911495415961612
+  },
+  {
+   "name": "duckdb",
+   "x": 0.25317965876777415,
+   "y": 0.3593343901085517
+  },
+  {
+   "name": "cleo",
+   "x": -5.624445023397549,
+   "y": -1.1807399276201849
+  },
+  {
+   "name": "responses",
+   "x": 0.7503061178977563,
+   "y": -0.15617024409557637
+  },
+  {
+   "name": "caio",
+   "x": 0.5575118311491526,
+   "y": -0.4203454457586806
+  },
+  {
+   "name": "humanize",
+   "x": -1.2688168630027867,
+   "y": -2.874198689047206
+  },
+  {
+   "name": "psycopg2",
+   "x": 2.558100962319225,
+   "y": -1.4563087754411754
+  },
+  {
+   "name": "cfn-lint",
+   "x": -2.960437438286304,
+   "y": -0.8218972006399903
+  },
+  {
+   "name": "google-cloud-vision",
+   "x": 2.9983502800274087,
+   "y": -0.8992746455586773
+  },
+  {
+   "name": "triton",
+   "x": -0.5155586330617917,
+   "y": 2.166398580523348
+  },
+  {
+   "name": "cattrs",
+   "x": 1.185889907112133,
+   "y": 1.5122905834075484
+  },
+  {
+   "name": "dataclasses-json",
+   "x": -1.3532183052878102,
+   "y": -1.1108432758720332
+  },
+  {
+   "name": "portalocker",
+   "x": 0.9235120638996501,
+   "y": 0.2016736847663297
+  },
+  {
+   "name": "google-cloud-resource-manager",
+   "x": 3.6505178312292017,
+   "y": -0.5082006434458093
+  },
+  {
+   "name": "fastapi-cloud-cli",
+   "x": -4.679523894982013,
+   "y": 3.0553751611932554
+  },
+  {
+   "name": "datadog",
+   "x": 2.0415917751780084,
+   "y": -1.07999464800291
+  },
+  {
+   "name": "toolz",
+   "x": 0.3404674134836867,
+   "y": -1.6861448601035651
+  },
+  {
+   "name": "google-cloud-run",
+   "x": 3.3226197857994624,
+   "y": -0.8064221054899139
+  },
+  {
+   "name": "mcp-types",
+   "x": 2.568525558767592,
+   "y": 2.4941816145077147
+  },
+  {
+   "name": "poetry-plugin-export",
+   "x": -1.08033852871311,
+   "y": -0.2768590983645922
+  },
+  {
+   "name": "nbconvert",
+   "x": -3.9369311817991335,
+   "y": -3.4162007971583077
+  },
+  {
+   "name": "python-pptx",
+   "x": -3.458326110010195,
+   "y": -4.965050922862115
+  },
+  {
+   "name": "py",
+   "x": 0.1715071909502753,
+   "y": -0.10927762065982745
+  },
+  {
+   "name": "langchain-protocol",
+   "x": 2.175081146741968,
+   "y": 2.1093530716789872
+  },
+  {
+   "name": "pycryptodomex",
+   "x": 0.4165795309851401,
+   "y": -2.812595364739762
+  },
+  {
+   "name": "polars-runtime-32",
+   "x": -4.876912224160656,
+   "y": 3.7229835993164904
+  },
+  {
+   "name": "pyflakes",
+   "x": -1.5488121298530904,
+   "y": -0.30128829273476976
+  },
+  {
+   "name": "backports.tarfile",
+   "x": 1.6988444939225218,
+   "y": 1.2440474843645866
+  },
+  {
+   "name": "snowflake-sqlalchemy",
+   "x": 3.6765019044875595,
+   "y": 1.3040892040193144
+  },
+  {
+   "name": "future",
+   "x": -0.8246610133324338,
+   "y": 0.8575286960519302
+  },
+  {
+   "name": "PySocks",
+   "x": 1.9564828219453159,
+   "y": -0.9317697716842113
+  },
+  {
+   "name": "nbclient",
+   "x": -0.609962429148066,
+   "y": 0.3117407387130645
+  },
+  {
+   "name": "google-cloud-videointelligence",
+   "x": 2.8685708145051643,
+   "y": -1.094448516637924
+  },
+  {
+   "name": "google-cloud-language",
+   "x": 2.6954901798456565,
+   "y": -1.1779507824916
+  },
+  {
+   "name": "google-cloud-workflows",
+   "x": 3.471650337365687,
+   "y": -0.5673708084966085
+  },
+  {
+   "name": "colorlog",
+   "x": -2.783569513462697,
+   "y": -3.572006281089601
+  },
+  {
+   "name": "unidiff",
+   "x": 0.9542782815689991,
+   "y": -1.0633838190063574
+  },
+  {
+   "name": "sqlalchemy-bigquery",
+   "x": 3.338090060597453,
+   "y": 1.1268280715129557
+  },
+  {
+   "name": "confluent-kafka",
+   "x": 2.481579504732195,
+   "y": -0.5063181089811637
+  },
+  {
+   "name": "absl-py",
+   "x": 1.3467508422663044,
+   "y": -0.866883878709167
+  },
+  {
+   "name": "google-cloud-dataform",
+   "x": 3.5418434951800135,
+   "y": -0.4475105466234933
+  },
+  {
+   "name": "google-cloud-redis",
+   "x": 3.2942427658185167,
+   "y": -0.9937494717341898
+  },
+  {
+   "name": "openapi-pydantic",
+   "x": 1.4769004104373338,
+   "y": 1.2395385156349266
+  },
+  {
+   "name": "pbs-installer",
+   "x": -0.8687777291417483,
+   "y": 1.1884805736317985
+  },
+  {
+   "name": "libcst",
+   "x": 0.29945297863537285,
+   "y": 1.230493087985132
+  },
+  {
+   "name": "google-cloud-os-login",
+   "x": 3.8285071112927866,
+   "y": -0.6266257562783515
+  },
+  {
+   "name": "google-cloud-bigquery-datatransfer",
+   "x": 3.642470885012381,
+   "y": -0.7541397579736204
+  }
+ ]
+}

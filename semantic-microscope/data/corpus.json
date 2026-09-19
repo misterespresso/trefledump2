@@ -1,0 +1,6062 @@
+[
+ {
+  "rank": 1,
+  "name": "boto3",
+  "summary": "The AWS SDK for Python (Boto3)",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 2122
+ },
+ {
+  "rank": 2,
+  "name": "packaging",
+  "summary": "Core utilities for Python packages",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 54
+ },
+ {
+  "rank": 3,
+  "name": "typing-extensions",
+  "summary": "Backported and Experimental Type Hints for Python 3.9+",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 52
+ },
+ {
+  "rank": 4,
+  "name": "certifi",
+  "summary": "Python package for providing Mozilla's CA Bundle.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 76
+ },
+ {
+  "rank": 5,
+  "name": "idna",
+  "summary": "Internationalized Domain Names in Applications (IDNA)",
+  "topics": [
+   "Internet",
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 43
+ },
+ {
+  "rank": 6,
+  "name": "urllib3",
+  "summary": "HTTP library with thread-safe connection pooling, file post, and more.",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 109
+ },
+ {
+  "rank": 8,
+  "name": "charset-normalizer",
+  "summary": "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet.",
+  "topics": [
+   "Text Processing",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 65
+ },
+ {
+  "rank": 9,
+  "name": "setuptools",
+  "summary": "Most extensible Python build backend with support for C/C++ extension modules",
+  "topics": [
+   "Software Development",
+   "System",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 625
+ },
+ {
+  "rank": 10,
+  "name": "cryptography",
+  "summary": "cryptography is a package which provides cryptographic recipes and primitives to Python developers.",
+  "topics": [
+   "Security"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "!=3.9.0,!=3.9.1,>=3.9",
+  "n_releases": 159
+ },
+ {
+  "rank": 11,
+  "name": "cffi",
+  "summary": "Foreign Function Interface for Python calling C code.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 80
+ },
+ {
+  "rank": 12,
+  "name": "pluggy",
+  "summary": "plugin and hook calling mechanisms for python",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.9",
+  "n_releases": 24
+ },
+ {
+  "rank": 13,
+  "name": "Pygments",
+  "summary": "Pygments is a syntax highlighting package written in Python.",
+  "topics": [
+   "Text Processing",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "End Users/Desktop",
+   "System Administrators"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.9",
+  "n_releases": 69
+ },
+ {
+  "rank": 14,
+  "name": "PyYAML",
+  "summary": "YAML parser and emitter for Python",
+  "topics": [
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 40
+ },
+ {
+  "rank": 15,
+  "name": "botocore",
+  "summary": "Low-level, data-driven core of boto 3.",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 2520
+ },
+ {
+  "rank": 16,
+  "name": "python-dateutil",
+  "summary": "Extensions to the standard Python datetime module",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+  "n_releases": 34
+ },
+ {
+  "rank": 17,
+  "name": "six",
+  "summary": "Python 2 and 3 compatibility utilities",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7",
+  "n_releases": 29
+ },
+ {
+  "rank": 18,
+  "name": "pydantic",
+  "summary": "Data validation using Python type hints",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 206
+ },
+ {
+  "rank": 19,
+  "name": "numpy",
+  "summary": "Fundamental package for array computing in Python",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.12",
+  "n_releases": 151
+ },
+ {
+  "rank": 20,
+  "name": "click",
+  "summary": "Composable command line interface toolkit",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 65
+ },
+ {
+  "rank": 22,
+  "name": "anyio",
+  "summary": "High-level concurrency and networking framework on top of asyncio or Trio",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 72
+ },
+ {
+  "rank": 23,
+  "name": "pytest",
+  "summary": "pytest: simple powerful testing with Python",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.10",
+  "n_releases": 192
+ },
+ {
+  "rank": 24,
+  "name": "pydantic_core",
+  "summary": "Core functionality for Pydantic validation and serialization",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Information Technology"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.10",
+  "n_releases": 159
+ },
+ {
+  "rank": 25,
+  "name": "iniconfig",
+  "summary": "brain-dead simple config-ini parsing",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 11
+ },
+ {
+  "rank": 26,
+  "name": "aiobotocore",
+  "summary": "Async client for aws services using botocore and aiohttp",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 137
+ },
+ {
+  "rank": 27,
+  "name": "annotated-types",
+  "summary": "Reusable constraint types to use with typing.Annotated",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 9
+ },
+ {
+  "rank": 28,
+  "name": "h11",
+  "summary": "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1",
+  "topics": [
+   "Internet",
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.8",
+  "n_releases": 14
+ },
+ {
+  "rank": 29,
+  "name": "attrs",
+  "summary": "Classes Without Boilerplate",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 36
+ },
+ {
+  "rank": 30,
+  "name": "typing-inspection",
+  "summary": "Runtime typing introspection tools",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.10",
+  "n_releases": 10
+ },
+ {
+  "rank": 32,
+  "name": "fsspec",
+  "summary": "File-system specification",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 102
+ },
+ {
+  "rank": 33,
+  "name": "httpx",
+  "summary": "The next generation HTTP client.",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.8",
+  "n_releases": 77
+ },
+ {
+  "rank": 34,
+  "name": "MarkupSafe",
+  "summary": "Safely add untrusted strings to HTML/XML markup.",
+  "topics": [
+   "Internet",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 35
+ },
+ {
+  "rank": 35,
+  "name": "httpcore",
+  "summary": "A minimal low-level HTTP client.",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.8",
+  "n_releases": 64
+ },
+ {
+  "rank": 36,
+  "name": "s3transfer",
+  "summary": "An Amazon S3 Transfer Manager",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.10",
+  "n_releases": 63
+ },
+ {
+  "rank": 37,
+  "name": "python-dotenv",
+  "summary": "Read key-value pairs from a .env file and set them as environment variables",
+  "topics": [
+   "System",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 51
+ },
+ {
+  "rank": 38,
+  "name": "platformdirs",
+  "summary": "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 76
+ },
+ {
+  "rank": 39,
+  "name": "pandas",
+  "summary": "Powerful data structures for data analysis, time series, and statistics",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.11",
+  "n_releases": 118
+ },
+ {
+  "rank": 40,
+  "name": "Jinja2",
+  "summary": "A very fast and expressive template engine.",
+  "topics": [
+   "Internet",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 52
+ },
+ {
+  "rank": 41,
+  "name": "pathspec",
+  "summary": "Utility library for gitignore style pattern matching of file paths.",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 38
+ },
+ {
+  "rank": 42,
+  "name": "grpcio-status",
+  "summary": "Status proto mapping for gRPC",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 206
+ },
+ {
+  "rank": 43,
+  "name": "filelock",
+  "summary": "A platform independent file lock.",
+  "topics": [
+   "Internet",
+   "Software Development",
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 119
+ },
+ {
+  "rank": 44,
+  "name": "pip",
+  "summary": "The PyPA recommended tool for installing Python packages.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 159
+ },
+ {
+  "rank": 45,
+  "name": "PyJWT",
+  "summary": "JSON Web Token implementation in Python",
+  "topics": [
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 56
+ },
+ {
+  "rank": 46,
+  "name": "starlette",
+  "summary": "The little ASGI library that shines.",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.10",
+  "n_releases": 202
+ },
+ {
+  "rank": 47,
+  "name": "uvicorn",
+  "summary": "The lightning-fast ASGI server.",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 203
+ },
+ {
+  "rank": 48,
+  "name": "litellm",
+  "summary": "Library to easily interface with LLM API providers",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<3.15,>=3.10",
+  "n_releases": 889
+ },
+ {
+  "rank": 49,
+  "name": "aiohttp",
+  "summary": "Async http client/server framework (asyncio)",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 312
+ },
+ {
+  "rank": 50,
+  "name": "tqdm",
+  "summary": "Fast, Extensible Progress Meter",
+  "topics": [
+   "Desktop Environment",
+   "Education",
+   "Office/Business",
+   "Other/Nonlisted Topic",
+   "Software Development",
+   "System",
+   "Terminals",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "End Users/Desktop",
+   "Other Audience",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 151
+ },
+ {
+  "rank": 51,
+  "name": "jmespath",
+  "summary": "JSON Matching Expressions",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 27
+ },
+ {
+  "rank": 52,
+  "name": "rpds-py",
+  "summary": "Python bindings to Rust's persistent data structures (rpds)",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.11",
+  "n_releases": 71
+ },
+ {
+  "rank": 54,
+  "name": "jsonschema",
+  "summary": "An implementation of JSON Schema validation for Python",
+  "topics": [
+   "File Formats"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 109
+ },
+ {
+  "rank": 55,
+  "name": "rich",
+  "summary": "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9.0",
+  "n_releases": 207
+ },
+ {
+  "rank": 56,
+  "name": "markdown-it-py",
+  "summary": "Python port of markdown-it. Markdown parsing, done right!",
+  "topics": [
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 45
+ },
+ {
+  "rank": 58,
+  "name": "propcache",
+  "summary": "Accelerated property cache",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 13
+ },
+ {
+  "rank": 59,
+  "name": "s3fs",
+  "summary": "Convenient Filesystem interface over S3",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 92
+ },
+ {
+  "rank": 60,
+  "name": "fastapi",
+  "summary": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 317
+ },
+ {
+  "rank": 61,
+  "name": "referencing",
+  "summary": "JSON Referencing + Python",
+  "topics": [
+   "File Formats"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.10",
+  "n_releases": 108
+ },
+ {
+  "rank": 62,
+  "name": "tomlkit",
+  "summary": "Style preserving TOML library",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 56
+ },
+ {
+  "rank": 63,
+  "name": "frozenlist",
+  "summary": "A list-like structure which implements collections.abc.MutableSequence",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 18
+ },
+ {
+  "rank": 64,
+  "name": "jsonschema-specifications",
+  "summary": "The JSON Schema meta-schemas and vocabularies, exposed as a Registry",
+  "topics": [
+   "File Formats"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 25
+ },
+ {
+  "rank": 65,
+  "name": "pyasn1",
+  "summary": "Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208)",
+  "topics": [
+   "Communications",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Information Technology",
+   "System Administrators",
+   "Telecommunications Industry"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 42
+ },
+ {
+  "rank": 66,
+  "name": "wheel",
+  "summary": "Command line tool for manipulating wheel files",
+  "topics": [
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 84
+ },
+ {
+  "rank": 67,
+  "name": "websockets",
+  "summary": "An implementation of the WebSocket Protocol (RFC 6455 & 7692)",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.11",
+  "n_releases": 53
+ },
+ {
+  "rank": 68,
+  "name": "aiohappyeyeballs",
+  "summary": "Happy Eyeballs for asyncio",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 46
+ },
+ {
+  "rank": 70,
+  "name": "aiosignal",
+  "summary": "aiosignal: a list of registered asynchronous callbacks",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 10
+ },
+ {
+  "rank": 71,
+  "name": "google-auth",
+  "summary": "Google Authentication Library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 201
+ },
+ {
+  "rank": 72,
+  "name": "pillow",
+  "summary": "Python Imaging Library (fork)",
+  "topics": [
+   "Multimedia"
+  ],
+  "audience": [],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.10",
+  "n_releases": 107
+ },
+ {
+  "rank": 73,
+  "name": "googleapis-common-protos",
+  "summary": "Common protobufs used in Google APIs",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 84
+ },
+ {
+  "rank": 74,
+  "name": "pytz",
+  "summary": "World timezone definitions, modern and historical",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": null,
+  "n_releases": 123
+ },
+ {
+  "rank": 75,
+  "name": "sniffio",
+  "summary": "Sniff out which async library your code is running under",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 6
+ },
+ {
+  "rank": 76,
+  "name": "importlib-metadata",
+  "summary": "Read metadata from Python packages",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 130
+ },
+ {
+  "rank": 77,
+  "name": "trove-classifiers",
+  "summary": "Canonical source for classifiers on PyPI (pypi.org).",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": null,
+  "n_releases": 127
+ },
+ {
+  "rank": 78,
+  "name": "zipp",
+  "summary": "Backport of pathlib-compatible object wrapper for zip files",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 64
+ },
+ {
+  "rank": 79,
+  "name": "opentelemetry-semantic-conventions",
+  "summary": "OpenTelemetry Semantic Conventions",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 61
+ },
+ {
+  "rank": 80,
+  "name": "annotated-doc",
+  "summary": "Document parameters, class attributes, return types, and variables inline, with Annotated.",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.9",
+  "n_releases": 5
+ },
+ {
+  "rank": 81,
+  "name": "virtualenv",
+  "summary": "Virtual Python Environment builder",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 287
+ },
+ {
+  "rank": 82,
+  "name": "hatchling",
+  "summary": "Modern, extensible Python build backend",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 84
+ },
+ {
+  "rank": 83,
+  "name": "pydantic-settings",
+  "summary": "Settings management using Pydantic",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 45
+ },
+ {
+  "rank": 84,
+  "name": "tzdata",
+  "summary": "Provider of IANA time zone data",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=2",
+  "n_releases": 37
+ },
+ {
+  "rank": 85,
+  "name": "wrapt",
+  "summary": "Module for decorators, wrappers and monkey patching.",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 115
+ },
+ {
+  "rank": 86,
+  "name": "ghapi",
+  "summary": "A python client for the GitHub API",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 54
+ },
+ {
+  "rank": 87,
+  "name": "greenlet",
+  "summary": "Lightweight in-process concurrent programming",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 69
+ },
+ {
+  "rank": 89,
+  "name": "huggingface-hub",
+  "summary": "Client library to download and publish models, datasets and other repos on the huggingface.co hub",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Science/Research"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10.0",
+  "n_releases": 323
+ },
+ {
+  "rank": 91,
+  "name": "pyasn1-modules",
+  "summary": "A collection of ASN.1-based protocols modules",
+  "topics": [
+   "Communications",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Information Technology",
+   "System Administrators",
+   "Telecommunications Industry"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 27
+ },
+ {
+  "rank": 92,
+  "name": "tenacity",
+  "summary": "Retry code until it succeeds",
+  "topics": [
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 61
+ },
+ {
+  "rank": 93,
+  "name": "google-api-core",
+  "summary": "Google API client core library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 168
+ },
+ {
+  "rank": 94,
+  "name": "regex",
+  "summary": "Alternative regular expression module, to replace re.",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 368
+ },
+ {
+  "rank": 95,
+  "name": "pyarrow",
+  "summary": "Python library for Apache Arrow",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 65
+ },
+ {
+  "rank": 96,
+  "name": "python-multipart",
+  "summary": "A streaming multipart parser for Python",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 32
+ },
+ {
+  "rank": 97,
+  "name": "textual",
+  "summary": "Modern Text User Interface framework",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<4.0,>=3.9",
+  "n_releases": 254
+ },
+ {
+  "rank": 98,
+  "name": "openai",
+  "summary": "The official Python library for the openai API",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 430
+ },
+ {
+  "rank": 99,
+  "name": "grpcio",
+  "summary": "HTTP/2-based RPC framework",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 284
+ },
+ {
+  "rank": 100,
+  "name": "soupsieve",
+  "summary": "A modern CSS selector implementation for Beautiful Soup.",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 55
+ },
+ {
+  "rank": 102,
+  "name": "jiter",
+  "summary": "Fast iterable JSON parser.",
+  "topics": [
+   "File Formats"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 22
+ },
+ {
+  "rank": 103,
+  "name": "pyparsing",
+  "summary": "pyparsing - Classes and methods to define and execute parsing grammars",
+  "topics": [
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 88
+ },
+ {
+  "rank": 104,
+  "name": "SQLAlchemy",
+  "summary": "Database Abstraction Library",
+  "topics": [
+   "Database"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 330
+ },
+ {
+  "rank": 105,
+  "name": "distro",
+  "summary": "Distro - an OS platform information API",
+  "topics": [
+   "Software Development",
+   "System"
+  ],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.6",
+  "n_releases": 16
+ },
+ {
+  "rank": 106,
+  "name": "scipy",
+  "summary": "Fundamental algorithms for scientific computing in Python",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.12",
+  "n_releases": 108
+ },
+ {
+  "rank": 107,
+  "name": "colorama",
+  "summary": "Cross-platform colored terminal text.",
+  "topics": [
+   "Terminals"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7",
+  "n_releases": 46
+ },
+ {
+  "rank": 109,
+  "name": "lxml",
+  "summary": "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API.",
+  "topics": [
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 130
+ },
+ {
+  "rank": 110,
+  "name": "watchfiles",
+  "summary": "Simple, modern and high performance file watching and code reload in python.",
+  "topics": [
+   "Software Development",
+   "System"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 29
+ },
+ {
+  "rank": 111,
+  "name": "opentelemetry-proto",
+  "summary": "OpenTelemetry Python Proto",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 73
+ },
+ {
+  "rank": 112,
+  "name": "psutil",
+  "summary": "Cross-platform lib for process and system monitoring.",
+  "topics": [
+   "Software Development",
+   "System",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.6",
+  "n_releases": 104
+ },
+ {
+  "rank": 113,
+  "name": "shellingham",
+  "summary": "Tool to Detect Surrounding Shell",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.7",
+  "n_releases": 23
+ },
+ {
+  "rank": 114,
+  "name": "opentelemetry-instrumentation",
+  "summary": "Instrumentation Tools & Auto Instrumentation for OpenTelemetry Python",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 73
+ },
+ {
+  "rank": 116,
+  "name": "typer",
+  "summary": "Typer, build great CLIs. Easy to code. Based on Python type hints.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 90
+ },
+ {
+  "rank": 117,
+  "name": "requests-oauthlib",
+  "summary": "OAuthlib authentication support for Requests.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.4",
+  "n_releases": 23
+ },
+ {
+  "rank": 118,
+  "name": "opentelemetry-exporter-otlp-proto-http",
+  "summary": "OpenTelemetry Collector Protobuf over HTTP Exporter",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 56
+ },
+ {
+  "rank": 119,
+  "name": "proto-plus",
+  "summary": "Beautiful, Pythonic protocol buffers",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 85
+ },
+ {
+  "rank": 120,
+  "name": "openpyxl",
+  "summary": "A Python library to read/write Excel 2010 xlsx/xlsm files",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 96
+ },
+ {
+  "rank": 121,
+  "name": "et-xmlfile",
+  "summary": "An implementation of lxml.xmlfile for the standard library",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 4
+ },
+ {
+  "rank": 122,
+  "name": "mcp",
+  "summary": "Model Context Protocol SDK",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 72
+ },
+ {
+  "rank": 123,
+  "name": "ruff",
+  "summary": "An extremely fast Python linter and code formatter, written in Rust.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 424
+ },
+ {
+  "rank": 124,
+  "name": "opentelemetry-exporter-otlp-proto-common",
+  "summary": "OpenTelemetry Protobuf encoding",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 36
+ },
+ {
+  "rank": 125,
+  "name": "coverage",
+  "summary": "Code coverage measurement for Python",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 196
+ },
+ {
+  "rank": 126,
+  "name": "exceptiongroup",
+  "summary": "Backport of PEP 654 (exception groups)",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 24
+ },
+ {
+  "rank": 127,
+  "name": "sglang",
+  "summary": "SGLang is a fast serving framework for large language models and vision language models.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 157
+ },
+ {
+  "rank": 128,
+  "name": "oauthlib",
+  "summary": "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 52
+ },
+ {
+  "rank": 129,
+  "name": "mypy-extensions",
+  "summary": "Type system extensions for programs checked with the mypy type checker.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 10
+ },
+ {
+  "rank": 131,
+  "name": "more-itertools",
+  "summary": "More routines for operating on iterables, beyond itertools",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 55
+ },
+ {
+  "rank": 132,
+  "name": "wcwidth",
+  "summary": "Measures the displayed width of unicode strings in a terminal",
+  "topics": [
+   "Software Development",
+   "Terminals"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 43
+ },
+ {
+  "rank": 133,
+  "name": "cachetools",
+  "summary": "Extensible memoizing collections and decorators",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 77
+ },
+ {
+  "rank": 136,
+  "name": "hf-xet",
+  "summary": "Fast transfer of large files with the Hugging Face Hub.",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 43
+ },
+ {
+  "rank": 137,
+  "name": "multiprocess",
+  "summary": "better multiprocessing and multithreading in Python",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 24
+ },
+ {
+  "rank": 138,
+  "name": "pytest-asyncio",
+  "summary": "Pytest support for asyncio",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 76
+ },
+ {
+  "rank": 139,
+  "name": "python-discovery",
+  "summary": "Python interpreter discovery",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 22
+ },
+ {
+  "rank": 140,
+  "name": "docstring-parser",
+  "summary": "Parse Python docstrings in reST, Google and Numpydoc format",
+  "topics": [
+   "Documentation",
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.8",
+  "n_releases": 26
+ },
+ {
+  "rank": 141,
+  "name": "sortedcontainers",
+  "summary": "Sorted Containers -- Sorted List, Sorted Dict, Sorted Set",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "",
+  "n_releases": 40
+ },
+ {
+  "rank": 142,
+  "name": "requests-toolbelt",
+  "summary": "A utility belt for advanced users of python-requests",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+  "n_releases": 21
+ },
+ {
+  "rank": 143,
+  "name": "pyOpenSSL",
+  "summary": "Python wrapper module around the OpenSSL library",
+  "topics": [
+   "Security",
+   "Software Development",
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.9",
+  "n_releases": 47
+ },
+ {
+  "rank": 144,
+  "name": "psycopg2-binary",
+  "summary": "psycopg2 - Python-PostgreSQL Database Adapter",
+  "topics": [
+   "Database",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 27
+ },
+ {
+  "rank": 145,
+  "name": "rsa",
+  "summary": "Pure-Python RSA implementation",
+  "topics": [
+   "Security"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Information Technology"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<4,>=3.6",
+  "n_releases": 37
+ },
+ {
+  "rank": 146,
+  "name": "uvloop",
+  "summary": "Fast implementation of asyncio event loop on top of libuv",
+  "topics": [
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8.1",
+  "n_releases": 83
+ },
+ {
+  "rank": 148,
+  "name": "opentelemetry-exporter-otlp-proto-grpc",
+  "summary": "OpenTelemetry Collector Protobuf over gRPC Exporter",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 63
+ },
+ {
+  "rank": 149,
+  "name": "tiktoken",
+  "summary": "tiktoken is a fast BPE tokeniser for use with OpenAI's models",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 20
+ },
+ {
+  "rank": 150,
+  "name": "httptools",
+  "summary": "A collection of framework independent HTTP protocol utils.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 27
+ },
+ {
+  "rank": 152,
+  "name": "networkx",
+  "summary": "Python package for creating and manipulating graphs and networks",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "!=3.14.1,>=3.11",
+  "n_releases": 97
+ },
+ {
+  "rank": 153,
+  "name": "Werkzeug",
+  "summary": "The comprehensive WSGI web application library.",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 106
+ },
+ {
+  "rank": 155,
+  "name": "redis",
+  "summary": "Python client for Redis database and key-value store",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 169
+ },
+ {
+  "rank": 156,
+  "name": "GitPython",
+  "summary": "GitPython is a Python library used to interact with Git repositories",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 115
+ },
+ {
+  "rank": 157,
+  "name": "fonttools",
+  "summary": "Tools to manipulate font files",
+  "topics": [
+   "Multimedia",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers",
+   "End Users/Desktop"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 236
+ },
+ {
+  "rank": 158,
+  "name": "langchain",
+  "summary": "Building applications with LLMs through composability",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<4.0.0,>=3.10.0",
+  "n_releases": 519
+ },
+ {
+  "rank": 159,
+  "name": "prompt_toolkit",
+  "summary": "Library for building powerful interactive command lines in Python",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 137
+ },
+ {
+  "rank": 160,
+  "name": "defusedxml",
+  "summary": "XML bomb protection for Python stdlib modules",
+  "topics": [
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+  "n_releases": 13
+ },
+ {
+  "rank": 161,
+  "name": "grpcio-tools",
+  "summary": "Protobuf code generator for gRPC",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 268
+ },
+ {
+  "rank": 162,
+  "name": "scikit-learn",
+  "summary": "A set of python modules for machine learning and data mining",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.11",
+  "n_releases": 76
+ },
+ {
+  "rank": 163,
+  "name": "smmap",
+  "summary": "A pure Python implementation of a sliding window memory map manager",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 18
+ },
+ {
+  "rank": 164,
+  "name": "pytest-cov",
+  "summary": "Pytest plugin for measuring coverage.",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 54
+ },
+ {
+  "rank": 165,
+  "name": "google-cloud-storage",
+  "summary": "Google Cloud Storage API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 125
+ },
+ {
+  "rank": 167,
+  "name": "orjson",
+  "summary": "Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 150
+ },
+ {
+  "rank": 168,
+  "name": "email-validator",
+  "summary": "A robust email address syntax and deliverability validation library.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 32
+ },
+ {
+  "rank": 169,
+  "name": "PyNaCl",
+  "summary": "Python binding to the Networking and Cryptography (NaCl) library",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.8",
+  "n_releases": 19
+ },
+ {
+  "rank": 170,
+  "name": "httpx-sse",
+  "summary": "Consume Server-Sent Event (SSE) messages with HTTPX.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.9",
+  "n_releases": 8
+ },
+ {
+  "rank": 171,
+  "name": "isodate",
+  "summary": "An ISO 8601 date/time/duration parser and formatter",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.7",
+  "n_releases": 18
+ },
+ {
+  "rank": 172,
+  "name": "chardet",
+  "summary": "Universal character encoding detector",
+  "topics": [
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 31
+ },
+ {
+  "rank": 173,
+  "name": "azure-core",
+  "summary": "Microsoft Azure Core Library for Python",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 81
+ },
+ {
+  "rank": 175,
+  "name": "tzlocal",
+  "summary": "tzinfo object for the local timezone",
+  "topics": [],
+  "audience": [],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.10",
+  "n_releases": 53
+ },
+ {
+  "rank": 176,
+  "name": "alembic",
+  "summary": "A database migration tool for SQLAlchemy.",
+  "topics": [
+   "Database"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 148
+ },
+ {
+  "rank": 177,
+  "name": "itsdangerous",
+  "summary": "Safely pass data to untrusted environments and back.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 27
+ },
+ {
+  "rank": 179,
+  "name": "websocket-client",
+  "summary": "WebSocket client for Python with low level API options",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 90
+ },
+ {
+  "rank": 180,
+  "name": "nodeenv",
+  "summary": "Node.js virtual environment builder",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7",
+  "n_releases": 75
+ },
+ {
+  "rank": 181,
+  "name": "joblib",
+  "summary": "Lightweight pipelining with Python functions",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 109
+ },
+ {
+  "rank": 182,
+  "name": "tabulate",
+  "summary": "Pretty-print tabular data",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 28
+ },
+ {
+  "rank": 183,
+  "name": "Mako",
+  "summary": "A super-fast templating language that borrows the best ideas from the existing templating languages.",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 81
+ },
+ {
+  "rank": 184,
+  "name": "opentelemetry-instrumentation-requests",
+  "summary": "OpenTelemetry requests instrumentation",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 70
+ },
+ {
+  "rank": 186,
+  "name": "ruamel.yaml",
+  "summary": "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order",
+  "topics": [
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.9",
+  "n_releases": 273
+ },
+ {
+  "rank": 187,
+  "name": "h2",
+  "summary": "Pure-Python HTTP/2 protocol implementation",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 48
+ },
+ {
+  "rank": 188,
+  "name": "azure-identity",
+  "summary": "Microsoft Azure Identity Library for Python",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 83
+ },
+ {
+  "rank": 189,
+  "name": "keyring",
+  "summary": "Store and access your passwords safely.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 203
+ },
+ {
+  "rank": 190,
+  "name": "google-cloud-core",
+  "summary": "Google Cloud API client core library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 59
+ },
+ {
+  "rank": 191,
+  "name": "mypy",
+  "summary": "Optional static typing for Python",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 141
+ },
+ {
+  "rank": 192,
+  "name": "kiwisolver",
+  "summary": "A fast implementation of the Cassowary constraint solver",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 24
+ },
+ {
+  "rank": 193,
+  "name": "bcrypt",
+  "summary": "Modern password hashing for your software and your servers",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 28
+ },
+ {
+  "rank": 194,
+  "name": "hpack",
+  "summary": "Pure-Python HPACK header encoding",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 13
+ },
+ {
+  "rank": 195,
+  "name": "pytest-json-ctrf",
+  "summary": "Pytest plugin to generate json report in CTRF (Common Test Report Format)",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.8",
+  "n_releases": 18
+ },
+ {
+  "rank": 196,
+  "name": "Flask",
+  "summary": "A simple framework for building complex web applications.",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 64
+ },
+ {
+  "rank": 197,
+  "name": "opentelemetry-util-http",
+  "summary": "Web util for OpenTelemetry",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 63
+ },
+ {
+  "rank": 198,
+  "name": "contourpy",
+  "summary": "Python library for calculating contours of 2D quadrilateral grids",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.12",
+  "n_releases": 24
+ },
+ {
+  "rank": 199,
+  "name": "jaraco.classes",
+  "summary": "Utility functions for Python class constructs",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 20
+ },
+ {
+  "rank": 201,
+  "name": "docutils",
+  "summary": "Docutils -- Python Documentation Utilities",
+  "topics": [
+   "Documentation",
+   "Software Development",
+   "Text Editors",
+   "Text Processing",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "End Users/Desktop",
+   "Information Technology",
+   "Other Audience",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.9",
+  "n_releases": 55
+ },
+ {
+  "rank": 202,
+  "name": "truststore",
+  "summary": "Verify certificates using native system trust stores",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 16
+ },
+ {
+  "rank": 203,
+  "name": "hyperframe",
+  "summary": "Pure-Python HTTP/2 framing",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 21
+ },
+ {
+  "rank": 204,
+  "name": "jeepney",
+  "summary": "Low-level, pure Python DBus protocol wrapper.",
+  "topics": [
+   "Desktop Environment"
+  ],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.7",
+  "n_releases": 14
+ },
+ {
+  "rank": 205,
+  "name": "jaraco.functools",
+  "summary": "Functools like those found in stdlib",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 52
+ },
+ {
+  "rank": 207,
+  "name": "zstandard",
+  "summary": "Zstandard bindings for Python",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 42
+ },
+ {
+  "rank": 208,
+  "name": "anthropic",
+  "summary": "The official Python library for the anthropic API",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 219
+ },
+ {
+  "rank": 209,
+  "name": "pre-commit",
+  "summary": "A framework for managing and maintaining multi-language pre-commit hooks.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 204
+ },
+ {
+  "rank": 210,
+  "name": "SecretStorage",
+  "summary": "Python bindings to FreeDesktop.org Secret Service API",
+  "topics": [
+   "Security",
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 24
+ },
+ {
+  "rank": 211,
+  "name": "identify",
+  "summary": "File identification library for Python",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 185
+ },
+ {
+  "rank": 212,
+  "name": "cfgv",
+  "summary": "Validate configuration and produce human readable error messages.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 20
+ },
+ {
+  "rank": 213,
+  "name": "toml",
+  "summary": "Python Library for Tom's Obvious, Minimal Language",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
+  "n_releases": 16
+ },
+ {
+  "rank": 214,
+  "name": "docker",
+  "summary": "A Python library for the Docker Engine API.",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 66
+ },
+ {
+  "rank": 215,
+  "name": "xxhash",
+  "summary": "Python binding for xxHash",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 49
+ },
+ {
+  "rank": 216,
+  "name": "jaraco.context",
+  "summary": "Useful decorators and context managers",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 31
+ },
+ {
+  "rank": 217,
+  "name": "blinker",
+  "summary": "Fast, simple object-to-object and broadcast signaling",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 17
+ },
+ {
+  "rank": 218,
+  "name": "uv",
+  "summary": "An extremely fast Python package and project manager, written in Rust.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 316
+ },
+ {
+  "rank": 220,
+  "name": "google-resumable-media",
+  "summary": "Utilities for Google Media Downloads and Resumable Uploads",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 55
+ },
+ {
+  "rank": 221,
+  "name": "httpx2",
+  "summary": "The next generation HTTP client.",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 17
+ },
+ {
+  "rank": 222,
+  "name": "ptyprocess",
+  "summary": "Run a subprocess in a pseudo terminal",
+  "topics": [
+   "Terminals"
+  ],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "",
+  "n_releases": 10
+ },
+ {
+  "rank": 223,
+  "name": "google-crc32c",
+  "summary": "A python wrapper of the C library 'Google CRC32C'",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 28
+ },
+ {
+  "rank": 224,
+  "name": "sympy",
+  "summary": "Computer algebra system (CAS) in Python",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 67
+ },
+ {
+  "rank": 225,
+  "name": "transformers",
+  "summary": "Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10.0",
+  "n_releases": 242
+ },
+ {
+  "rank": 226,
+  "name": "httpcore2",
+  "summary": "A minimal low-level HTTP client.",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 17
+ },
+ {
+  "rank": 227,
+  "name": "pexpect",
+  "summary": "Pexpect allows easy control of interactive console applications.",
+  "topics": [
+   "Software Development",
+   "System",
+   "Terminals"
+  ],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "",
+  "n_releases": 20
+ },
+ {
+  "rank": 228,
+  "name": "google-cloud-bigquery",
+  "summary": "Google BigQuery API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 195
+ },
+ {
+  "rank": 229,
+  "name": "google-api-python-client",
+  "summary": "Google API Client Library for Python",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 288
+ },
+ {
+  "rank": 230,
+  "name": "uritemplate",
+  "summary": "Implementation of RFC 6570 URI Templates",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 13
+ },
+ {
+  "rank": 231,
+  "name": "black",
+  "summary": "The uncompromising code formatter.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 73
+ },
+ {
+  "rank": 232,
+  "name": "prometheus-client",
+  "summary": "Python client for the Prometheus monitoring system.",
+  "topics": [
+   "System"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.9",
+  "n_releases": 60
+ },
+ {
+  "rank": 233,
+  "name": "jsonpointer",
+  "summary": "Identify specific nodes in a JSON document (RFC 6901)",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 30
+ },
+ {
+  "rank": 234,
+  "name": "google-auth-httplib2",
+  "summary": "Google Authentication Library: httplib2 transport",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.10",
+  "n_releases": 13
+ },
+ {
+  "rank": 235,
+  "name": "sentry-sdk",
+  "summary": "Python client for Sentry (https://sentry.io)",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.6",
+  "n_releases": 349
+ },
+ {
+  "rank": 236,
+  "name": "langchain-core",
+  "summary": "Building applications with LLMs through composability",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<4.0.0,>=3.10.0",
+  "n_releases": 304
+ },
+ {
+  "rank": 237,
+  "name": "opentelemetry-instrumentation-threading",
+  "summary": "Thread context propagation support for OpenTelemetry",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 29
+ },
+ {
+  "rank": 238,
+  "name": "Deprecated",
+  "summary": "Python @deprecated decorator to deprecate old python classes, functions or methods.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7",
+  "n_releases": 27
+ },
+ {
+  "rank": 239,
+  "name": "backoff",
+  "summary": "Function decoration for backoff and retry",
+  "topics": [
+   "Internet",
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7,<4.0",
+  "n_releases": 37
+ },
+ {
+  "rank": 240,
+  "name": "snowflake-connector-python",
+  "summary": "Snowflake Connector for Python",
+  "topics": [
+   "Database",
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 185
+ },
+ {
+  "rank": 241,
+  "name": "async-timeout",
+  "summary": "Timeout context manager for asyncio programs",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 20
+ },
+ {
+  "rank": 242,
+  "name": "google-auth-oauthlib",
+  "summary": "Google Authentication Library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 31
+ },
+ {
+  "rank": 243,
+  "name": "RapidFuzz",
+  "summary": "rapid fuzzy string matching",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.11",
+  "n_releases": 175
+ },
+ {
+  "rank": 244,
+  "name": "mpmath",
+  "summary": "Python library for arbitrary-precision floating-point arithmetic",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 40
+ },
+ {
+  "rank": 245,
+  "name": "asn1crypto",
+  "summary": "Fast ASN.1 parser and serializer with definitions for private keys, public keys, certificates, CRL, OCSP, CMS, PKCS#3, PKCS#7, PKCS#8, PKCS#12, PKCS#5, X.509 and TSP",
+  "topics": [
+   "Security"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "",
+  "n_releases": 33
+ },
+ {
+  "rank": 246,
+  "name": "httplib2",
+  "summary": "A comprehensive HTTP client library.",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.8",
+  "n_releases": 45
+ },
+ {
+  "rank": 247,
+  "name": "opentelemetry-exporter-otlp",
+  "summary": "OpenTelemetry Collector Exporters",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 71
+ },
+ {
+  "rank": 248,
+  "name": "ipython",
+  "summary": "IPython: Productive Interactive Computing",
+  "topics": [
+   "System"
+  ],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.11",
+  "n_releases": 225
+ },
+ {
+  "rank": 249,
+  "name": "awscli",
+  "summary": "Universal Command Line Environment for AWS.",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 2497
+ },
+ {
+  "rank": 250,
+  "name": "pytest-xdist",
+  "summary": "pytest xdist plugin for distributed testing, most importantly across multiple CPUs",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 71
+ },
+ {
+  "rank": 251,
+  "name": "narwhals",
+  "summary": "Extremely lightweight compatibility layer between dataframe libraries",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 243
+ },
+ {
+  "rank": 253,
+  "name": "aiofiles",
+  "summary": "File support for asyncio.",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 16
+ },
+ {
+  "rank": 254,
+  "name": "types-requests",
+  "summary": "Typing stubs for requests",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 142
+ },
+ {
+  "rank": 256,
+  "name": "poetry-core",
+  "summary": "Poetry PEP 517 Build Backend",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<4.0,>=3.10",
+  "n_releases": 66
+ },
+ {
+  "rank": 257,
+  "name": "datasets",
+  "summary": "HuggingFace community-driven open-source library of datasets",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10.0",
+  "n_releases": 119
+ },
+ {
+  "rank": 258,
+  "name": "pypdf",
+  "summary": "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 120
+ },
+ {
+  "rank": 259,
+  "name": "execnet",
+  "summary": "execnet: rapid multi-Python deployment",
+  "topics": [
+   "Software Development",
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 34
+ },
+ {
+  "rank": 260,
+  "name": "traitlets",
+  "summary": "Traitlets Python configuration system",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Science/Research",
+   "System Administrators"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 57
+ },
+ {
+  "rank": 261,
+  "name": "cloudpickle",
+  "summary": "Pickler class to extend the standard pickle.Pickler functionality",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development",
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 42
+ },
+ {
+  "rank": 262,
+  "name": "asgiref",
+  "summary": "ASGI specs, helper code, and adapters",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 72
+ },
+ {
+  "rank": 265,
+  "name": "jsonpatch",
+  "summary": "Apply JSON-Patches (RFC 6902)",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*",
+  "n_releases": 42
+ },
+ {
+  "rank": 266,
+  "name": "sqlparse",
+  "summary": "A non-validating SQL parser.",
+  "topics": [
+   "Database",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 39
+ },
+ {
+  "rank": 267,
+  "name": "google-cloud-secret-manager",
+  "summary": "Google Cloud Secret Manager API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 64
+ },
+ {
+  "rank": 268,
+  "name": "pyproject-hooks",
+  "summary": "Wrappers to call pyproject.toml-based build backend hooks.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.8",
+  "n_releases": 6
+ },
+ {
+  "rank": 269,
+  "name": "webencodings",
+  "summary": "Character encoding aliases for legacy web content",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 8
+ },
+ {
+  "rank": 270,
+  "name": "fastjsonschema",
+  "summary": "Fastest Python implementation of JSON schema",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 48
+ },
+ {
+  "rank": 271,
+  "name": "Authlib",
+  "summary": "The ultimate Python library in building OAuth and OpenID Connect servers and clients.",
+  "topics": [
+   "Internet",
+   "Security"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 64
+ },
+ {
+  "rank": 272,
+  "name": "psycopg",
+  "summary": "PostgreSQL database adapter for Python",
+  "topics": [
+   "Database",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 63
+ },
+ {
+  "rank": 273,
+  "name": "build",
+  "summary": "A simple, correct Python build frontend",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 38
+ },
+ {
+  "rank": 275,
+  "name": "gunicorn",
+  "summary": "WSGI HTTP Server for UNIX",
+  "topics": [
+   "Internet",
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 100
+ },
+ {
+  "rank": 276,
+  "name": "executing",
+  "summary": "Get the currently executing AST node of a frame, and other information",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.8",
+  "n_releases": 36
+ },
+ {
+  "rank": 277,
+  "name": "databricks-sdk",
+  "summary": "Databricks SDK for Python (Beta)",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Science/Research",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 165
+ },
+ {
+  "rank": 278,
+  "name": "isort",
+  "summary": "A Python utility / library to sort Python imports.",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.10.0",
+  "n_releases": 158
+ },
+ {
+  "rank": 279,
+  "name": "joserfc",
+  "summary": "The ultimate Python library for JOSE RFCs, including JWS, JWE, JWK, JWA, JWT",
+  "topics": [
+   "Security"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 47
+ },
+ {
+  "rank": 280,
+  "name": "azure-storage-blob",
+  "summary": "Microsoft Azure Blob Storage Client Library for Python",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 92
+ },
+ {
+  "rank": 281,
+  "name": "jedi",
+  "summary": "An autocompletion tool for Python that can be used for text editors.",
+  "topics": [
+   "Software Development",
+   "Text Editors",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 36
+ },
+ {
+  "rank": 283,
+  "name": "babel",
+  "summary": "Internationalization utilities",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 46
+ },
+ {
+  "rank": 284,
+  "name": "asttokens",
+  "summary": "Annotate AST trees with source code positions",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 36
+ },
+ {
+  "rank": 285,
+  "name": "psycopg-binary",
+  "summary": "PostgreSQL database adapter for Python -- C optimisation distribution",
+  "topics": [
+   "Database",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 58
+ },
+ {
+  "rank": 286,
+  "name": "google-cloud-aiplatform",
+  "summary": "Vertex AI API client library",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 221
+ },
+ {
+  "rank": 287,
+  "name": "matplotlib-inline",
+  "summary": "Inline Matplotlib backend for Jupyter",
+  "topics": [
+   "Multimedia"
+  ],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 10
+ },
+ {
+  "rank": 288,
+  "name": "Cython",
+  "summary": "The Cython compiler for writing C extensions in the Python language.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 157
+ },
+ {
+  "rank": 289,
+  "name": "tornado",
+  "summary": "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 86
+ },
+ {
+  "rank": 290,
+  "name": "Markdown",
+  "summary": "Python implementation of John Gruber's Markdown.",
+  "topics": [
+   "Communications",
+   "Internet",
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 61
+ },
+ {
+  "rank": 291,
+  "name": "setuptools-scm",
+  "summary": "the blessed package to manage your versions by scm tags",
+  "topics": [
+   "Software Development",
+   "System",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 112
+ },
+ {
+  "rank": 292,
+  "name": "xmltodict",
+  "summary": "Makes working with XML feel like you are working with JSON",
+  "topics": [
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 38
+ },
+ {
+  "rank": 293,
+  "name": "pydantic-ai-slim",
+  "summary": "AI Agent Framework, the Pydantic way, slim package",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 329
+ },
+ {
+  "rank": 294,
+  "name": "stack-data",
+  "summary": "Extract data from python stack frames and tracebacks for informative displays",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": "",
+  "n_releases": 21
+ },
+ {
+  "rank": 295,
+  "name": "pure-eval",
+  "summary": "Safely evaluate AST nodes without side effects",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": null,
+  "n_releases": 10
+ },
+ {
+  "rank": 296,
+  "name": "asyncpg",
+  "summary": "An asyncio PostgreSQL driver",
+  "topics": [
+   "Database"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9.0",
+  "n_releases": 43
+ },
+ {
+  "rank": 297,
+  "name": "gcsfs",
+  "summary": "Convenient Filesystem interface over GCS",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 88
+ },
+ {
+  "rank": 298,
+  "name": "google-cloud-batch",
+  "summary": "Google Cloud Batch API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 68
+ },
+ {
+  "rank": 299,
+  "name": "marshmallow",
+  "summary": "A lightweight library for converting complex datatypes to and from native Python datatypes.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 201
+ },
+ {
+  "rank": 300,
+  "name": "CacheControl",
+  "summary": "httplib2 caching for requests",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 52
+ },
+ {
+  "rank": 301,
+  "name": "langsmith",
+  "summary": "Client library to connect to the LangSmith Observability and Evaluation Platform.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 531
+ },
+ {
+  "rank": 302,
+  "name": "python-json-logger",
+  "summary": "JSON Log Formatter for the Python Logging Package",
+  "topics": [
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.10",
+  "n_releases": 39
+ },
+ {
+  "rank": 303,
+  "name": "vcs-versioning",
+  "summary": "the blessed package to manage your versions by vcs metadata",
+  "topics": [],
+  "audience": [],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.8",
+  "n_releases": 19
+ },
+ {
+  "rank": 304,
+  "name": "fastuuid",
+  "summary": "Python bindings to Rust's UUID library.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.8",
+  "n_releases": 18
+ },
+ {
+  "rank": 305,
+  "name": "python-docx",
+  "summary": "Create, read, and update Microsoft Word .docx files.",
+  "topics": [
+   "Office/Business",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 38
+ },
+ {
+  "rank": 306,
+  "name": "structlog",
+  "summary": "Structured Logging for Python",
+  "topics": [
+   "System"
+  ],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 43
+ },
+ {
+  "rank": 307,
+  "name": "watchdog",
+  "summary": "Filesystem events monitoring",
+  "topics": [
+   "Software Development",
+   "System",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 54
+ },
+ {
+  "rank": 308,
+  "name": "playwright",
+  "summary": "A high-level API to automate web browsers",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 85
+ },
+ {
+  "rank": 309,
+  "name": "google-cloud-kms",
+  "summary": "Google Cloud Kms API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 82
+ },
+ {
+  "rank": 312,
+  "name": "termcolor",
+  "summary": "ANSI color formatting for output in terminal",
+  "topics": [
+   "Terminals"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 20
+ },
+ {
+  "rank": 313,
+  "name": "google-analytics-admin",
+  "summary": "Google Analytics Admin API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 64
+ },
+ {
+  "rank": 314,
+  "name": "google-cloud-compute",
+  "summary": "Google Cloud Compute API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 80
+ },
+ {
+  "rank": 315,
+  "name": "pytokens",
+  "summary": "A Fast, spec compliant Python 3.14+ tokenizer that runs on older Pythons.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.8",
+  "n_releases": 16
+ },
+ {
+  "rank": 316,
+  "name": "aioitertools",
+  "summary": "itertools and builtins for AsyncIO and mixed iterables",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 20
+ },
+ {
+  "rank": 318,
+  "name": "brotli",
+  "summary": "Python bindings for the Brotli compression library",
+  "topics": [
+   "Software Development",
+   "System",
+   "Text Processing",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": null,
+  "n_releases": 10
+ },
+ {
+  "rank": 319,
+  "name": "pymupdf",
+  "summary": "A high performance Python library for data extraction, analysis, conversion & manipulation of PDF (and other) documents.",
+  "topics": [
+   "Multimedia",
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 138
+ },
+ {
+  "rank": 321,
+  "name": "pyee",
+  "summary": "A rough port of Node.js's EventEmitter to Python with a few tricks of its own",
+  "topics": [
+   "Other/Nonlisted Topic"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.12",
+  "n_releases": 55
+ },
+ {
+  "rank": 322,
+  "name": "xlsxwriter",
+  "summary": "A Python module for creating Excel XLSX files.",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 175
+ },
+ {
+  "rank": 323,
+  "name": "pymongo",
+  "summary": "PyMongo - the Official MongoDB Python driver",
+  "topics": [
+   "Database"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 172
+ },
+ {
+  "rank": 325,
+  "name": "mdit-py-plugins",
+  "summary": "Collection of plugins for markdown-it-py",
+  "topics": [
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 22
+ },
+ {
+  "rank": 326,
+  "name": "google-cloud-pubsub",
+  "summary": "Google Cloud Pub/Sub API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 158
+ },
+ {
+  "rank": 327,
+  "name": "pydantic-graph",
+  "summary": "Graph and state machine library",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 313
+ },
+ {
+  "rank": 328,
+  "name": "cbor2",
+  "summary": "CBOR (de)serializer with extensive tag support",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 49
+ },
+ {
+  "rank": 329,
+  "name": "pytest-mock",
+  "summary": "Thin-wrapper around the mock package for easier use with pytest",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 66
+ },
+ {
+  "rank": 330,
+  "name": "pytest-timeout",
+  "summary": "pytest plugin to abort hanging tests",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 24
+ },
+ {
+  "rank": 331,
+  "name": "py4j",
+  "summary": "Enables Python programs to dynamically access arbitrary Java objects",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": null,
+  "n_releases": 34
+ },
+ {
+  "rank": 333,
+  "name": "linkify-it-py",
+  "summary": "Links recognition library with FULL unicode support.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 12
+ },
+ {
+  "rank": 334,
+  "name": "flatbuffers",
+  "summary": "The FlatBuffers serialization format for Python",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": null,
+  "n_releases": 26
+ },
+ {
+  "rank": 335,
+  "name": "google-cloud-dlp",
+  "summary": "Google Cloud Dlp API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 90
+ },
+ {
+  "rank": 336,
+  "name": "pyperclip",
+  "summary": "A cross-platform clipboard module for Python. (Only handles plain text for now.)",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": null,
+  "n_releases": 47
+ },
+ {
+  "rank": 337,
+  "name": "nest-asyncio",
+  "summary": "Patch asyncio to allow nested event loops",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.5",
+  "n_releases": 36
+ },
+ {
+  "rank": 338,
+  "name": "google-cloud-speech",
+  "summary": "Google Cloud Speech API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 98
+ },
+ {
+  "rank": 339,
+  "name": "dbt-adapters",
+  "summary": "The set of adapter protocols and base functionality that supports integration with dbt-core",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10.0",
+  "n_releases": 85
+ },
+ {
+  "rank": 340,
+  "name": "wsproto",
+  "summary": "Pure-Python WebSocket protocol implementation",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 14
+ },
+ {
+  "rank": 341,
+  "name": "debugpy",
+  "summary": "An implementation of the Debug Adapter Protocol for Python",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 56
+ },
+ {
+  "rank": 342,
+  "name": "typedload",
+  "summary": "Load and dump data from json-like format into typed data structures",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 62
+ },
+ {
+  "rank": 343,
+  "name": "google-cloud-texttospeech",
+  "summary": "Google Cloud Texttospeech API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 71
+ },
+ {
+  "rank": 344,
+  "name": "ruamel.yaml.clib",
+  "summary": "C version of reader, parser and emitter for ruamel.yaml derived from libyaml",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.9",
+  "n_releases": 16
+ },
+ {
+  "rank": 345,
+  "name": "croniter",
+  "summary": "croniter provides iteration for datetime object with cron like format",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.9",
+  "n_releases": 106
+ },
+ {
+  "rank": 346,
+  "name": "slack-sdk",
+  "summary": "The Slack API Platform SDK for Python",
+  "topics": [
+   "Communications",
+   "Office/Business",
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7",
+  "n_releases": 134
+ },
+ {
+  "rank": 347,
+  "name": "uc-micro-py",
+  "summary": "Micro subset of unicode data files for linkify-it-py projects.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 6
+ },
+ {
+  "rank": 348,
+  "name": "weaviate-client",
+  "summary": "A python native Weaviate client",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 296
+ },
+ {
+  "rank": 349,
+  "name": "griffelib",
+  "summary": "Signatures for entire Python programs. Extract the structure, the frame, the skeleton of your project, to generate API documentation or find breaking changes in your API.",
+  "topics": [
+   "Documentation",
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 6
+ },
+ {
+  "rank": 352,
+  "name": "importlib-resources",
+  "summary": "Read resources from Python packages",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 83
+ },
+ {
+  "rank": 353,
+  "name": "pycryptodome",
+  "summary": "Cryptographic library for Python",
+  "topics": [
+   "Security"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7",
+  "n_releases": 58
+ },
+ {
+  "rank": 354,
+  "name": "google-cloud-logging",
+  "summary": "Google Cloud Logging API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 76
+ },
+ {
+  "rank": 355,
+  "name": "opentelemetry-instrumentation-fastapi",
+  "summary": "OpenTelemetry FastAPI Instrumentation",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 71
+ },
+ {
+  "rank": 358,
+  "name": "torch",
+  "summary": "Tensors and Dynamic neural networks in Python with strong GPU acceleration",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 50
+ },
+ {
+  "rank": 359,
+  "name": "fastmcp",
+  "summary": "The fast, Pythonic way to build MCP servers and clients.",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 122
+ },
+ {
+  "rank": 360,
+  "name": "mccabe",
+  "summary": "McCabe checker, plugin for flake8",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.6",
+  "n_releases": 13
+ },
+ {
+  "rank": 361,
+  "name": "tree-sitter",
+  "summary": "Python bindings to the Tree-sitter parsing library",
+  "topics": [
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 37
+ },
+ {
+  "rank": 362,
+  "name": "jupyter-core",
+  "summary": "Jupyter core package. A base package on which Jupyter projects rely.",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Science/Research",
+   "System Administrators"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 64
+ },
+ {
+  "rank": 363,
+  "name": "deprecation",
+  "summary": "A library to handle automated deprecations",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "",
+  "n_releases": 13
+ },
+ {
+  "rank": 364,
+  "name": "beartype",
+  "summary": "Unbearably fast near-real-time pure-Python runtime-static type-checker.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 66
+ },
+ {
+  "rank": 365,
+  "name": "opentelemetry-instrumentation-asgi",
+  "summary": "ASGI instrumentation for OpenTelemetry",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 70
+ },
+ {
+  "rank": 366,
+  "name": "cyclopts",
+  "summary": "Intuitive, easy CLIs based on type hints.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 164
+ },
+ {
+  "rank": 367,
+  "name": "text-unidecode",
+  "summary": "The most basic Text::Unidecode port",
+  "topics": [
+   "Software Development",
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "",
+  "n_releases": 5
+ },
+ {
+  "rank": 368,
+  "name": "semver",
+  "summary": "Python helper for Semantic Versioning (https://semver.org)",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 48
+ },
+ {
+  "rank": 369,
+  "name": "loguru",
+  "summary": "Python logging made (stupidly) simple",
+  "topics": [
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<4.0,>=3.5",
+  "n_releases": 21
+ },
+ {
+  "rank": 370,
+  "name": "ast-serialize",
+  "summary": "Python bindings for mypy AST serialization",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.7",
+  "n_releases": 19
+ },
+ {
+  "rank": 371,
+  "name": "grpclib",
+  "summary": "Pure-Python gRPC implementation for asyncio",
+  "topics": [
+   "Internet",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 57
+ },
+ {
+  "rank": 372,
+  "name": "nbformat",
+  "summary": "The Jupyter Notebook format",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Science/Research",
+   "System Administrators"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 43
+ },
+ {
+  "rank": 373,
+  "name": "uuid-utils",
+  "summary": "Fast, drop-in replacement for Python's uuid module, powered by Rust.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 32
+ },
+ {
+  "rank": 374,
+  "name": "jsonschema-path",
+  "summary": "JSONSchema Spec with object-oriented paths",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": "<4.0.0,>=3.10",
+  "n_releases": 22
+ },
+ {
+  "rank": 375,
+  "name": "sqlglot",
+  "summary": "An easily customizable SQL parser and transpiler",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 781
+ },
+ {
+  "rank": 376,
+  "name": "typing-inspect",
+  "summary": "Runtime inspection utilities for typing module.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": "",
+  "n_releases": 12
+ },
+ {
+  "rank": 377,
+  "name": "python-slugify",
+  "summary": "A Python slugify application that also handles Unicode",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 49
+ },
+ {
+  "rank": 378,
+  "name": "onnxruntime",
+  "summary": "ONNX Runtime is a runtime accelerator for Machine Learning models",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.11",
+  "n_releases": 62
+ },
+ {
+  "rank": 380,
+  "name": "xlrd",
+  "summary": "Library for developers to extract data from Microsoft Excel (tm) .xls spreadsheet files",
+  "topics": [
+   "Database",
+   "Office/Business",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7",
+  "n_releases": 25
+ },
+ {
+  "rank": 382,
+  "name": "aiosqlite",
+  "summary": "asyncio bridge to the standard sqlite3 module",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 28
+ },
+ {
+  "rank": 383,
+  "name": "jsonref",
+  "summary": "jsonref is a library for automatic dereferencing of JSON Reference objects for Python.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.7",
+  "n_releases": 10
+ },
+ {
+  "rank": 384,
+  "name": "dbt-core",
+  "summary": "With dbt, data analysts and engineers can build analytics the way engineers build applications.",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 370
+ },
+ {
+  "rank": 386,
+  "name": "opentelemetry-exporter-prometheus",
+  "summary": "Prometheus Metric Exporter for OpenTelemetry",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 55
+ },
+ {
+  "rank": 387,
+  "name": "jupyter-client",
+  "summary": "Jupyter protocol implementation and client libraries",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Education",
+   "Science/Research",
+   "System Administrators"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 100
+ },
+ {
+  "rank": 388,
+  "name": "google-cloud-monitoring",
+  "summary": "Google Cloud Monitoring API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 84
+ },
+ {
+  "rank": 390,
+  "name": "fastmcp-slim",
+  "summary": "The dependency-slim FastMCP package.",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 26
+ },
+ {
+  "rank": 391,
+  "name": "modal",
+  "summary": "Python client library for Modal",
+  "topics": [
+   "System"
+  ],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<3.15,>=3.10",
+  "n_releases": 2657
+ },
+ {
+  "rank": 392,
+  "name": "synchronicity",
+  "summary": "Export blocking and async library versions from a single async implementation",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 99
+ },
+ {
+  "rank": 393,
+  "name": "graphql-core",
+  "summary": "GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<4,>=3.7",
+  "n_releases": 110
+ },
+ {
+  "rank": 394,
+  "name": "pycodestyle",
+  "summary": "Python style guide checker",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 23
+ },
+ {
+  "rank": 396,
+  "name": "google-cloud-tasks",
+  "summary": "Google Cloud Tasks API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 67
+ },
+ {
+  "rank": 397,
+  "name": "argcomplete",
+  "summary": "Bash tab completion for argparse",
+  "topics": [
+   "Software Development",
+   "System",
+   "Terminals"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 139
+ },
+ {
+  "rank": 398,
+  "name": "Faker",
+  "summary": "Faker is a Python package that generates fake data for you.",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 506
+ },
+ {
+  "rank": 399,
+  "name": "fastapi-cli",
+  "summary": "Run and manage FastAPI apps from the command line with FastAPI CLI. \ud83d\ude80",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 32
+ },
+ {
+  "rank": 400,
+  "name": "databricks-sql-connector",
+  "summary": "Databricks SQL Connector for Python",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<4.0,>=3.10",
+  "n_releases": 103
+ },
+ {
+  "rank": 402,
+  "name": "installer",
+  "summary": "A library for installing Python wheels.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 15
+ },
+ {
+  "rank": 403,
+  "name": "rfc3339-validator",
+  "summary": "A pure python RFC3339 validator",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "2 - Pre-Alpha",
+  "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+  "n_releases": 5
+ },
+ {
+  "rank": 404,
+  "name": "pkginfo",
+  "summary": "Query metadata from sdists / bdists / installed packages.",
+  "topics": [
+   "Software Development",
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 53
+ },
+ {
+  "rank": 406,
+  "name": "rich-rst",
+  "summary": "A beautiful reStructuredText renderer for rich",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": null,
+  "n_releases": 33
+ },
+ {
+  "rank": 407,
+  "name": "shapely",
+  "summary": "Manipulation and analysis of geometric objects",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Developers",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 130
+ },
+ {
+  "rank": 408,
+  "name": "py-key-value-aio",
+  "summary": "Async Key-Value Store - A pluggable interface for KV Stores",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.10",
+  "n_releases": 15
+ },
+ {
+  "rank": 409,
+  "name": "backports.zstd",
+  "summary": "Backport of compression.zstd",
+  "topics": [
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<3.14,>=3.10",
+  "n_releases": 13
+ },
+ {
+  "rank": 410,
+  "name": "ipython-pygments-lexers",
+  "summary": "Defines a variety of Pygments lexers for highlighting IPython code.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.8",
+  "n_releases": 3
+ },
+ {
+  "rank": 411,
+  "name": "numba",
+  "summary": "compiling Python code using LLVM",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 137
+ },
+ {
+  "rank": 412,
+  "name": "arrow",
+  "summary": "Better dates & times for Python",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 65
+ },
+ {
+  "rank": 413,
+  "name": "markdownify",
+  "summary": "Convert HTML to markdown.",
+  "topics": [
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": null,
+  "n_releases": 44
+ },
+ {
+  "rank": 414,
+  "name": "deepdiff",
+  "summary": "Deep Difference and Search of any Python object/data. Recreate objects by adding adding deltas to each other.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 91
+ },
+ {
+  "rank": 415,
+  "name": "dbt-common",
+  "summary": "The shared common utilities that dbt-core and adapter implementations use",
+  "topics": [],
+  "audience": [],
+  "maturity": "2 - Pre-Alpha",
+  "requires_python": ">=3.10",
+  "n_releases": 63
+ },
+ {
+  "rank": 416,
+  "name": "smart-open",
+  "summary": "Utils for streaming large files (S3, HDFS, GCS, SFTP, Azure Blob Storage, gzip, bz2, zst...)",
+  "topics": [
+   "Database",
+   "System"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<4.0,>=3.10",
+  "n_releases": 79
+ },
+ {
+  "rank": 417,
+  "name": "requests-file",
+  "summary": "File transport adapter for Requests",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": null,
+  "n_releases": 16
+ },
+ {
+  "rank": 418,
+  "name": "rich-toolkit",
+  "summary": "Rich toolkit for building command-line applications",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.8",
+  "n_releases": 62
+ },
+ {
+  "rank": 419,
+  "name": "polars",
+  "summary": "Blazingly fast DataFrame library",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 431
+ },
+ {
+  "rank": 420,
+  "name": "mistune",
+  "summary": "A sane and fast Markdown parser with useful plugins and renderers",
+  "topics": [
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.8",
+  "n_releases": 56
+ },
+ {
+  "rank": 421,
+  "name": "argon2-cffi-bindings",
+  "summary": "Low-level CFFI bindings for Argon2",
+  "topics": [
+   "Security",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 4
+ },
+ {
+  "rank": 422,
+  "name": "bleach",
+  "summary": "An easy safelist-based HTML-sanitizing tool.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "7 - Inactive",
+  "requires_python": ">=3.10",
+  "n_releases": 61
+ },
+ {
+  "rank": 423,
+  "name": "durationpy",
+  "summary": "Module for converting between datetime.timedelta and Go's Duration strings.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": null,
+  "n_releases": 11
+ },
+ {
+  "rank": 424,
+  "name": "msrest",
+  "summary": "AutoRest swagger generator Python client runtime.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.6",
+  "n_releases": 70
+ },
+ {
+  "rank": 425,
+  "name": "mmh3",
+  "summary": "Python extension for MurmurHash (MurmurHash3), a set of fast and robust hash functions.",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 18
+ },
+ {
+  "rank": 426,
+  "name": "snowflake-snowpark-python",
+  "summary": "Snowflake Snowpark for Python",
+  "topics": [
+   "Database",
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<3.15,>=3.10",
+  "n_releases": 76
+ },
+ {
+  "rank": 427,
+  "name": "pypdfium2",
+  "summary": "Python bindings to PDFium",
+  "topics": [
+   "Multimedia",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.6",
+  "n_releases": 129
+ },
+ {
+  "rank": 428,
+  "name": "llama-parse",
+  "summary": "Parse files into RAG-Optimized formats.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<4.0,>=3.9",
+  "n_releases": 127
+ },
+ {
+  "rank": 430,
+  "name": "llama-cloud-services",
+  "summary": "Tailored SDK clients for LlamaCloud services.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<4.0,>=3.9",
+  "n_releases": 93
+ },
+ {
+  "rank": 431,
+  "name": "google-cloud-bigtable",
+  "summary": "Google Cloud Bigtable API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 103
+ },
+ {
+  "rank": 432,
+  "name": "langchain-openai",
+  "summary": "An integration package connecting OpenAI and LangChain",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<4.0.0,>=3.10.0",
+  "n_releases": 143
+ },
+ {
+  "rank": 433,
+  "name": "poetry",
+  "summary": "Python dependency management and packaging made easy.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<4.0,>=3.10",
+  "n_releases": 190
+ },
+ {
+  "rank": 434,
+  "name": "pendulum",
+  "summary": "Python datetimes made easy",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 57
+ },
+ {
+  "rank": 435,
+  "name": "typeguard",
+  "summary": "Run-time type checker for Python",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 77
+ },
+ {
+  "rank": 436,
+  "name": "PyGithub",
+  "summary": "Use the full Github API v3",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 109
+ },
+ {
+  "rank": 437,
+  "name": "types-protobuf",
+  "summary": "Typing stubs for protobuf",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 127
+ },
+ {
+  "rank": 438,
+  "name": "jsonpath-ng",
+  "summary": "A final implementation of JSONPath for Python that aims to be standard compliant, including arithmetic and binary comparison operators and providing clear AST for metaprogramming.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": null,
+  "n_releases": 11
+ },
+ {
+  "rank": 439,
+  "name": "uncalled-for",
+  "summary": "Async dependency injection for Python functions",
+  "topics": [],
+  "audience": [],
+  "maturity": "3 - Alpha",
+  "requires_python": ">=3.10",
+  "n_releases": 8
+ },
+ {
+  "rank": 440,
+  "name": "scramp",
+  "summary": "An implementation of the SCRAM protocol.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 26
+ },
+ {
+  "rank": 441,
+  "name": "llvmlite",
+  "summary": "lightweight wrapper around basic LLVM functionality",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 64
+ },
+ {
+  "rank": 442,
+  "name": "Sphinx",
+  "summary": "Python documentation generator",
+  "topics": [
+   "Documentation",
+   "Education",
+   "Internet",
+   "Printing",
+   "Software Development",
+   "Text Editors",
+   "Text Processing",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "End Users/Desktop",
+   "Information Technology",
+   "Other Audience",
+   "Science/Research",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.12",
+  "n_releases": 241
+ },
+ {
+  "rank": 443,
+  "name": "grpcio-health-checking",
+  "summary": "Standard Health Checking Service for gRPC",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 276
+ },
+ {
+  "rank": 445,
+  "name": "fastcore",
+  "summary": "Python supercharged for fastai development",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 364
+ },
+ {
+  "rank": 446,
+  "name": "comm",
+  "summary": "Jupyter Python Comm implementation, for usage in ipykernel, xeus-python etc.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.8",
+  "n_releases": 10
+ },
+ {
+  "rank": 447,
+  "name": "plotly",
+  "summary": "An open-source interactive data visualization library for Python",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 321
+ },
+ {
+  "rank": 448,
+  "name": "crashtest",
+  "summary": "Manage Python errors with ease",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.7,<4.0",
+  "n_releases": 4
+ },
+ {
+  "rank": 449,
+  "name": "ipykernel",
+  "summary": "IPython Kernel for Jupyter",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Science/Research",
+   "System Administrators"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 146
+ },
+ {
+  "rank": 450,
+  "name": "langgraph",
+  "summary": "Building stateful, multi-actor applications with LLMs",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 276
+ },
+ {
+  "rank": 451,
+  "name": "aiofile",
+  "summary": "Asynchronous file operations.",
+  "topics": [
+   "Software Development",
+   "System"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "End Users/Desktop"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.11",
+  "n_releases": 53
+ },
+ {
+  "rank": 452,
+  "name": "duckdb",
+  "summary": "DuckDB in-process database",
+  "topics": [
+   "Database",
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Information Technology",
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10.0",
+  "n_releases": 138
+ },
+ {
+  "rank": 453,
+  "name": "cleo",
+  "summary": "Cleo allows you to create beautiful and testable command-line interfaces.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.7,<4.0",
+  "n_releases": 36
+ },
+ {
+  "rank": 456,
+  "name": "responses",
+  "summary": "A utility library for mocking out the `requests` Python library.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "System Administrators"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.8",
+  "n_releases": 65
+ },
+ {
+  "rank": 457,
+  "name": "caio",
+  "summary": "Asynchronous file IO for Linux MacOS or Windows.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 52
+ },
+ {
+  "rank": 458,
+  "name": "humanize",
+  "summary": "Python humanize utilities",
+  "topics": [
+   "Text Processing"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 58
+ },
+ {
+  "rank": 459,
+  "name": "psycopg2",
+  "summary": "psycopg2 - Python-PostgreSQL Database Adapter",
+  "topics": [
+   "Database",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 66
+ },
+ {
+  "rank": 460,
+  "name": "cfn-lint",
+  "summary": "Checks CloudFormation templates for practices and behaviour that could potentially be improved",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "<3.15,>=3.10",
+  "n_releases": 457
+ },
+ {
+  "rank": 461,
+  "name": "google-cloud-vision",
+  "summary": "Google Cloud Vision API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 92
+ },
+ {
+  "rank": 462,
+  "name": "triton",
+  "summary": "A language and compiler for custom Deep Learning operations",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": "<3.15,>=3.10",
+  "n_releases": 22
+ },
+ {
+  "rank": 463,
+  "name": "cattrs",
+  "summary": "Composable complex class support for attrs and dataclasses.",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 43
+ },
+ {
+  "rank": 464,
+  "name": "dataclasses-json",
+  "summary": "Easily serialize dataclasses to and from JSON.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<4.0,>=3.7",
+  "n_releases": 77
+ },
+ {
+  "rank": 465,
+  "name": "portalocker",
+  "summary": "Cross-platform file locking, with Redis, PID-file and bounded-semaphore locks",
+  "topics": [
+   "Software Development",
+   "System"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.10",
+  "n_releases": 54
+ },
+ {
+  "rank": 466,
+  "name": "google-cloud-resource-manager",
+  "summary": "Google Cloud Resource Manager API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 69
+ },
+ {
+  "rank": 467,
+  "name": "fastapi-cloud-cli",
+  "summary": "Deploy and manage FastAPI Cloud apps from the command line \ud83d\ude80",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 41
+ },
+ {
+  "rank": 468,
+  "name": "datadog",
+  "summary": "The Datadog Python library",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7",
+  "n_releases": 67
+ },
+ {
+  "rank": 469,
+  "name": "toolz",
+  "summary": "List processing tools and functional utilities",
+  "topics": [],
+  "audience": [],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 31
+ },
+ {
+  "rank": 470,
+  "name": "google-cloud-run",
+  "summary": "Google Cloud Run API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 43
+ },
+ {
+  "rank": 471,
+  "name": "mcp-types",
+  "summary": "Model Context Protocol wire types",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 11
+ },
+ {
+  "rank": 472,
+  "name": "poetry-plugin-export",
+  "summary": "Poetry plugin to export the dependencies to various formats",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<4.0,>=3.10",
+  "n_releases": 23
+ },
+ {
+  "rank": 473,
+  "name": "nbconvert",
+  "summary": "Convert Jupyter Notebooks (.ipynb files) to other formats.",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Science/Research",
+   "System Administrators"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 104
+ },
+ {
+  "rank": 474,
+  "name": "python-pptx",
+  "summary": "Create, read, and update PowerPoint 2007+ (.pptx) files.",
+  "topics": [
+   "Office/Business",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 51
+ },
+ {
+  "rank": 475,
+  "name": "py",
+  "summary": "library with cross-python path, ini-parsing, io, code, log facilities",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+  "n_releases": 65
+ },
+ {
+  "rank": 476,
+  "name": "langchain-protocol",
+  "summary": "Python bindings for the LangChain agent streaming protocol",
+  "topics": [
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "3 - Alpha",
+  "requires_python": "<4.0.0,>=3.10.0",
+  "n_releases": 12
+ },
+ {
+  "rank": 477,
+  "name": "pycryptodomex",
+  "summary": "Cryptographic library for Python",
+  "topics": [
+   "Security"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7",
+  "n_releases": 51
+ },
+ {
+  "rank": 478,
+  "name": "polars-runtime-32",
+  "summary": "Blazingly fast DataFrame library",
+  "topics": [
+   "Scientific/Engineering"
+  ],
+  "audience": [
+   "Science/Research"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 30
+ },
+ {
+  "rank": 479,
+  "name": "pyflakes",
+  "summary": "passive checker of Python programs",
+  "topics": [
+   "Software Development",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=3.9",
+  "n_releases": 42
+ },
+ {
+  "rank": 480,
+  "name": "backports.tarfile",
+  "summary": "Backport of CPython tarfile module",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 4
+ },
+ {
+  "rank": 481,
+  "name": "snowflake-sqlalchemy",
+  "summary": "Snowflake SQLAlchemy Dialect",
+  "topics": [
+   "Database",
+   "Scientific/Engineering",
+   "Software Development"
+  ],
+  "audience": [
+   "Developers",
+   "Education",
+   "Information Technology",
+   "System Administrators"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 62
+ },
+ {
+  "rank": 482,
+  "name": "future",
+  "summary": "Clean single-source support for Python 3 and 2",
+  "topics": [],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "6 - Mature",
+  "requires_python": ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
+  "n_releases": 52
+ },
+ {
+  "rank": 483,
+  "name": "PySocks",
+  "summary": "A Python SOCKS client module. See https://github.com/Anorov/PySocks for more information.",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
+  "n_releases": 19
+ },
+ {
+  "rank": 484,
+  "name": "nbclient",
+  "summary": "A client library for executing notebooks. Formerly nbconvert's ExecutePreprocessor.",
+  "topics": [],
+  "audience": [
+   "Developers",
+   "Science/Research",
+   "System Administrators"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10.0",
+  "n_releases": 46
+ },
+ {
+  "rank": 485,
+  "name": "google-cloud-videointelligence",
+  "summary": "Google Cloud Videointelligence API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 73
+ },
+ {
+  "rank": 486,
+  "name": "google-cloud-language",
+  "summary": "Google Cloud Language API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 71
+ },
+ {
+  "rank": 487,
+  "name": "google-cloud-workflows",
+  "summary": "Google Cloud Workflows API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 54
+ },
+ {
+  "rank": 488,
+  "name": "colorlog",
+  "summary": "Add colours to the output of Python's logging module.",
+  "topics": [
+   "Terminals",
+   "Utilities"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.6",
+  "n_releases": 72
+ },
+ {
+  "rank": 489,
+  "name": "unidiff",
+  "summary": "Unified diff parsing/metadata extraction library.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.9",
+  "n_releases": 15
+ },
+ {
+  "rank": 490,
+  "name": "sqlalchemy-bigquery",
+  "summary": "SQLAlchemy dialect for BigQuery",
+  "topics": [
+   "Database"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 39
+ },
+ {
+  "rank": 491,
+  "name": "confluent-kafka",
+  "summary": "Confluent's Python client for Apache Kafka",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.8",
+  "n_releases": 65
+ },
+ {
+  "rank": 492,
+  "name": "absl-py",
+  "summary": "Abseil Python Common Libraries, see https://github.com/abseil/abseil-py.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": null,
+  "requires_python": ">=3.10",
+  "n_releases": 50
+ },
+ {
+  "rank": 493,
+  "name": "google-cloud-dataform",
+  "summary": "Google Cloud Dataform API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "4 - Beta",
+  "requires_python": ">=3.10",
+  "n_releases": 37
+ },
+ {
+  "rank": 495,
+  "name": "google-cloud-redis",
+  "summary": "Google Cloud Redis API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 55
+ },
+ {
+  "rank": 496,
+  "name": "openapi-pydantic",
+  "summary": "Pydantic OpenAPI schema implementation",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": "<4.0,>=3.8",
+  "n_releases": 12
+ },
+ {
+  "rank": 497,
+  "name": "pbs-installer",
+  "summary": "Installer for Python Build Standalone",
+  "topics": [],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 82
+ },
+ {
+  "rank": 498,
+  "name": "libcst",
+  "summary": "A concrete syntax tree with AST-like properties for Python 3.0 through 3.15 programs.",
+  "topics": [
+   "Software Development"
+  ],
+  "audience": [],
+  "maturity": null,
+  "requires_python": ">=3.9",
+  "n_releases": 66
+ },
+ {
+  "rank": 499,
+  "name": "google-cloud-os-login",
+  "summary": "Google Cloud Os Login API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 53
+ },
+ {
+  "rank": 500,
+  "name": "google-cloud-bigquery-datatransfer",
+  "summary": "Google Cloud Bigquery Datatransfer API client library",
+  "topics": [
+   "Internet"
+  ],
+  "audience": [
+   "Developers"
+  ],
+  "maturity": "5 - Production/Stable",
+  "requires_python": ">=3.10",
+  "n_releases": 67
+ }
+]
