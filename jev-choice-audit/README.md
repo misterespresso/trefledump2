@@ -10,6 +10,12 @@ A follow-up asks whether feeding Jev reference material fixes it. It does, compl
 accuracy goes from 10.5% to 100% and the mismatch rate from 16.0% to 0%, changing
 nothing but `state`. See **[context_probe.md](context_probe.md)**.
 
+A third experiment asks whether small Jev calls can be *chained* into a computation
+one call cannot do. They can: `N mod 7` and weekday offsets are both 100% inside the
+range a date needs, and a retrieval-fed three-stage chain takes the same 200 dates
+from 9.5% to **100%**. The weak link is fact recall, not composition. See
+**[chain.md](chain.md)**.
+
 Those anchors were close enough to count from, so a second probe makes the reference
 material remote. Scattered true dates do not help at all, and a single reference 365
 days back scores 81% while the same reference moved one day, to 364 days back, scores
@@ -26,6 +32,7 @@ python -m choice_audit.collect       # ~1,263 requests, resumable, appends to da
 python -m choice_audit.analyze       # reads the JSONL only; writes the CSV, results.json, charts and report.md
 python -m choice_audit.probe                 # context ladder: 800 requests -> context_probe.md
 python -m choice_audit.probe --suite hard    # remote references: 1,400 -> context_probe_hard.md
+python -m choice_audit.chain                 # sub-skills and the chain: ~1,460 -> chain.md
 ```
 
 `collect` is resumable: a `record_id` already recorded as successful is skipped, so
@@ -70,6 +77,7 @@ choice_audit/
   charts.py    the seven figures
   report.py    report.md
   probe.py     both context suites and their write-ups
+  chain.py     sub-skill tests and the end-to-end chain
 data/          raw_responses.jsonl, per_question_results.csv, results.json
 charts/        PNGs at 1920x1080, 150 dpi
 tests/         offline
