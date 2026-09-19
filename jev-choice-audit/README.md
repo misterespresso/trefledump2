@@ -10,6 +10,11 @@ A follow-up asks whether feeding Jev reference material fixes it. It does, compl
 accuracy goes from 10.5% to 100% and the mismatch rate from 16.0% to 0%, changing
 nothing but `state`. See **[context_probe.md](context_probe.md)**.
 
+A fourth experiment inverts the arrangement: instead of Python deciding what to ask,
+Jev picks its own next question in 100 games of twenty questions. It closes **94%** of
+the distance between random and optimal play and never once asks a question that
+eliminates nothing. See **[planner.md](planner.md)**.
+
 A third experiment asks whether small Jev calls can be *chained* into a computation
 one call cannot do. They can: `N mod 7` and weekday offsets are both 100% inside the
 range a date needs, and a retrieval-fed three-stage chain takes the same 200 dates
@@ -33,6 +38,7 @@ python -m choice_audit.analyze       # reads the JSONL only; writes the CSV, res
 python -m choice_audit.probe                 # context ladder: 800 requests -> context_probe.md
 python -m choice_audit.probe --suite hard    # remote references: 1,400 -> context_probe_hard.md
 python -m choice_audit.chain                 # sub-skills and the chain: ~1,460 -> chain.md
+python -m choice_audit.planner               # self-directed question choice: 391 -> planner.md
 ```
 
 `collect` is resumable: a `record_id` already recorded as successful is skipped, so
@@ -78,6 +84,7 @@ choice_audit/
   report.py    report.md
   probe.py     both context suites and their write-ups
   chain.py     sub-skill tests and the end-to-end chain
+  planner.py   twenty questions, with Jev choosing each move
 data/          raw_responses.jsonl, per_question_results.csv, results.json
 charts/        PNGs at 1920x1080, 150 dpi
 tests/         offline

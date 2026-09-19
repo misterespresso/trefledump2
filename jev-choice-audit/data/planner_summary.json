@@ -1,0 +1,113 @@
+{
+  "n_games": 100,
+  "n_turns": 4,
+  "n_animals": 20,
+  "per_turn": [
+    {
+      "turn": 0,
+      "n": 100,
+      "n_live": 100,
+      "chose_optimal": 100,
+      "chose_optimal_rate": 1.0,
+      "chose_optimal_ci": [
+        0.9630065017930143,
+        1.0
+      ],
+      "repeated_a_question": 0,
+      "wasted_pick": 0,
+      "wasted_pick_rate": 0.0,
+      "efficiency": 1.0,
+      "mean_bits_jev": 0.9927739999999983,
+      "mean_bits_optimal": 0.9927739999999983,
+      "mean_bits_random": 0.9256371000000019,
+      "mean_top_p": 0.5734000000000001
+    },
+    {
+      "turn": 1,
+      "n": 100,
+      "n_live": 100,
+      "chose_optimal": 0,
+      "chose_optimal_rate": 0.0,
+      "chose_optimal_ci": [
+        3.469446951953614e-18,
+        0.03699349820698568
+      ],
+      "repeated_a_question": 0,
+      "wasted_pick": 0,
+      "wasted_pick_rate": 0.0,
+      "efficiency": 0.939695324936762,
+      "mean_bits_jev": 0.9327989199999993,
+      "mean_bits_optimal": 0.9926416200000006,
+      "mean_bits_random": 0.5566120040000002,
+      "mean_top_p": 0.3704
+    },
+    {
+      "turn": 2,
+      "n": 100,
+      "n_live": 100,
+      "chose_optimal": 72,
+      "chose_optimal_rate": 0.72,
+      "chose_optimal_ci": [
+        0.6251197129007884,
+        0.7986031478881379
+      ],
+      "repeated_a_question": 0,
+      "wasted_pick": 0,
+      "wasted_pick_rate": 0.0,
+      "efficiency": 0.9652974133906063,
+      "mean_bits_jev": 0.94615012,
+      "mean_bits_optimal": 0.9803400800000002,
+      "mean_bits_random": 0.30678856600000043,
+      "mean_top_p": 0.6969999999999998
+    },
+    {
+      "turn": 3,
+      "n": 91,
+      "n_live": 59,
+      "chose_optimal": 91,
+      "chose_optimal_rate": 1.0,
+      "chose_optimal_ci": [
+        0.9594959960711198,
+        1.0
+      ],
+      "repeated_a_question": 0,
+      "wasted_pick": 0,
+      "wasted_pick_rate": 0.0,
+      "efficiency": 1.0,
+      "mean_bits_jev": 0.6165083406593403,
+      "mean_bits_optimal": 0.6165083406593403,
+      "mean_bits_random": 0.1511730967032966,
+      "mean_top_p": 0.5854945054945054
+    }
+  ],
+  "final_candidates": {
+    "jev": 1.85,
+    "optimal": 1.66,
+    "random": 4.71
+  },
+  "solved": {
+    "jev": 0.27,
+    "optimal": 0.34,
+    "random": 0.03
+  },
+  "curve": {
+    "jev": [
+      10.06,
+      5.21,
+      2.82,
+      1.85
+    ],
+    "optimal": [
+      10.08,
+      5.05,
+      2.74,
+      1.66
+    ],
+    "random": [
+      11.2,
+      7.68,
+      5.92,
+      4.71
+    ]
+  }
+}
