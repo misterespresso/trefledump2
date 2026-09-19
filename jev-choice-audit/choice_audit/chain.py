@@ -323,7 +323,7 @@ def write_md(R: dict[str, Any], raw: Path, path: Path) -> None:
                      f"and produced the right answer in {sum(r['correct'] for r in good)} of them "
                      f"({sum(r['correct'] for r in good) / len(good):.1%}). It was handed a wrong one "
                      f"{len(bad)} times and produced the right answer in {sum(r['correct'] for r in bad)} "
-                     f"({sum(r["correct"] for r in bad) / len(bad):.1%}) of those.")
+                     f"({sum(r['correct'] for r in bad) / len(bad):.1%}) of those.")
             L.append("")
             L.append("Stage three is a faithful function of its input. The chain is worth exactly as much as "
                      "the fact fed into it, which is the ordinary behaviour of a pipeline rather than a defect "

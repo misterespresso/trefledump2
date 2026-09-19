@@ -26,7 +26,7 @@ The retrieval-fed chain against asking outright: Fisher's exact, two-sided p = 2
 
 ## The composition itself is not the problem
 
-Across both chains, stage three was handed a correct starting weekday 211 times and produced the right answer in 211 of them (100.0%). It was handed a wrong one 46 times and produced the right answer in 0 (0.0% ) of those.
+Across both chains, stage three was handed a correct starting weekday 211 times and produced the right answer in 211 of them (100.0%). It was handed a wrong one 46 times and produced the right answer in 0 (0.0%) of those.
 
 Stage three is a faithful function of its input. The chain is worth exactly as much as the fact fed into it, which is the ordinary behaviour of a pipeline rather than a defect of the model.
 
