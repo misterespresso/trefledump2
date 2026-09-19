@@ -34,7 +34,9 @@
       "distinct_values": 13,
       "min": 0.05,
       "max": 0.17,
-      "max_decimals": 2
+      "max_decimals": 2,
+      "exactly_equal_to_own_2dp": 0.9640384615384615,
+      "max_deviation_from_grid": 2.7755575615628914e-17
     }
   },
   "mismatch_main": {

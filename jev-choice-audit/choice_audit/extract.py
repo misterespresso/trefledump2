@@ -145,4 +145,8 @@ def decimals_used(rows: list[Row]) -> dict[str, Any]:
         "min": min(vals),
         "max": max(vals),
         "max_decimals": max(len(f"{v:.10f}".rstrip("0").split(".")[1]) for v in vals),
+        # The wire carries full float64 repr, so a value can sit an ULP off the grid
+        # (e.g. 0.13999999999999999). Distinguish exact equality from grid membership.
+        "exactly_equal_to_own_2dp": sum(1 for v in vals if v == round(v, 2)) / len(vals),
+        "max_deviation_from_grid": max(abs(v - round(v, 2)) for v in vals),
     }

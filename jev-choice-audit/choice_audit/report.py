@@ -78,9 +78,13 @@ def write_report(rows: list[Row], R: dict[str, Any], charts: dict[str, str], pat
     A("")
     A("Two properties of the response format matter for reading everything below:")
     A("")
-    A(f"- Reported probabilities are **quantised to 0.01**: {q['on_0.01_grid'] * 100:.1f}% of "
-      f"{q['n_values']} values land exactly on that grid, spanning {q['distinct_values']} distinct values "
-      f"from {q['min']:.2f} to {q['max']:.2f}, with at most {q['max_decimals']} decimal places.")
+    A(f"- Reported probabilities are **quantised to 0.01**: all {q['n_values']} values sit within "
+      f"{q['max_deviation_from_grid']:.1e} of a multiple of 0.01, spanning {q['distinct_values']} distinct "
+      f"values from {q['min']:.2f} to {q['max']:.2f}. The granularity is in the numbers themselves, not only "
+      f"in their display: the response body carries full float64 text, and "
+      f"{(1 - q['exactly_equal_to_own_2dp']) * 100:.1f}% of values are an ULP off the grid "
+      f"(`0.13999999999999999` rather than `0.14`), so the vector is the result of arithmetic that lands on "
+      f"a 0.01 grid rather than a literal rounding applied for display.")
     A(f"- Vectors are not renormalised after quantisation: sums range from "
       f"{meta['prob_sum_min']:.2f} to {meta['prob_sum_max']:.2f}.")
     A(f"- `choice` was always one of the supplied criteria: {meta['choice_always_in_criteria']}.")

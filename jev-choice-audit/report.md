@@ -16,7 +16,7 @@ In **16.30%** of 1000 single-question requests (95% CI 14.14%-18.72%), the `choi
 
 Two properties of the response format matter for reading everything below:
 
-- Reported probabilities are **quantised to 0.01**: 100.0% of 10400 values land exactly on that grid, spanning 13 distinct values from 0.05 to 0.17, with at most 2 decimal places.
+- Reported probabilities are **quantised to 0.01**: all 10400 values sit within 2.8e-17 of a multiple of 0.01, spanning 13 distinct values from 0.05 to 0.17. The granularity is in the numbers themselves, not only in their display: the response body carries full float64 text, and 3.6% of values are an ULP off the grid (`0.13999999999999999` rather than `0.14`), so the vector is the result of arithmetic that lands on a 0.01 grid rather than a literal rounding applied for display.
 - Vectors are not renormalised after quantisation: sums range from 0.99 to 1.00.
 - `choice` was always one of the supplied criteria: True.
 
