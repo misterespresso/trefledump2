@@ -6,6 +6,10 @@ whose probability in the *same response* was lower than the maximum.
 
 Full write-up with statistics, charts and a minimal reproduction: **[report.md](report.md)**.
 
+A follow-up asks whether feeding Jev reference material fixes it. It does, completely:
+accuracy goes from 10.5% to 100% and the mismatch rate from 16.0% to 0%, changing
+nothing but `state`. See **[context_probe.md](context_probe.md)**.
+
 ## Run it
 
 ```bash
@@ -15,6 +19,7 @@ python -m pytest tests -q            # 15 tests, no network
 
 python -m choice_audit.collect       # ~1,263 requests, resumable, appends to data/raw_responses.jsonl
 python -m choice_audit.analyze       # reads the JSONL only; writes the CSV, results.json, charts and report.md
+python -m choice_audit.probe         # the context ladder: 800 requests, then context_probe.md
 ```
 
 `collect` is resumable: a `record_id` already recorded as successful is skipped, so
@@ -32,6 +37,7 @@ from the committed JSONL by anyone, with no API key.
 | `main` | 1,000 | one date per request |
 | `determinism` | 250 | 50 of those dates, 5 byte-identical repeats each |
 | `batch` | 13 | the same 50 dates, up to 4 questions per request |
+| `probe` | 800 | 200 dates in four context conditions, run by `choice_audit.probe` |
 
 The task is "What day of the week is {date} in the Gregorian calendar?" with
 Monday to Sunday plus `Unknown` as the options, a constant neutral greeting as the
@@ -56,6 +62,7 @@ choice_audit/
   analyze.py   CLI: statistics, CSV, results.json
   charts.py    the seven figures
   report.py    report.md
+  probe.py     the context ladder and context_probe.md
 data/          raw_responses.jsonl, per_question_results.csv, results.json
 charts/        PNGs at 1920x1080, 150 dpi
 tests/         offline

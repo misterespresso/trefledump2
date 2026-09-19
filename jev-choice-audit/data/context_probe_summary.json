@@ -1,0 +1,82 @@
+{
+  "none": {
+    "n": 200,
+    "correct": 21,
+    "accuracy": 0.105,
+    "acc_ci": [
+      0.06970748792681017,
+      0.1551803199112304
+    ],
+    "mismatch": 32,
+    "mismatch_rate": 0.16,
+    "mm_ci": [
+      0.1156741203158702,
+      0.21714070162067106
+    ],
+    "mean_top_prob": 0.14385,
+    "mean_gap": 0.006950000000000005,
+    "tie_rate": 0.47,
+    "mean_confidence": 0.01834999999999998,
+    "unknown_rate": 0.0
+  },
+  "month_anchor": {
+    "n": 200,
+    "correct": 91,
+    "accuracy": 0.455,
+    "acc_ci": [
+      0.387482193098835,
+      0.524213886275119
+    ],
+    "mismatch": 1,
+    "mismatch_rate": 0.005,
+    "mm_ci": [
+      0.0008831687156009814,
+      0.02777370439789293
+    ],
+    "mean_top_prob": 0.6328499999999999,
+    "mean_gap": 0.4929000000000002,
+    "tie_rate": 0.01,
+    "mean_confidence": 0.5788000000000004,
+    "unknown_rate": 0.0
+  },
+  "near_anchor": {
+    "n": 200,
+    "correct": 198,
+    "accuracy": 0.99,
+    "acc_ci": [
+      0.9642782382838231,
+      0.9972533418664555
+    ],
+    "mismatch": 0,
+    "mismatch_rate": 0.0,
+    "mm_ci": [
+      1.734723475976807e-18,
+      0.018845326377266575
+    ],
+    "mean_top_prob": 0.9682999999999997,
+    "mean_gap": 0.9469499999999996,
+    "tie_rate": 0.0,
+    "mean_confidence": 0.9573999999999997,
+    "unknown_rate": 0.0
+  },
+  "lookup": {
+    "n": 200,
+    "correct": 200,
+    "accuracy": 1.0,
+    "acc_ci": [
+      0.9811546736227335,
+      1.0
+    ],
+    "mismatch": 0,
+    "mismatch_rate": 0.0,
+    "mm_ci": [
+      1.734723475976807e-18,
+      0.018845326377266575
+    ],
+    "mean_top_prob": 0.9997,
+    "mean_gap": 0.9994,
+    "tie_rate": 0.0,
+    "mean_confidence": 0.9966500000000004,
+    "unknown_rate": 0.0
+  }
+}

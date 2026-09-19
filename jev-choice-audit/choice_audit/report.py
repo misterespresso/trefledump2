@@ -207,6 +207,11 @@ def write_report(rows: list[Row], R: dict[str, Any], charts: dict[str, str], pat
           f"which is consistent with `choice` and `confidence` being read off one internal vector and "
           f"`probabilities` being reported from another, or from the same one at lower precision.")
         A("")
+    A("That last prediction was tested directly. Re-asking 200 of the same dates with reference material "
+      "added to `state`, and nothing else changed, moves accuracy from 10.5% to 100% and the mismatch "
+      "rate from 16.0% to 0%. See [context_probe.md](context_probe.md). The mismatch is real, and it "
+      "only appears where the top two options are within one reporting step.")
+    A("")
     A(f"What the data does not establish: which of the two is correct, whether the cause is precision, a "
       f"separate pass, or an ordering step, and whether the behaviour extends to tasks where the model is "
       f"not at chance. On this task neither rule beat chance "

@@ -158,3 +158,57 @@ def test_binomial_and_fisher_agree_with_known_values():
     assert binom_p(500, 1000, 0.5) == pytest.approx(1.0, abs=1e-9)
     _, p = fisher_2x2(163, 721, 0, 116)
     assert p < 1e-6
+
+
+# --- context probe ----------------------------------------------------------
+def test_probe_conditions_leak_the_answer_only_in_lookup():
+    from choice_audit.probe import LADDER, build_probe_units
+
+    by_cond: dict[str, list] = {c: [] for c in LADDER}
+    for u in build_probe_units():
+        by_cond[u.experiment].append(u)
+
+    for cond, units in by_cond.items():
+        assert units, cond
+        for u in units[:25]:
+            d = u.items[0].date
+            answer_row = f"{d.isoformat()} was a {config.truth(d)}"
+            state = u.body()["state"]
+            if cond == "none":
+                assert state == config.STATE
+                continue
+            rows = state["reference_calendar"]
+            # No row may name the asked date unless this is the lookup condition.
+            named = [r for r in rows if r.startswith(d.isoformat())]
+            if cond == "lookup":
+                assert named == [answer_row]
+                assert len(rows) == 40
+            elif cond == "month_anchor" and d.day == 1:
+                # Known and disclosed: when the date is the 1st, the anchor is the answer.
+                assert named == [answer_row]
+            else:
+                assert named == []
+                assert len(rows) == 1
+            # Every reference row must itself be true, or the probe measures nothing.
+            for row in rows:
+                iso, day = row.split(" was a ")
+                assert config.truth(dt.date.fromisoformat(iso)) == day
+
+
+def test_probe_uses_the_same_dates_in_every_condition():
+    from choice_audit.probe import LADDER, build_probe_units
+
+    seen = {}
+    for u in build_probe_units():
+        seen.setdefault(u.experiment, []).append(u.items[0].date)
+    sets = [tuple(sorted(v)) for v in seen.values()]
+    assert len(set(sets)) == 1  # a paired comparison, not four different samples
+    assert len(sets[0]) == 200
+
+
+def test_unit_state_override_leaves_the_default_untouched():
+    from choice_audit.plan import Item, Unit
+
+    d = dt.date(2031, 7, 4)
+    assert Unit("a", "main", (Item("q0", d),)).body()["state"] == config.STATE
+    assert Unit("b", "probe", (Item("q0", d),), state={"x": 1}).body()["state"] == {"x": 1}

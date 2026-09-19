@@ -33,10 +33,11 @@ class Unit:
     experiment: str
     items: tuple[Item, ...]
     repeat: int = 0
+    state: Any = None  # None keeps the constant neutral greeting; the probe overrides it
 
     def body(self) -> dict[str, Any]:
         return {
-            "state": config.STATE,
+            "state": config.STATE if self.state is None else self.state,
             "model": config.MODEL,
             "questions": {
                 it.qname: {
