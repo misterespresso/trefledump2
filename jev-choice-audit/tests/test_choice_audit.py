@@ -212,3 +212,45 @@ def test_unit_state_override_leaves_the_default_untouched():
     d = dt.date(2031, 7, 4)
     assert Unit("a", "main", (Item("q0", d),)).body()["state"] == config.STATE
     assert Unit("b", "probe", (Item("q0", d),), state={"x": 1}).body()["state"] == {"x": 1}
+
+
+def test_hard_suite_references_are_true_and_never_countable():
+    """Scatter references must be far away and correct; anchors must sit at the stated offset."""
+    from choice_audit.probe import MIN_SCATTER_GAP, anchor_offset, build_probe_units
+
+    seen: dict[str, int] = {}
+    for u in build_probe_units("hard"):
+        cond, d = u.experiment, u.items[0].date
+        seen[cond] = seen.get(cond, 0) + 1
+        state = u.body()["state"]
+        if cond == "none":
+            assert state == config.STATE
+            continue
+        rows = state["reference_calendar"]
+        dates = []
+        for row in rows:
+            iso, day = row.split(" was a ")
+            ref = dt.date.fromisoformat(iso)
+            assert config.truth(ref) == day, row   # every reference must be true
+            dates.append(ref)
+        assert d not in dates                      # the answer is never handed over
+        if cond.startswith("scatter_"):
+            assert len(rows) == int(cond.split("_")[1])
+            assert all(abs((x - d).days) >= MIN_SCATTER_GAP for x in dates)
+        else:
+            off = anchor_offset(cond)
+            assert len(dates) == 1 and (d - dates[0]).days == off
+    assert set(seen) == set(__import__("choice_audit.probe", fromlist=["HARD"]).HARD)
+    assert set(seen.values()) == {200}
+
+
+def test_week_multiple_anchors_make_the_answer_the_anchors_weekday():
+    """The 28 and 364 day conditions are only diagnostic if copying equals the truth."""
+    from choice_audit.probe import probe_dates
+
+    for d in probe_dates()[:40]:
+        for off in (28, 364):
+            assert config.truth(d - dt.timedelta(days=off)) == config.truth(d)
+        for off, shift in ((30, 2), (365, 1)):
+            a = config.DAYS.index(config.truth(d - dt.timedelta(days=off)))
+            assert config.DAYS[(a + shift) % 7] == config.truth(d)

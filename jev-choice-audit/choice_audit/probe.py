@@ -35,6 +35,8 @@ from .store import JsonlStore
 
 PROBE_JSONL = config.DATA_DIR / "context_probe.jsonl"
 PROBE_MD = config.ROOT / "context_probe.md"
+HARD_JSONL = config.DATA_DIR / "context_probe_hard.jsonl"
+HARD_MD = config.ROOT / "context_probe_hard.md"
 N_PROBE = 200
 N_LOOKUP_ROWS = 40
 
@@ -71,20 +73,79 @@ def state_lookup(d: dt.date, pool: list[dt.date]) -> Any:
     return {"greeting": config.STATE, "reference_calendar": _pairs(rows)}
 
 
+MIN_SCATTER_GAP = 60  # scattered references must be this far from the date asked about
+
+
+def _scatter(d: dt.date, pool: list[dt.date], n: int) -> Any:
+    """n true date/weekday pairs from anywhere in the range, none of them near `d`.
+
+    Everything needed to derive the answer is present, since any known date plus
+    modular arithmetic gives any other. What is absent is anything to count from.
+    """
+    rng = random.Random(f"{config.SEED}:scatter{n}:{d.isoformat()}")
+    far = [x for x in pool if abs((x - d).days) >= MIN_SCATTER_GAP]
+    rows = rng.sample(far, min(n, len(far)))
+    rng.shuffle(rows)
+    return {"greeting": config.STATE, "reference_calendar": _pairs(rows)}
+
+
+def _offset_anchor(d: dt.date, days: int) -> Any:
+    return {"greeting": config.STATE, "reference_calendar": _pairs([d - dt.timedelta(days=days)])}
+
+
 CONDITIONS: dict[str, Callable[[dt.date, list[dt.date]], Any]] = {
     "none": state_none,
     "month_anchor": state_month_anchor,
     "near_anchor": state_near_anchor,
     "lookup": state_lookup,
+    "scatter_10": lambda d, pool: _scatter(d, pool, 10),
+    "scatter_40": lambda d, pool: _scatter(d, pool, 40),
+    # 28 and 364 are whole numbers of weeks, so the answer is the anchor's own
+    # weekday. 30 and 365 are not, so the answer is 2 and 1 days past it. Pairing
+    # them separates copying the anchor from computing from it.
+    "anchor_28": lambda d, pool: _offset_anchor(d, 28),
+    "anchor_30": lambda d, pool: _offset_anchor(d, 30),
+    "anchor_364": lambda d, pool: _offset_anchor(d, 364),
+    "anchor_365": lambda d, pool: _offset_anchor(d, 365),
 }
 
 LADDER = ["none", "month_anchor", "near_anchor", "lookup"]
+HARD = ["none", "scatter_10", "scatter_40", "anchor_28", "anchor_30", "anchor_364", "anchor_365"]
+SUITES = {"ladder": LADDER, "hard": HARD}
 LABELS = {
     "none": "No context\n(control)",
     "month_anchor": "1st of the month\ngiven",
     "near_anchor": "3 days earlier\ngiven",
     "lookup": "The answer is\nin the state",
+    "scatter_10": "10 random dates\n(all >60d away)",
+    "scatter_40": "40 random dates\n(all >60d away)",
+    "anchor_28": "1 date, 28d back\n(= 4 weeks)",
+    "anchor_30": "1 date, 30d back\n(not a week multiple)",
+    "anchor_364": "1 date, 364d back\n(= 52 weeks)",
+    "anchor_365": "1 date, 365d back\n(not a week multiple)",
 }
+
+
+# Kept to seven characters a line: at 18pt across seven slots, anything longer
+# collides with its neighbour.
+SHORT_LABELS = {
+    "none": "No\ncontext",
+    "scatter_10": "10 far\ndates",
+    "scatter_40": "40 far\ndates",
+    "anchor_28": "28d\nback",
+    "anchor_30": "30d\nback",
+    "anchor_364": "364d\nback",
+    "anchor_365": "365d\nback",
+}
+
+
+def anchor_offset(cond: str) -> int | None:
+    """Days back to the single reference date, for conditions that have exactly one."""
+    if cond.startswith("anchor_"):
+        return int(cond.split("_")[1])
+    if cond == "near_anchor":
+        return 3
+    return None
 
 
 def probe_dates() -> list[dt.date]:
@@ -92,11 +153,11 @@ def probe_dates() -> list[dt.date]:
     return sorted(rng.sample(main_dates(), N_PROBE))
 
 
-def build_probe_units() -> list[Unit]:
+def build_probe_units(suite: str = "ladder") -> list[Unit]:
     dates = probe_dates()
     pool = main_dates()
     units: list[Unit] = []
-    for cond in LADDER:
+    for cond in SUITES[suite]:
         builder = CONDITIONS[cond]
         for d in dates:
             units.append(Unit(f"{cond}:{d.isoformat()}", cond, (Item("q0", d),), state=builder(d, pool)))
@@ -104,9 +165,29 @@ def build_probe_units() -> list[Unit]:
 
 
 # ------------------------------------------------------------------ analysis
-def summarise(rows: list[Row]) -> dict[str, Any]:
+def parrot_rate(rows: list[Row], cond: str) -> float | None:
+    """Share of answers equal to the reference date's own weekday.
+
+    For a whole number of weeks that is also the correct answer; for 30 or 365 days
+    it is wrong. A high rate in both is copying, not computing.
+    """
+    off = anchor_offset(cond)
+    if off is None:
+        return None
+    sub = [r for r in rows if r.experiment == cond]
+    if not sub:
+        return None
+    hits = 0
+    for r in sub:
+        anchor = dt.date.fromisoformat(r.date) - dt.timedelta(days=off)
+        if r.choice == config.truth(anchor):
+            hits += 1
+    return hits / len(sub)
+
+
+def summarise(rows: list[Row], conds: list[str] | None = None) -> dict[str, Any]:
     out: dict[str, Any] = {}
-    for cond in LADDER:
+    for cond in (conds if conds is not None else LADDER):
         sub = [r for r in rows if r.experiment == cond]
         if not sub:
             continue
@@ -128,15 +209,17 @@ def summarise(rows: list[Row]) -> dict[str, Any]:
             "tie_rate": sum(1 for r in sub if r.is_tie) / n,
             "mean_confidence": sum(r.confidence for r in sub) / n,
             "unknown_rate": sum(1 for r in sub if r.choice == "Unknown") / n,
+            "parrot_rate": parrot_rate(rows, cond),
+            "anchor_offset": anchor_offset(cond),
         }
     return out
 
 
-def chart(summary: dict[str, Any], path: Path) -> None:
+def chart(summary: dict[str, Any], path: Path, conds: list[str] | None = None, title: str | None = None) -> None:
     from . import charts as C
     import matplotlib.pyplot as plt
 
-    conds = [c for c in LADDER if c in summary]
+    conds = [c for c in (conds if conds is not None else LADDER) if c in summary]
     fig, ax = plt.subplots(figsize=C.FIGSIZE, dpi=C.DPI)
     fig.patch.set_facecolor(C.SURFACE)
     ax.set_facecolor(C.SURFACE)
@@ -167,7 +250,7 @@ def chart(summary: dict[str, Any], path: Path) -> None:
     ax.set_ylabel("Share of questions")
     ax.legend(frameon=False, fontsize=C.ANNOT_FS + 1, loc="upper left", handlelength=1.8,
               labelspacing=0.5)
-    C._title(ax, "Context fixes the answers and the field disagreement together",
+    C._title(ax, title or "Context fixes the answers and the field disagreement together",
              f"the same {summary[conds[0]]['n']} dates in every condition, only the state changes · "
              f"95% Wilson intervals")
     C._style(ax)
@@ -329,17 +412,183 @@ def write_md(summary: dict[str, Any], rows: list[Row], path: Path, chart_name: s
     path.write_text("\n".join(L))
 
 
+def same_date_split(rows: list[Row], cond: str = "anchor_365") -> tuple[int, int, int, int]:
+    """For a 365-day anchor, was it genuinely the same calendar date? A leap day in
+    between breaks that, which separates counting from pattern-matching."""
+    off = anchor_offset(cond) or 365
+    same = diff = same_ok = diff_ok = 0
+    for r in rows:
+        if r.experiment != cond:
+            continue
+        d = dt.date.fromisoformat(r.date)
+        a = d - dt.timedelta(days=off)
+        if (a.month, a.day) == (d.month, d.day):
+            same += 1
+            same_ok += r.choice_correct
+        else:
+            diff += 1
+            diff_ok += r.choice_correct
+    return same_ok, same, diff_ok, diff
+
+
+def paired_examples(rows: list[Row], n: int = 4) -> list[tuple[str, str, str, str, str, str, str]]:
+    by: dict[str, dict[str, Row]] = {}
+    for r in rows:
+        by.setdefault(r.experiment, {})[r.date] = r
+    out = []
+    for d in sorted(set(by.get("anchor_364", {})) & set(by.get("anchor_365", {})))[:n]:
+        dd = dt.date.fromisoformat(d)
+        a5, a4 = dd - dt.timedelta(days=365), dd - dt.timedelta(days=364)
+        out.append((d, config.truth(dd), a5.isoformat(), config.truth(a5), by["anchor_365"][d].choice,
+                    a4.isoformat(), by["anchor_364"][d].choice))
+    return out
+
+
+def chart_hard(summary: dict[str, Any], path: Path, conds: list[str]) -> None:
+    from . import charts as C
+    import matplotlib.pyplot as plt
+
+    conds = [c for c in conds if c in summary]
+    acc = [summary[c]["accuracy"] for c in conds]
+    fig, ax = plt.subplots(figsize=C.FIGSIZE, dpi=C.DPI)
+    fig.patch.set_facecolor(C.SURFACE)
+    ax.set_facecolor(C.SURFACE)
+    ax.bar(range(len(conds)), acc, width=0.62, color=C.CORRECT, zorder=3)
+    ax.errorbar(range(len(conds)), acc,
+                yerr=C._ci_err([summary[c]["correct"] for c in conds], [summary[c]["n"] for c in conds], acc),
+                fmt="none", ecolor=C.INK, elinewidth=2.2, capsize=9, capthick=2.2, zorder=4)
+    for i, c in enumerate(conds):
+        ax.text(i, summary[c]["acc_ci"][1] + 0.03, f"{acc[i]:.0%}", ha="center", va="bottom",
+                fontsize=C.ANNOT_FS + 3, color=C.INK, fontweight="bold")
+    ax.axhline(config.CHANCE, ls="--", lw=2.2, color=C.INK, zorder=2,
+               label=f"chance = 1/7 = {config.CHANCE:.1%}")
+    ax.legend(frameon=False, fontsize=C.ANNOT_FS + 1, loc="upper left", handlelength=1.8)
+    ax.set_xticks(range(len(conds)), [SHORT_LABELS.get(c, LABELS[c]) for c in conds])
+    ax.tick_params(axis="x", labelsize=C.TICK_FS)
+    ax.set_ylim(0, 1.16)
+    ax.yaxis.set_major_formatter(lambda v, p: f"{v:.0%}")
+    ax.set_ylabel("Correct day of the week")
+    C._title(ax, "A reference date helps only when it fits a pattern it knows",
+             f"same {summary[conds[0]]['n']} dates, only `state` changes \u00b7 compare 364d with 365d")
+    C._style(ax)
+    fig.tight_layout()
+    fig.savefig(path, facecolor=C.SURFACE)
+    plt.close(fig)
+
+
+def write_md_hard(summary: dict[str, Any], rows: list[Row], path: Path, chart_name: str) -> None:
+    n = summary["none"]["n"]
+    L = ["# Can Jev use reference dates it cannot simply count from?", ""]
+    L.append(f"The first probe gave anchors 3 days or 1 month away, which is close enough to count on your "
+             f"fingers. This one removes that. The same {n} dates are asked again with reference material "
+             f"that is either far away or deliberately structured to tell copying apart from computing. "
+             f"Only `state` changes.")
+    L.append("")
+    L.append("| State contains | Accuracy | 95% CI | Answered the reference date's own weekday |")
+    L.append("|---|---|---|---|")
+    desc = {
+        "none": "nothing (control)",
+        "scatter_10": "10 true date/weekday pairs, every one at least 60 days away",
+        "scatter_40": "40 true date/weekday pairs, every one at least 60 days away",
+        "anchor_28": "one pair, 28 days back (**4 whole weeks**, so the answer *is* that weekday)",
+        "anchor_30": "one pair, 30 days back (not a week multiple, the answer is 2 days later)",
+        "anchor_364": "one pair, 364 days back (**52 whole weeks**, so the answer *is* that weekday)",
+        "anchor_365": "one pair, 365 days back (not a week multiple, the answer is 1 day later)",
+    }
+    for c in HARD:
+        if c not in summary:
+            continue
+        sm = summary[c]
+        pr = f"{sm['parrot_rate']:.1%}" if sm["parrot_rate"] is not None else "n/a"
+        L.append(f"| {desc[c]} | {sm['accuracy']:.1%} | {fmt_ci(*sm['acc_ci'])} | {pr} |")
+    L.append("")
+
+    base = summary["none"]
+    for c in ("scatter_10", "scatter_40"):
+        if c in summary:
+            o, p = fisher_2x2(summary[c]["correct"], summary[c]["n"] - summary[c]["correct"],
+                              base["correct"], base["n"] - base["correct"])
+            L.append(f"`{c}` against the control: Fisher's exact, two-sided p = {p:.3g}.")
+    L.append("")
+    L.append(f"![hard context](charts/{chart_name})")
+    L.append("")
+    L.append("*Accuracy when the reference material cannot be counted from, and how often the answer is "
+             "simply the reference date's own weekday.*")
+    L.append("")
+
+    L.append("## Scattered references do not help at all")
+    L.append("")
+    L.append(f"Ten true date/weekday pairs scored {summary['scatter_10']['accuracy']:.1%} and forty scored "
+             f"{summary['scatter_40']['accuracy']:.1%}, against {summary['none']['accuracy']:.1%} for no context. "
+             f"Everything needed is present, since any known date plus arithmetic yields any other, and four "
+             f"times as much of it changes nothing. What the earlier probe measured was not use of reference "
+             f"material. It was counting on your fingers from a nearby date.")
+    L.append("")
+
+    L.append("## One day changes 81% into 0%")
+    L.append("")
+    L.append(f"The sharpest result here is the pair at the end. A single reference date 365 days back scores "
+             f"{summary['anchor_365']['accuracy']:.1%}. Move that same reference one day, to 364 days back, and "
+             f"it scores {summary['anchor_364']['accuracy']:.1%}: not one correct answer in "
+             f"{summary['anchor_364']['n']}. By the day count 364 is the easier of the two, being exactly 52 "
+             f"weeks, so the answer is simply the reference date's own weekday.")
+    L.append("")
+    ex = paired_examples(rows)
+    if ex:
+        L.append("| Date asked | Truth | 365 days back | Its weekday | Answer | 364 days back | Answer |")
+        L.append("|---|---|---|---|---|---|---|")
+        for d, t, a5, a5w, c5, a4, c4 in ex:
+            L.append(f"| {d} | **{t}** | {a5} | {a5w} | {c5} | {a4} | {c4} |")
+        L.append("")
+    so, sn, do, dn = same_date_split(rows)
+    if sn and dn:
+        L.append(f"The mechanism is visible once the 365-day condition is split by whether that reference "
+                 f"really lands on the same calendar date. Without a leap day in between it does, and accuracy "
+                 f"is {so}/{sn} = {so / sn:.1%}. With a leap day in between, 365 days lands a day off the "
+                 f"matching date, and accuracy falls to {do}/{dn} = {do / dn:.1%}, near chance.")
+        L.append("")
+        L.append("So it is not counting 365 days. It recognises *the same calendar date one year earlier* and "
+                 "applies the rule that this advances the weekday by one. Give it a reference that does not fit "
+                 "that shape and the rule misfires. At 364 days it answers exactly one day before the correct "
+                 "day in "
+                 f"{sum(1 for r in rows if r.experiment == 'anchor_364' and r.choice != 'Unknown' and (config.DAYS.index(r.choice) + 1) % 7 == config.DAYS.index(r.truth)) / summary['anchor_364']['n']:.1%} "
+                 "of cases, which is a systematic error, not noise.")
+        L.append("")
+
+    L.append("## It is confidently wrong, which is worse than being uncertain")
+    L.append("")
+    L.append("| State contains | Accuracy | Mean top probability | Mean `confidence` |")
+    L.append("|---|---|---|---|")
+    for c in HARD:
+        if c not in summary:
+            continue
+        sm = summary[c]
+        L.append(f"| {desc[c]} | {sm['accuracy']:.1%} | {sm['mean_top_prob']:.3f} | {sm['mean_confidence']:.3f} |")
+    L.append("")
+    L.append(f"With no context the model is at chance and says so, reporting a top probability of "
+             f"{summary['none']['mean_top_prob']:.2f} across eight options. With a 364-day reference it is "
+             f"wrong on every single question while reporting {summary['anchor_364']['mean_top_prob']:.2f} and a "
+             f"confidence of {summary['anchor_364']['mean_confidence']:.2f}. Adding context that looks helpful "
+             f"but is not removes the one useful signal the earlier probe found, which was that low confidence "
+             f"meant the model did not know.")
+    L.append("")
+    path.write_text("\n".join(L))
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Context probe: does reference material in `state` help?")
-    ap.add_argument("--out", default=str(PROBE_JSONL))
+    ap.add_argument("--suite", choices=sorted(SUITES), default="ladder")
+    ap.add_argument("--out", default=None)
     ap.add_argument("--workers", type=int, default=config.WORKERS)
     ap.add_argument("--rate", type=float, default=config.MAX_REQUESTS_PER_SECOND)
     ap.add_argument("--analyse-only", action="store_true")
     args = ap.parse_args(argv)
 
-    out = Path(args.out)
+    hard = args.suite == "hard"
+    out = Path(args.out) if args.out else (HARD_JSONL if hard else PROBE_JSONL)
+    conds = SUITES[args.suite]
     if not args.analyse_only:
-        units = build_probe_units()
+        units = build_probe_units(args.suite)
         store = JsonlStore(out)
         counter = Counter()
         client = JevClient(rate=args.rate, counter=counter)
@@ -347,17 +596,24 @@ def main(argv: list[str] | None = None) -> int:
         print(f"[probe] ok={done} failed={failed} tokens_in={counter.input_tokens}", flush=True)
 
     rows = load_rows(out)
-    summary = summarise(rows)
-    chart_name = "08_context_ladder.png"
-    chart(summary, config.CHARTS_DIR / chart_name)
-    write_md(summary, rows, PROBE_MD, chart_name)
-    (config.DATA_DIR / "context_probe_summary.json").write_text(json.dumps(summary, indent=2))
-    for c in LADDER:
+    summary = summarise(rows, conds)
+    chart_name = "09_context_hard.png" if hard else "08_context_ladder.png"
+    if hard:
+        chart_hard(summary, config.CHARTS_DIR / chart_name, conds)
+    else:
+        chart(summary, config.CHARTS_DIR / chart_name, conds)
+    if hard:
+        write_md_hard(summary, rows, HARD_MD, chart_name)
+    else:
+        write_md(summary, rows, PROBE_MD, chart_name)
+    (config.DATA_DIR / f"context_probe_{args.suite}_summary.json").write_text(json.dumps(summary, indent=2))
+    for c in conds:
         if c in summary:
-            s = summary[c]
-            print(f"{c:13s} acc {s['accuracy']:6.1%}  mismatch {s['mismatch_rate']:6.1%}  "
-                  f"top-p {s['mean_top_prob']:.3f}  ties {s['tie_rate']:5.0%}  unknown {s['unknown_rate']:.1%}")
-    print(f"wrote {PROBE_MD}")
+            sm = summary[c]
+            pr = f"{sm['parrot_rate']:6.1%}" if sm["parrot_rate"] is not None else "   n/a"
+            print(f"{c:13s} acc {sm['accuracy']:6.1%}  mismatch {sm['mismatch_rate']:6.1%}  "
+                  f"top-p {sm['mean_top_prob']:.3f}  copied-anchor {pr}")
+    print(f"wrote {HARD_MD if hard else PROBE_MD}")
     return 0
 
 
